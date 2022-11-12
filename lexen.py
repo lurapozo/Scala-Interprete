@@ -77,18 +77,84 @@ def t_VARIABLE(t):
   return t
 
 
-#Simbolos de cierre ,  simbolos de putuacion y commilas
+#Simbolos de cierre,  simbolos de putuacion y comillas. Realizado por: Ramos Pozo
 
 simbolo =[ 
-  
+  "PAR_D",
+  "PAR_I",
+  "CORCHETE_D",
+  "CORCHETE_I",
+  "LLAVE_D",
+  "LLAVE_I",
+  "COMA",
+  "PUNTO",
+  "DOBLE_PUNTO",
+  "BACKTICK",
+  "FUNCION_FLECHA",
+  "ITERATOR",
+  "HASHTAG",
+  "ARROBA",
 ]
 
+t_PAR_D = r'\)'
+t_PAR_I = r'\('
+t_CORCHETE_D = r'\]'
+t_CORCHETE_I = r'\['
+t_LLAVE_D = r'\}'
+t_LLAVE_I = r'\{'
+t_COMA = r','
+t_PUNTO = r'\.'
+t_DOBLE_PUNTO = r':'
+t_BACKTICK = r'`'
+t_FUNCION_FLECHA = r'=>'
+t_ITERATOR = r'<-'
+t_HASHTAG = r'\#'
+t_ARROBA = r'@'
 
-#Operadores aricmeticos y logicos
+#Operadores logicos, aritmeticos y relacionaes. Realizado por: Ramos Pozo
 operadores = [
+  #RELACIONALES
+  "IGUAL_COMPARACION",
+  "DIFERENTE",
+  "MAYOR_IGUAL",
+  "MENOR_IGUAL",
+  "MAYOR",
+  "MENOR",
+
+  #LOGICOS
+  "AND",
+  "OR",
+  "NOT",
   
+  #ARITMETICOS
+  "MENOS",
+  "MAS",
+  "MULTIPLICACION",
+  "DIVISION",
+  "MOD",
+  "IGUAL",
 ]
 
+#RELACIONALES
+t_IGUAL_COMPARACION = r'=='
+t_DIFERENTE = r'!='
+t_MAYOR_IGUAL = r'>='
+t_MENOR_IGUAL = r'<='
+t_MAYOR = r'>'
+t_MENOR = r'<'
+
+#LOGICOS
+t_AND = r'&&'
+t_OR = r'\|\|'
+t_NOT = r'!'
+
+#ARIMETICOS
+t_MENOS = r'-'
+t_MAS = r'\+'
+t_MULTIPLICACION = r'\*'
+t_DIVISION = r'/'
+t_MOD = r'%'
+t_IGUAL = r'='
 
 
 #Funciones
