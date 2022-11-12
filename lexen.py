@@ -1,9 +1,64 @@
 from lex import *
 
-
-#Palabras reservadas
+#Palabras reservadas. Realizado por Pisco Jordan
 reservadas = {
-  
+  "abstract": "ABSTRACT",
+  "do": "DO",
+  "finally": "FINALLY",
+  "import": "IMPORT",
+  "null": "NULL",
+  "protected": "PROTECTED",
+  "throw": "THROW",
+  "val": "VAL",
+  "case": "CASE",
+  "else": "ELSE",
+  "for": "FOR",
+  "lazy": "LAZY",
+  "object": "OBJECT",
+  "return": "RETURN",
+  "trait": "TRAIT",
+  "var": "VAR",
+  "catch": "CATCH",
+  "extends": "EXTENDS",
+  "forSome": "FOR_SOME",
+  "macro": "MACRO",
+  "override": "OVERRIDE",
+  "sealed": "SEALED",
+  "try": "TRY",
+  "while": "WHILE",
+  "class": "CLASS",
+  "false": "FLASE",
+  "if": "IF",
+  "match": "MATCH",
+  "package": "PACKAGE",
+  "super": "SUPER",
+  "true": "TRUE",
+  "with": "WITH",
+  "def": "DEF",
+  "final": "FINAL",
+  "implicit": "IMPLICIT",
+  "new": "NEW",
+  "private": "PRIVATE",
+  "this": "THIS",
+  "type": "TYPE",
+  "yield": "YIELD",
+  "scala.io.StdIn.readLine": "LIBRERIA_IO",
+}
+
+#Funciones. Realizado por: Pisco Jordan
+funciones = {
+  "readLine": "READLINE",
+  "print": "PRINT",
+  "println": "PRINTLN",
+  "reverse": "REVERSE",
+  "toInt": "TO_INT",
+  "toString": "TO_STRING",
+  "toByte": "TO_BYTE",
+  "toChar": "TO_CHAR",
+  "toDouble": "TO_DOUBLE",
+  "toFloat": "TO_FLOAT",
+  "toLong": "TO_LONG",
+  "toShort": "TO_SHORT",
 }
 
 #Clases y nombres de datos primitivos. Encargado: Gabriel Maldonado
@@ -19,21 +74,22 @@ clases = {
 
   'List':'LISTCLASS',
   'Array':'ARRAYCLASS',
+
   'Boolean':"BOOLCLASS"
 }
 
 #Tipos de datos primitivos y variables. Encargado: Gabriel Maldonado
 
-datos = [ 
+datos = [
   "INT",
   "LONG",
-  
+
   "DOUBLE",
   "FLOAT",
-  
+
   "STRING",
   "CHAR",
-  
+
   "VARIABLE",
 ]
 
@@ -43,17 +99,20 @@ def t_FLOAT(t):
   t.value = float(t.value[:-1])
   return t
 
+
 def t_DOUBLE(t):
   r'\d*\.\d+?'
 
   t.value = float(t.value)
   return t
 
+
 def t_LONG(t):
   r'\d+(l|L)'
   t.value = int(t.value[:-1])
   return t
- 
+
+
 def t_INT(t):
   r'\d+'
   t.value = int(t.value)
@@ -65,21 +124,28 @@ def t_STRING(t):
   t.value = t.value
   return t
 
+
 def t_CHAR(t):
   r'\'.\''
   t.value = t.value
   return t
 
+
 def t_VARIABLE(t):
   r'[a-zA-Z][a-zA-Z0-9]*(_)?[a-zA-Z0-9]*'
-  t.type = reservadas.get(t.value, 'VARIABLE')# Check palabras reservadas
   t.type = clases.get(t.value, 'VARIABLE')  # Check nombres de clases
+  if t.type != 'VARIABLE':
+    return t
+  t.type = funciones.get(t.value, 'VARIABLE')  # Check nombres de funciones
+  if t.type != 'VARIABLE':
+    return t
+  t.type = reservadas.get(t.value, 'VARIABLE')  # Check palabras reservadas
   return t
 
 
 #Simbolos de cierre,  simbolos de putuacion y comillas. Realizado por: Ramos Pozo
 
-simbolo =[ 
+simbolo = [
   "PAR_D",
   "PAR_I",
   "CORCHETE_D",
@@ -125,7 +191,7 @@ operadores = [
   "AND",
   "OR",
   "NOT",
-  
+
   #ARITMETICOS
   "MENOS",
   "MAS",
@@ -156,17 +222,9 @@ t_DIVISION = r'/'
 t_MOD = r'%'
 t_IGUAL = r'='
 
-
-#Funciones
-funciones = []
-
-
-
 #tokens
-tokens = list(reservadas.values()) + datos + operadores + simbolo + funciones + list(clases.values())
-
-
-
+tokens = list(reservadas.values()) + datos + operadores + simbolo + list(
+  funciones.values()) + list(clases.values())
 
 
 #Nueva linea , comentarios y errores
@@ -174,26 +232,31 @@ def t_newline(t):
   r'\n+'
   t.lexer.lineno += len(t.value)
 
+
 t_ignore = ' \t'
+
 
 def t_COMMENT(t):
   r'//.*'
   pass
+
 
 def t_error(t):
   print("Illegal character '%s'" % t.value[0])
   t.lexer.skip(1)
 
 
-
 #Constuxion del lex
 lexer = lex()
+
 
 def getTokens(lexer):
   for tok in lexer:
     print(tok)
+
+
 '''
-#Lectura de archivo 
+#Lectura de archivo
 print('Mi primer Lexer')
 file = open("source.scala")
 archivo = file.read()
@@ -201,7 +264,6 @@ file.close()
 lexer.input(archivo)
 getTokens(lexer)
 '''
-
 
 print('Mi primer Lexer')
 while True:
