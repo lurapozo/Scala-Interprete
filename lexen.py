@@ -52,13 +52,9 @@ funciones = {
   "println": "PRINTLN",
   "reverse": "REVERSE",
   "toInt": "TO_INT",
-  "toString": "TO_STRING",
-  "toByte": "TO_BYTE",
-  "toChar": "TO_CHAR",
   "toDouble": "TO_DOUBLE",
   "toFloat": "TO_FLOAT",
   "toLong": "TO_LONG",
-  "toShort": "TO_SHORT",
 }
 
 #Clases y nombres de datos primitivos. Encargado: Gabriel Maldonado
@@ -120,7 +116,7 @@ def t_INT(t):
 
 
 def t_STRING(t):
-  r'"(.*|\s)*"'
+  r'"([^"]*|\s)*"'
   t.value = t.value
   return t
 
@@ -255,7 +251,7 @@ def getTokens(lexer):
     print(tok)
 
 
-'''
+
 #Lectura de archivo
 print('Mi primer Lexer')
 file = open("source.scala")
@@ -263,7 +259,7 @@ archivo = file.read()
 file.close()
 lexer.input(archivo)
 getTokens(lexer)
-'''
+
 
 print('Mi primer Lexer')
 while True:

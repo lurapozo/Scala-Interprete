@@ -2,6 +2,35 @@ import scala.io.StdIn.readLine
 //Lenguaje usado: Scala 2.13
 object lexer {
 
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+    val opt:Int = readLine().toInt
+
+    opt match{
+      case 1 => value.toInt
+      case 2 => value.toLong
+      case 3 => value.toFloat
+      case 4 => value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+
+  }
+
+
+
   def main(args: Array[String]) = {
 
     print("Ingrese un numero: ")
@@ -27,5 +56,9 @@ object lexer {
       println() 
       println("Los dos numeros que ingreso son diferentes")
     }
+
+    val tupla: (String , Double) = ingreseConstante("pi")
+    
+    println(tupla._1 + " " + tupla._2)
   }
 }
