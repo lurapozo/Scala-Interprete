@@ -29,18 +29,28 @@ object lexer {
 
   }
 
-
-
-  def main(args: Array[String]) = {
-
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
     print("Ingrese un numero: ")
     val primero = readLine().toInt
-    print("Ingrese otro numero: ")
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
 
-
-    val segundo = readLine().toInt
-    var suma = primero + segundo
-    var resta = primero - segundo
+  def main(args: Array[String]) = {
     val lista = Array(1.2, 1.0)
     val largo = 100l
     val flotate = 1.2f
@@ -48,17 +58,9 @@ object lexer {
     val entero = 1
     val caracter = 'd'
 
-
-    if (resta == 0) {
-      println()
-      println("Los dos numeros que ingreso son iguales")
-    } else {
-      println() 
-      println("Los dos numeros que ingreso son diferentes")
-    }
-
     val tupla: (String , Double) = ingreseConstante("pi")
     
     println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
   }
 }

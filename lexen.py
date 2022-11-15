@@ -156,6 +156,7 @@ simbolo = [
   "ITERATOR",
   "HASHTAG",
   "ARROBA",
+  "SUBGUION",
 ]
 
 t_PAR_D = r'\)'
@@ -172,6 +173,7 @@ t_FUNCION_FLECHA = r'=>'
 t_ITERATOR = r'<-'
 t_HASHTAG = r'\#'
 t_ARROBA = r'@'
+t_SUBGUION = r'_'
 
 #Operadores logicos, aritmeticos y relacionaes. Realizado por: Ramos Pozo
 operadores = [
