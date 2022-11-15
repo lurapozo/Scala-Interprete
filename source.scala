@@ -49,6 +49,40 @@ object lexer {
       i = i + 1
     }
   }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
 
   def main(args: Array[String]) = {
     val lista = Array(1.2, 1.0)
@@ -62,5 +96,6 @@ object lexer {
     
     println(tupla._1 + " " + tupla._2)
     funcionDeArreglos()
+    funcionPisco()
   }
 }
