@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ABSTRACT AND ARRAYCLASS ARROBA BACKTICK BOOLCLASS CASE CATCH CHAR CHARCLASS CLASS COMA CORCHETE_D CORCHETE_I DEF DIFERENTE DIVISION DO DOBLE_PUNTO DOUBLE DOUBLECLASS ELSE EXTENDS FINAL FINALLY FLASE FLOAT FLOATCLASS FOR FOR_SOME FUNCION_FLECHA HASHTAG IF IGUAL IGUAL_COMPARACION IMPLICIT IMPORT INT INTCLASS ITERATOR LAZY LIBRERIA_IO LISTCLASS LLAVE_D LLAVE_I LONG LONGCLASS MACRO MAS MATCH MAYOR MAYOR_IGUAL MENOR MENOR_IGUAL MENOS MOD MULTIPLICACION NEW NOT NULL OBJECT OR OVERRIDE PACKAGE PAR_D PAR_I PRINT PRINTLN PRIVATE PROTECTED PUNTO READLINE RETURN REVERSE SEALED STRING STRINGCLASS SUBGUION SUPER THIS THROW TO_DOUBLE TO_FLOAT TO_INT TO_LONG TRAIT TRUE TRY TYPE VAL VAR VARIABLE WHILE WITH YIELDcuerpo : contenido\n  | funcioncontenido : asignacion\n  | impresion\n  | entradaasignacion : VAR VARIABLE IGUAL valor\n  | VAL VARIABLE IGUAL valor\n  | VAL VARIABLE DOBLE_PUNTO tipo IGUAL valor\n  | VAR VARIABLE DOBLE_PUNTO tipo IGUAL valortipo : INTCLASS\n  | LONGCLASS\n  | DOUBLECLASS\n  | FLOATCLASS\n  | CHARCLASS\n  | STRINGCLASS\n  | LISTCLASS\n  | ARRAYCLASS\n  | BOOLCLASSvalor : INT\n  | LONG\n  | FLOAT\n  | DOUBLE\n  | STRING\n  | CHAR\n  | VARIABLE\n  | TRUE\n  | FLASEfuncion : DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_Dparametro : VARIABLE\n  | VARIABLE COMA parametroimpresion : PRINTLN PAR_I valor PAR_D\n  | PRINT PAR_I valor PAR_Dentrada : READLINE PAR_I PAR_D'
+_lr_signature = 'ABSTRACT AND ARRAYCLASS ARROBA BACKTICK BOOLCLASS CASE CATCH CHAR CHARCLASS CLASS COMA CORCHETE_D CORCHETE_I DEF DIFERENTE DIVISION DO DOBLE_PUNTO DOUBLE DOUBLECLASS ELSE EXTENDS FINAL FINALLY FLASE FLOAT FLOATCLASS FOR FOR_SOME FUNCION_FLECHA HASHTAG IF IGUAL IGUAL_COMPARACION IMPLICIT IMPORT INT INTCLASS ITERATOR LAZY LIBRERIA_IO LISTCLASS LLAVE_D LLAVE_I LONG LONGCLASS MACRO MAS MATCH MAYOR MAYOR_IGUAL MENOR MENOR_IGUAL MENOS MOD MULTIPLICACION NEW NOT NULL OBJECT OR OVERRIDE PACKAGE PAR_D PAR_I PRINT PRINTLN PRIVATE PROTECTED PUNTO READLINE RETURN REVERSE SEALED STRING STRINGCLASS SUBGUION SUPER THIS THROW TO_DOUBLE TO_FLOAT TO_INT TO_LONG TRAIT TRUE TRY TYPE VAL VAR VARIABLE WHILE WITH YIELDcuerpo : contenido\n  | funcion\n  | relacionalcontenido : asignacion\n  | impresion\n  | entradaasignacion : VAR VARIABLE IGUAL valor\n  | VAL VARIABLE IGUAL valor\n  | VAL declaracion IGUAL valor\n  | VAR declaracion IGUAL valordeclaracion : VARIABLE DOBLE_PUNTO tipotipo : CHARCLASS\n  | STRINGCLASS\n  | BOOLCLASS\n  | INTCLASS\n  | LONGCLASS\n  | DOUBLECLASS\n  | FLOATCLASSvalor : STRING\n  | CHAR\n  | VARIABLE\n  | numeros\n  | booleanosbooleanos : TRUE\n  | FLASEnumeros : INT\n  | LONG\n  | FLOAT\n  | DOUBLEfuncion : DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_Dparametro : VARIABLE\n  | VARIABLE COMA parametroimpresion : PRINTLN PAR_I valor PAR_D\n  | PRINT PAR_I valor PAR_Dentrada : READLINE PAR_I PAR_Drelacional : numeros comparacion numeros\n  | booleanos comparacion booleanos\n  | STRING comparacion STRING\n  | CHAR comparacion CHAR\n  | VARIABLE comparacion numeros\n  | numeros comparacion VARIABLE\n  | VARIABLE comparacion booleanos\n  | booleanos comparacion VARIABLE\n  | VARIABLE comparacion STRING\n  | STRING comparacion VARIABLE\n  | VARIABLE comparacion CHAR\n  | CHAR comparacion VARIABLE\n  | VARIABLE comparacion VARIABLEcomparacion : IGUAL_COMPARACION\n  | DIFERENTE\n  | MAYOR\n  | MENOR'
     
-_lr_action_items = {'DEF':([0,],[7,]),'VAR':([0,61,],[8,8,]),'VAL':([0,61,],[9,9,]),'PRINTLN':([0,61,],[10,10,]),'PRINT':([0,61,],[11,11,]),'READLINE':([0,61,],[12,12,]),'$end':([1,2,3,4,5,6,25,26,27,28,29,30,31,32,33,35,38,49,51,52,59,60,63,],[0,-1,-2,-3,-4,-5,-19,-20,-21,-22,-23,-24,-25,-26,-27,-33,-6,-7,-31,-32,-9,-8,-28,]),'LLAVE_D':([4,5,6,25,26,27,28,29,30,31,32,33,35,38,49,51,52,59,60,62,],[-3,-4,-5,-19,-20,-21,-22,-23,-24,-25,-26,-27,-33,-6,-7,-31,-32,-9,-8,63,]),'VARIABLE':([7,8,9,16,17,19,20,22,53,55,56,],[13,14,15,31,31,36,31,31,36,31,31,]),'PAR_I':([10,11,12,13,],[16,17,18,19,]),'IGUAL':([14,15,39,40,41,42,43,44,45,46,47,48,50,54,],[20,22,55,-10,-11,-12,-13,-14,-15,-16,-17,-18,56,58,]),'DOBLE_PUNTO':([14,15,],[21,23,]),'INT':([16,17,20,22,55,56,],[25,25,25,25,25,25,]),'LONG':([16,17,20,22,55,56,],[26,26,26,26,26,26,]),'FLOAT':([16,17,20,22,55,56,],[27,27,27,27,27,27,]),'DOUBLE':([16,17,20,22,55,56,],[28,28,28,28,28,28,]),'STRING':([16,17,20,22,55,56,],[29,29,29,29,29,29,]),'CHAR':([16,17,20,22,55,56,],[30,30,30,30,30,30,]),'TRUE':([16,17,20,22,55,56,],[32,32,32,32,32,32,]),'FLASE':([16,17,20,22,55,56,],[33,33,33,33,33,33,]),'PAR_D':([18,24,25,26,27,28,29,30,31,32,33,34,36,37,57,],[35,51,-19,-20,-21,-22,-23,-24,-25,-26,-27,52,-29,54,-30,]),'INTCLASS':([21,23,],[40,40,]),'LONGCLASS':([21,23,],[41,41,]),'DOUBLECLASS':([21,23,],[42,42,]),'FLOATCLASS':([21,23,],[43,43,]),'CHARCLASS':([21,23,],[44,44,]),'STRINGCLASS':([21,23,],[45,45,]),'LISTCLASS':([21,23,],[46,46,]),'ARRAYCLASS':([21,23,],[47,47,]),'BOOLCLASS':([21,23,],[48,48,]),'COMA':([36,],[53,]),'LLAVE_I':([58,],[61,]),}
+_lr_action_items = {'DEF':([0,],[8,]),'STRING':([0,26,27,28,29,30,33,39,40,56,58,59,60,],[12,46,-49,-50,-51,-52,52,62,62,62,62,62,62,]),'CHAR':([0,26,27,28,29,30,34,39,40,56,58,59,60,],[13,47,-49,-50,-51,-52,54,63,63,63,63,63,63,]),'VARIABLE':([0,8,14,15,26,27,28,29,30,31,32,33,34,39,40,42,56,58,59,60,85,],[9,25,35,37,43,-49,-50,-51,-52,49,51,53,55,64,64,69,64,64,64,64,69,]),'VAR':([0,89,],[14,14,]),'VAL':([0,89,],[15,15,]),'PRINTLN':([0,89,],[16,16,]),'PRINT':([0,89,],[17,17,]),'READLINE':([0,89,],[18,18,]),'INT':([0,26,27,28,29,30,31,39,40,56,58,59,60,],[19,19,-49,-50,-51,-52,19,19,19,19,19,19,19,]),'LONG':([0,26,27,28,29,30,31,39,40,56,58,59,60,],[20,20,-49,-50,-51,-52,20,20,20,20,20,20,20,]),'FLOAT':([0,26,27,28,29,30,31,39,40,56,58,59,60,],[21,21,-49,-50,-51,-52,21,21,21,21,21,21,21,]),'DOUBLE':([0,26,27,28,29,30,31,39,40,56,58,59,60,],[22,22,-49,-50,-51,-52,22,22,22,22,22,22,22,]),'TRUE':([0,26,27,28,29,30,32,39,40,56,58,59,60,],[23,23,-49,-50,-51,-52,23,23,23,23,23,23,23,]),'FLASE':([0,26,27,28,29,30,32,39,40,56,58,59,60,],[24,24,-49,-50,-51,-52,24,24,24,24,24,24,24,]),'$end':([1,2,3,4,5,6,7,19,20,21,22,23,24,43,44,45,46,47,48,49,50,51,52,53,54,55,62,63,64,65,66,68,71,80,81,82,83,84,91,],[0,-1,-2,-3,-4,-5,-6,-26,-27,-28,-29,-24,-25,-48,-40,-42,-44,-46,-36,-41,-37,-43,-38,-45,-39,-47,-19,-20,-21,-22,-23,-35,-7,-10,-8,-9,-33,-34,-30,]),'LLAVE_D':([5,6,7,19,20,21,22,23,24,62,63,64,65,66,68,71,80,81,82,83,84,90,],[-4,-5,-6,-26,-27,-28,-29,-24,-25,-19,-20,-21,-22,-23,-35,-7,-10,-8,-9,-33,-34,91,]),'IGUAL_COMPARACION':([9,10,11,12,13,19,20,21,22,23,24,],[27,27,27,27,27,-26,-27,-28,-29,-24,-25,]),'DIFERENTE':([9,10,11,12,13,19,20,21,22,23,24,],[28,28,28,28,28,-26,-27,-28,-29,-24,-25,]),'MAYOR':([9,10,11,12,13,19,20,21,22,23,24,],[29,29,29,29,29,-26,-27,-28,-29,-24,-25,]),'MENOR':([9,10,11,12,13,19,20,21,22,23,24,],[30,30,30,30,30,-26,-27,-28,-29,-24,-25,]),'PAR_I':([16,17,18,25,],[39,40,41,42,]),'PAR_D':([19,20,21,22,23,24,41,61,62,63,64,65,66,67,69,70,87,],[-26,-27,-28,-29,-24,-25,68,83,-19,-20,-21,-22,-23,84,-31,86,-32,]),'IGUAL':([35,36,37,38,72,73,74,75,76,77,78,79,86,],[56,58,59,60,-11,-12,-13,-14,-15,-16,-17,-18,88,]),'DOBLE_PUNTO':([35,37,],[57,57,]),'CHARCLASS':([57,],[73,]),'STRINGCLASS':([57,],[74,]),'BOOLCLASS':([57,],[75,]),'INTCLASS':([57,],[76,]),'LONGCLASS':([57,],[77,]),'DOUBLECLASS':([57,],[78,]),'FLOATCLASS':([57,],[79,]),'COMA':([69,],[85,]),'LLAVE_I':([88,],[89,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'cuerpo':([0,],[1,]),'contenido':([0,61,],[2,62,]),'funcion':([0,],[3,]),'asignacion':([0,61,],[4,4,]),'impresion':([0,61,],[5,5,]),'entrada':([0,61,],[6,6,]),'valor':([16,17,20,22,55,56,],[24,34,38,49,59,60,]),'parametro':([19,53,],[37,57,]),'tipo':([21,23,],[39,50,]),}
+_lr_goto_items = {'cuerpo':([0,],[1,]),'contenido':([0,89,],[2,90,]),'funcion':([0,],[3,]),'relacional':([0,],[4,]),'asignacion':([0,89,],[5,5,]),'impresion':([0,89,],[6,6,]),'entrada':([0,89,],[7,7,]),'numeros':([0,26,31,39,40,56,58,59,60,],[10,44,48,65,65,65,65,65,65,]),'booleanos':([0,26,32,39,40,56,58,59,60,],[11,45,50,66,66,66,66,66,66,]),'comparacion':([9,10,11,12,13,],[26,31,32,33,34,]),'declaracion':([14,15,],[36,38,]),'valor':([39,40,56,58,59,60,],[61,67,71,80,81,82,]),'parametro':([42,85,],[70,87,]),'tipo':([57,],[72,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -29,35 +29,54 @@ _lr_productions = [
   ("S' -> cuerpo","S'",1,None,None,None),
   ('cuerpo -> contenido','cuerpo',1,'p_cuerpo','sintax.py',10),
   ('cuerpo -> funcion','cuerpo',1,'p_cuerpo','sintax.py',11),
-  ('contenido -> asignacion','contenido',1,'p_contenido','sintax.py',15),
-  ('contenido -> impresion','contenido',1,'p_contenido','sintax.py',16),
-  ('contenido -> entrada','contenido',1,'p_contenido','sintax.py',17),
-  ('asignacion -> VAR VARIABLE IGUAL valor','asignacion',4,'p_asignacion','sintax.py',22),
-  ('asignacion -> VAL VARIABLE IGUAL valor','asignacion',4,'p_asignacion','sintax.py',23),
-  ('asignacion -> VAL VARIABLE DOBLE_PUNTO tipo IGUAL valor','asignacion',6,'p_asignacion','sintax.py',24),
-  ('asignacion -> VAR VARIABLE DOBLE_PUNTO tipo IGUAL valor','asignacion',6,'p_asignacion','sintax.py',25),
-  ('tipo -> INTCLASS','tipo',1,'p_tipo','sintax.py',29),
-  ('tipo -> LONGCLASS','tipo',1,'p_tipo','sintax.py',30),
-  ('tipo -> DOUBLECLASS','tipo',1,'p_tipo','sintax.py',31),
-  ('tipo -> FLOATCLASS','tipo',1,'p_tipo','sintax.py',32),
+  ('cuerpo -> relacional','cuerpo',1,'p_cuerpo','sintax.py',12),
+  ('contenido -> asignacion','contenido',1,'p_contenido','sintax.py',16),
+  ('contenido -> impresion','contenido',1,'p_contenido','sintax.py',17),
+  ('contenido -> entrada','contenido',1,'p_contenido','sintax.py',18),
+  ('asignacion -> VAR VARIABLE IGUAL valor','asignacion',4,'p_asignacion','sintax.py',23),
+  ('asignacion -> VAL VARIABLE IGUAL valor','asignacion',4,'p_asignacion','sintax.py',24),
+  ('asignacion -> VAL declaracion IGUAL valor','asignacion',4,'p_asignacion','sintax.py',25),
+  ('asignacion -> VAR declaracion IGUAL valor','asignacion',4,'p_asignacion','sintax.py',26),
+  ('declaracion -> VARIABLE DOBLE_PUNTO tipo','declaracion',3,'p_declaracion','sintax.py',29),
   ('tipo -> CHARCLASS','tipo',1,'p_tipo','sintax.py',33),
   ('tipo -> STRINGCLASS','tipo',1,'p_tipo','sintax.py',34),
-  ('tipo -> LISTCLASS','tipo',1,'p_tipo','sintax.py',35),
-  ('tipo -> ARRAYCLASS','tipo',1,'p_tipo','sintax.py',36),
-  ('tipo -> BOOLCLASS','tipo',1,'p_tipo','sintax.py',37),
-  ('valor -> INT','valor',1,'p_valor','sintax.py',40),
-  ('valor -> LONG','valor',1,'p_valor','sintax.py',41),
-  ('valor -> FLOAT','valor',1,'p_valor','sintax.py',42),
-  ('valor -> DOUBLE','valor',1,'p_valor','sintax.py',43),
-  ('valor -> STRING','valor',1,'p_valor','sintax.py',44),
-  ('valor -> CHAR','valor',1,'p_valor','sintax.py',45),
-  ('valor -> VARIABLE','valor',1,'p_valor','sintax.py',46),
-  ('valor -> TRUE','valor',1,'p_valor','sintax.py',47),
-  ('valor -> FLASE','valor',1,'p_valor','sintax.py',48),
-  ('funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D','funcion',9,'p_funcion','sintax.py',53),
-  ('parametro -> VARIABLE','parametro',1,'p_parametro','sintax.py',56),
-  ('parametro -> VARIABLE COMA parametro','parametro',3,'p_parametro','sintax.py',57),
-  ('impresion -> PRINTLN PAR_I valor PAR_D','impresion',4,'p_impresion','sintax.py',62),
-  ('impresion -> PRINT PAR_I valor PAR_D','impresion',4,'p_impresion','sintax.py',63),
-  ('entrada -> READLINE PAR_I PAR_D','entrada',3,'p_entrada','sintax.py',68),
+  ('tipo -> BOOLCLASS','tipo',1,'p_tipo','sintax.py',35),
+  ('tipo -> INTCLASS','tipo',1,'p_tipo','sintax.py',36),
+  ('tipo -> LONGCLASS','tipo',1,'p_tipo','sintax.py',37),
+  ('tipo -> DOUBLECLASS','tipo',1,'p_tipo','sintax.py',38),
+  ('tipo -> FLOATCLASS','tipo',1,'p_tipo','sintax.py',39),
+  ('valor -> STRING','valor',1,'p_valor','sintax.py',42),
+  ('valor -> CHAR','valor',1,'p_valor','sintax.py',43),
+  ('valor -> VARIABLE','valor',1,'p_valor','sintax.py',44),
+  ('valor -> numeros','valor',1,'p_valor','sintax.py',45),
+  ('valor -> booleanos','valor',1,'p_valor','sintax.py',46),
+  ('booleanos -> TRUE','booleanos',1,'p_booleanos','sintax.py',49),
+  ('booleanos -> FLASE','booleanos',1,'p_booleanos','sintax.py',50),
+  ('numeros -> INT','numeros',1,'p_numeros','sintax.py',53),
+  ('numeros -> LONG','numeros',1,'p_numeros','sintax.py',54),
+  ('numeros -> FLOAT','numeros',1,'p_numeros','sintax.py',55),
+  ('numeros -> DOUBLE','numeros',1,'p_numeros','sintax.py',56),
+  ('funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D','funcion',9,'p_funcion','sintax.py',60),
+  ('parametro -> VARIABLE','parametro',1,'p_parametro','sintax.py',63),
+  ('parametro -> VARIABLE COMA parametro','parametro',3,'p_parametro','sintax.py',64),
+  ('impresion -> PRINTLN PAR_I valor PAR_D','impresion',4,'p_impresion','sintax.py',69),
+  ('impresion -> PRINT PAR_I valor PAR_D','impresion',4,'p_impresion','sintax.py',70),
+  ('entrada -> READLINE PAR_I PAR_D','entrada',3,'p_entrada','sintax.py',75),
+  ('relacional -> numeros comparacion numeros','relacional',3,'p_relacional','sintax.py',81),
+  ('relacional -> booleanos comparacion booleanos','relacional',3,'p_relacional','sintax.py',82),
+  ('relacional -> STRING comparacion STRING','relacional',3,'p_relacional','sintax.py',83),
+  ('relacional -> CHAR comparacion CHAR','relacional',3,'p_relacional','sintax.py',84),
+  ('relacional -> VARIABLE comparacion numeros','relacional',3,'p_relacional','sintax.py',85),
+  ('relacional -> numeros comparacion VARIABLE','relacional',3,'p_relacional','sintax.py',86),
+  ('relacional -> VARIABLE comparacion booleanos','relacional',3,'p_relacional','sintax.py',87),
+  ('relacional -> booleanos comparacion VARIABLE','relacional',3,'p_relacional','sintax.py',88),
+  ('relacional -> VARIABLE comparacion STRING','relacional',3,'p_relacional','sintax.py',89),
+  ('relacional -> STRING comparacion VARIABLE','relacional',3,'p_relacional','sintax.py',90),
+  ('relacional -> VARIABLE comparacion CHAR','relacional',3,'p_relacional','sintax.py',91),
+  ('relacional -> CHAR comparacion VARIABLE','relacional',3,'p_relacional','sintax.py',92),
+  ('relacional -> VARIABLE comparacion VARIABLE','relacional',3,'p_relacional','sintax.py',93),
+  ('comparacion -> IGUAL_COMPARACION','comparacion',1,'p_comparacion','sintax.py',96),
+  ('comparacion -> DIFERENTE','comparacion',1,'p_comparacion','sintax.py',97),
+  ('comparacion -> MAYOR','comparacion',1,'p_comparacion','sintax.py',98),
+  ('comparacion -> MENOR','comparacion',1,'p_comparacion','sintax.py',99),
 ]

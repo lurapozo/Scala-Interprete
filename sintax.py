@@ -29,25 +29,30 @@ def p_declaracion(p):
 
 # Tipos de Datos realizado por: Ramos Pozo
 def p_tipo(p):
-  '''tipo : INTCLASS
+  '''tipo : CHARCLASS
+  | STRINGCLASS
+  | BOOLCLASS
+  | INTCLASS
   | LONGCLASS
   | DOUBLECLASS
-  | FLOATCLASS
-  | CHARCLASS
-  | STRINGCLASS
-  | BOOLCLASS'''
+  | FLOATCLASS'''
 
 def p_valor(p):
-  '''valor : INT
-  | LONG
-  | FLOAT
-  | DOUBLE
-  | STRING
+  '''valor : STRING
   | CHAR
   | VARIABLE
-  | TRUE
+  | numeros
+  | booleanos'''
+
+def p_booleanos(p):
+  '''booleanos : TRUE
   | FLASE'''
 
+def p_numeros(p):
+  '''numeros : INT
+  | LONG
+  | FLOAT
+  | DOUBLE'''
 
 # Definicion de funcion
 def p_funcion(p):
@@ -70,6 +75,27 @@ def p_entrada(p):
 
 # Estructura de Datos
 
+#Comparaciones por Juan Pisco
+def p_relacional(p):
+  '''relacional : numeros comparacion numeros
+  | booleanos comparacion booleanos
+  | STRING comparacion STRING
+  | CHAR comparacion CHAR
+  | VARIABLE comparacion numeros
+  | numeros comparacion VARIABLE
+  | VARIABLE comparacion booleanos
+  | booleanos comparacion VARIABLE
+  | VARIABLE comparacion STRING
+  | STRING comparacion VARIABLE
+  | VARIABLE comparacion CHAR
+  | CHAR comparacion VARIABLE
+  | VARIABLE comparacion VARIABLE'''
+
+def p_comparacion(p):
+  '''comparacion : IGUAL_COMPARACION
+  | DIFERENTE
+  | MAYOR
+  | MENOR'''
 
 def p_error(p):
   if p:
