@@ -17,11 +17,25 @@ def p_contenido(p):
   | entrada'''
 
 
-# Asignacion
+# Asignacion realizada por: Ramos Pozo
 def p_asignacion(p):
   '''asignacion : VAR VARIABLE IGUAL valor
-  | VAL VARIABLE IGUAL valor'''
+  | VAL VARIABLE IGUAL valor
+  | VAL declaracion IGUAL valor
+  | VAR declaracion IGUAL valor'''
 
+def p_declaracion(p):
+  '''declaracion : VARIABLE DOBLE_PUNTO tipo'''
+
+# Tipos de Datos realizado por: Ramos Pozo
+def p_tipo(p):
+  '''tipo : INTCLASS
+  | LONGCLASS
+  | DOUBLECLASS
+  | FLOATCLASS
+  | CHARCLASS
+  | STRINGCLASS
+  | BOOLCLASS'''
 
 def p_valor(p):
   '''valor : INT
@@ -53,9 +67,6 @@ def p_impresion(p):
 # Entrada de datos
 def p_entrada(p):
   '''entrada : READLINE PAR_I PAR_D'''
-
-
-# Tipos de Datos
 
 # Estructura de Datos
 
