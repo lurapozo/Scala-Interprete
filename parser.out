@@ -1,0 +1,215 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ABSTRACT
+    AND
+    ARRAYCLASS
+    ARROBA
+    BACKTICK
+    BOOLCLASS
+    CASE
+    CATCH
+    CHARCLASS
+    CLASS
+    COMA
+    CORCHETE_D
+    CORCHETE_I
+    DEF
+    DIFERENTE
+    DIVISION
+    DO
+    DOBLE_PUNTO
+    DOUBLECLASS
+    ELSE
+    EXTENDS
+    FINAL
+    FINALLY
+    FLOATCLASS
+    FOR
+    FOR_SOME
+    FUNCION_FLECHA
+    HASHTAG
+    IF
+    IGUAL_COMPARACION
+    IMPLICIT
+    IMPORT
+    INTCLASS
+    ITERATOR
+    LAZY
+    LIBRERIA_IO
+    LISTCLASS
+    LLAVE_D
+    LLAVE_I
+    LONGCLASS
+    MACRO
+    MAS
+    MATCH
+    MAYOR
+    MAYOR_IGUAL
+    MENOR
+    MENOR_IGUAL
+    MENOS
+    MOD
+    MULTIPLICACION
+    NEW
+    NOT
+    NULL
+    OBJECT
+    OR
+    OVERRIDE
+    PACKAGE
+    PRIVATE
+    PROTECTED
+    PUNTO
+    RETURN
+    REVERSE
+    SEALED
+    STRINGCLASS
+    SUBGUION
+    SUPER
+    THIS
+    THROW
+    TO_DOUBLE
+    TO_FLOAT
+    TO_INT
+    TO_LONG
+    TRAIT
+    TRY
+    TYPE
+    WHILE
+    WITH
+    YIELD
+
+Grammar
+
+Rule 0     S' -> cuerpo
+Rule 1     cuerpo -> contenido
+Rule 2     cuerpo -> funcion
+Rule 3     contenido -> asignacion
+Rule 4     contenido -> impresion
+Rule 5     contenido -> entrada
+Rule 6     asignacion -> VAR VARIABLE IGUAL valor
+Rule 7     asignacion -> VAL VARIABLE IGUAL valor
+Rule 8     valor -> INT
+Rule 9     valor -> LONG
+Rule 10    valor -> FLOAT
+Rule 11    valor -> DOUBLE
+Rule 12    valor -> STRING
+Rule 13    valor -> CHAR
+Rule 14    valor -> VARIABLE
+Rule 15    valor -> TRUE
+Rule 16    valor -> FLASE
+Rule 17    impresion -> PRINTLN PAR_I valor PAR_D
+Rule 18    impresion -> PRINT PAR_I valor PAR_D
+Rule 19    entrada -> READLINE PAR_I PAR_D
+
+Terminals, with rules where they appear
+
+ABSTRACT             : 
+AND                  : 
+ARRAYCLASS           : 
+ARROBA               : 
+BACKTICK             : 
+BOOLCLASS            : 
+CASE                 : 
+CATCH                : 
+CHAR                 : 13
+CHARCLASS            : 
+CLASS                : 
+COMA                 : 
+CORCHETE_D           : 
+CORCHETE_I           : 
+DEF                  : 
+DIFERENTE            : 
+DIVISION             : 
+DO                   : 
+DOBLE_PUNTO          : 
+DOUBLE               : 11
+DOUBLECLASS          : 
+ELSE                 : 
+EXTENDS              : 
+FINAL                : 
+FINALLY              : 
+FLASE                : 16
+FLOAT                : 10
+FLOATCLASS           : 
+FOR                  : 
+FOR_SOME             : 
+FUNCION_FLECHA       : 
+HASHTAG              : 
+IF                   : 
+IGUAL                : 6 7
+IGUAL_COMPARACION    : 
+IMPLICIT             : 
+IMPORT               : 
+INT                  : 8
+INTCLASS             : 
+ITERATOR             : 
+LAZY                 : 
+LIBRERIA_IO          : 
+LISTCLASS            : 
+LLAVE_D              : 
+LLAVE_I              : 
+LONG                 : 9
+LONGCLASS            : 
+MACRO                : 
+MAS                  : 
+MATCH                : 
+MAYOR                : 
+MAYOR_IGUAL          : 
+MENOR                : 
+MENOR_IGUAL          : 
+MENOS                : 
+MOD                  : 
+MULTIPLICACION       : 
+NEW                  : 
+NOT                  : 
+NULL                 : 
+OBJECT               : 
+OR                   : 
+OVERRIDE             : 
+PACKAGE              : 
+PAR_D                : 17 18 19
+PAR_I                : 17 18 19
+PRINT                : 18
+PRINTLN              : 17
+PRIVATE              : 
+PROTECTED            : 
+PUNTO                : 
+READLINE             : 19
+RETURN               : 
+REVERSE              : 
+SEALED               : 
+STRING               : 12
+STRINGCLASS          : 
+SUBGUION             : 
+SUPER                : 
+THIS                 : 
+THROW                : 
+TO_DOUBLE            : 
+TO_FLOAT             : 
+TO_INT               : 
+TO_LONG              : 
+TRAIT                : 
+TRUE                 : 15
+TRY                  : 
+TYPE                 : 
+VAL                  : 7
+VAR                  : 6
+VARIABLE             : 6 7 14
+WHILE                : 
+WITH                 : 
+YIELD                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion           : 3
+contenido            : 1
+cuerpo               : 0
+entrada              : 5
+funcion              : 2
+impresion            : 4
+valor                : 6 7 17 18
+

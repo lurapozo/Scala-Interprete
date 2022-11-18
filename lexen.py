@@ -1,4 +1,4 @@
-from lex import *
+from ply.lex import *
 
 #Palabras reservadas. Realizado por Pisco Jordan
 reservadas = {
@@ -248,6 +248,7 @@ def t_error(t):
 lexer = lex()
 
 
+'''
 def getTokens(lexer):
   for tok in lexer:
     print(tok)
@@ -262,9 +263,9 @@ file.close()
 lexer.input(archivo)
 getTokens(lexer)
 
-
 print('Mi primer Lexer')
 while True:
   linea = input(">")
   lexer.input(linea)
   getTokens(lexer)
+'''
