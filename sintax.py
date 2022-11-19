@@ -75,6 +75,23 @@ def p_entrada(p):
 
 # Estructura de Datos
 
+#Condicionales por Juan Pisco
+def p_condicional(p):
+  '''condicional : valorC logicos condicional
+  | valorC'''
+
+def p_valorC(p):
+  '''valorC : VARIABLE
+  | booleanos
+  | relacional
+  | NOT VARIABLE
+  | NOT booleanos
+  | NOT relacional
+  '''
+def p_logicos(p):
+  '''logicos : AND
+  | OR
+  | NOT'''
 #Comparaciones por Juan Pisco
 def p_relacional(p):
   '''relacional : numeros comparacion numeros

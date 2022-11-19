@@ -3,7 +3,6 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     ABSTRACT
-    AND
     ARRAYCLASS
     ARROBA
     BACKTICK
@@ -38,10 +37,8 @@ Unused terminals:
     MOD
     MULTIPLICACION
     NEW
-    NOT
     NULL
     OBJECT
-    OR
     OVERRIDE
     PACKAGE
     PRIVATE
@@ -70,136 +67,146 @@ Grammar
 Rule 0     S' -> cuerpo
 Rule 1     cuerpo -> contenido
 Rule 2     cuerpo -> funcion
-Rule 3     cuerpo -> relacional
-Rule 4     contenido -> asignacion
-Rule 5     contenido -> impresion
-Rule 6     contenido -> entrada
-Rule 7     asignacion -> VAR VARIABLE IGUAL valor
-Rule 8     asignacion -> VAL VARIABLE IGUAL valor
-Rule 9     asignacion -> VAL declaracion IGUAL valor
-Rule 10    asignacion -> VAR declaracion IGUAL valor
-Rule 11    declaracion -> VARIABLE DOBLE_PUNTO tipo
-Rule 12    tipo -> CHARCLASS
-Rule 13    tipo -> STRINGCLASS
-Rule 14    tipo -> BOOLCLASS
-Rule 15    tipo -> INTCLASS
-Rule 16    tipo -> LONGCLASS
-Rule 17    tipo -> DOUBLECLASS
-Rule 18    tipo -> FLOATCLASS
-Rule 19    valor -> STRING
-Rule 20    valor -> CHAR
-Rule 21    valor -> VARIABLE
-Rule 22    valor -> numeros
-Rule 23    valor -> booleanos
-Rule 24    booleanos -> TRUE
-Rule 25    booleanos -> FLASE
-Rule 26    numeros -> INT
-Rule 27    numeros -> LONG
-Rule 28    numeros -> FLOAT
-Rule 29    numeros -> DOUBLE
-Rule 30    funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
-Rule 31    parametro -> VARIABLE
-Rule 32    parametro -> VARIABLE COMA parametro
-Rule 33    impresion -> PRINTLN PAR_I valor PAR_D
-Rule 34    impresion -> PRINT PAR_I valor PAR_D
-Rule 35    entrada -> READLINE PAR_I PAR_D
-Rule 36    relacional -> numeros comparacion numeros
-Rule 37    relacional -> booleanos comparacion booleanos
-Rule 38    relacional -> STRING comparacion STRING
-Rule 39    relacional -> CHAR comparacion CHAR
-Rule 40    relacional -> VARIABLE comparacion numeros
-Rule 41    relacional -> numeros comparacion VARIABLE
-Rule 42    relacional -> VARIABLE comparacion booleanos
-Rule 43    relacional -> booleanos comparacion VARIABLE
-Rule 44    relacional -> VARIABLE comparacion STRING
-Rule 45    relacional -> STRING comparacion VARIABLE
-Rule 46    relacional -> VARIABLE comparacion CHAR
-Rule 47    relacional -> CHAR comparacion VARIABLE
-Rule 48    relacional -> VARIABLE comparacion VARIABLE
-Rule 49    comparacion -> IGUAL_COMPARACION
-Rule 50    comparacion -> DIFERENTE
-Rule 51    comparacion -> MAYOR
-Rule 52    comparacion -> MENOR
+Rule 3     contenido -> asignacion
+Rule 4     contenido -> impresion
+Rule 5     contenido -> entrada
+Rule 6     asignacion -> VAR VARIABLE IGUAL valor
+Rule 7     asignacion -> VAL VARIABLE IGUAL valor
+Rule 8     asignacion -> VAL declaracion IGUAL valor
+Rule 9     asignacion -> VAR declaracion IGUAL valor
+Rule 10    declaracion -> VARIABLE DOBLE_PUNTO tipo
+Rule 11    tipo -> CHARCLASS
+Rule 12    tipo -> STRINGCLASS
+Rule 13    tipo -> BOOLCLASS
+Rule 14    tipo -> INTCLASS
+Rule 15    tipo -> LONGCLASS
+Rule 16    tipo -> DOUBLECLASS
+Rule 17    tipo -> FLOATCLASS
+Rule 18    valor -> STRING
+Rule 19    valor -> CHAR
+Rule 20    valor -> VARIABLE
+Rule 21    valor -> numeros
+Rule 22    valor -> booleanos
+Rule 23    booleanos -> TRUE
+Rule 24    booleanos -> FLASE
+Rule 25    numeros -> INT
+Rule 26    numeros -> LONG
+Rule 27    numeros -> FLOAT
+Rule 28    numeros -> DOUBLE
+Rule 29    funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
+Rule 30    parametro -> VARIABLE
+Rule 31    parametro -> VARIABLE COMA parametro
+Rule 32    impresion -> PRINTLN PAR_I valor PAR_D
+Rule 33    impresion -> PRINT PAR_I valor PAR_D
+Rule 34    entrada -> READLINE PAR_I PAR_D
+Rule 35    condicional -> valorC logicos condicional
+Rule 36    condicional -> valorC
+Rule 37    valorC -> VARIABLE
+Rule 38    valorC -> booleanos
+Rule 39    valorC -> relacional
+Rule 40    valorC -> NOT VARIABLE
+Rule 41    valorC -> NOT booleanos
+Rule 42    valorC -> NOT relacional
+Rule 43    logicos -> AND
+Rule 44    logicos -> OR
+Rule 45    logicos -> NOT
+Rule 46    relacional -> numeros comparacion numeros
+Rule 47    relacional -> booleanos comparacion booleanos
+Rule 48    relacional -> STRING comparacion STRING
+Rule 49    relacional -> CHAR comparacion CHAR
+Rule 50    relacional -> VARIABLE comparacion numeros
+Rule 51    relacional -> numeros comparacion VARIABLE
+Rule 52    relacional -> VARIABLE comparacion booleanos
+Rule 53    relacional -> booleanos comparacion VARIABLE
+Rule 54    relacional -> VARIABLE comparacion STRING
+Rule 55    relacional -> STRING comparacion VARIABLE
+Rule 56    relacional -> VARIABLE comparacion CHAR
+Rule 57    relacional -> CHAR comparacion VARIABLE
+Rule 58    relacional -> VARIABLE comparacion VARIABLE
+Rule 59    comparacion -> IGUAL_COMPARACION
+Rule 60    comparacion -> DIFERENTE
+Rule 61    comparacion -> MAYOR
+Rule 62    comparacion -> MENOR
 
 Terminals, with rules where they appear
 
 ABSTRACT             : 
-AND                  : 
+AND                  : 43
 ARRAYCLASS           : 
 ARROBA               : 
 BACKTICK             : 
-BOOLCLASS            : 14
+BOOLCLASS            : 13
 CASE                 : 
 CATCH                : 
-CHAR                 : 20 39 39 46 47
-CHARCLASS            : 12
+CHAR                 : 19 49 49 56 57
+CHARCLASS            : 11
 CLASS                : 
-COMA                 : 32
+COMA                 : 31
 CORCHETE_D           : 
 CORCHETE_I           : 
-DEF                  : 30
-DIFERENTE            : 50
+DEF                  : 29
+DIFERENTE            : 60
 DIVISION             : 
 DO                   : 
-DOBLE_PUNTO          : 11
-DOUBLE               : 29
-DOUBLECLASS          : 17
+DOBLE_PUNTO          : 10
+DOUBLE               : 28
+DOUBLECLASS          : 16
 ELSE                 : 
 EXTENDS              : 
 FINAL                : 
 FINALLY              : 
-FLASE                : 25
-FLOAT                : 28
-FLOATCLASS           : 18
+FLASE                : 24
+FLOAT                : 27
+FLOATCLASS           : 17
 FOR                  : 
 FOR_SOME             : 
 FUNCION_FLECHA       : 
 HASHTAG              : 
 IF                   : 
-IGUAL                : 7 8 9 10 30
-IGUAL_COMPARACION    : 49
+IGUAL                : 6 7 8 9 29
+IGUAL_COMPARACION    : 59
 IMPLICIT             : 
 IMPORT               : 
-INT                  : 26
-INTCLASS             : 15
+INT                  : 25
+INTCLASS             : 14
 ITERATOR             : 
 LAZY                 : 
 LIBRERIA_IO          : 
 LISTCLASS            : 
-LLAVE_D              : 30
-LLAVE_I              : 30
-LONG                 : 27
-LONGCLASS            : 16
+LLAVE_D              : 29
+LLAVE_I              : 29
+LONG                 : 26
+LONGCLASS            : 15
 MACRO                : 
 MAS                  : 
 MATCH                : 
-MAYOR                : 51
+MAYOR                : 61
 MAYOR_IGUAL          : 
-MENOR                : 52
+MENOR                : 62
 MENOR_IGUAL          : 
 MENOS                : 
 MOD                  : 
 MULTIPLICACION       : 
 NEW                  : 
-NOT                  : 
+NOT                  : 40 41 42 45
 NULL                 : 
 OBJECT               : 
-OR                   : 
+OR                   : 44
 OVERRIDE             : 
 PACKAGE              : 
-PAR_D                : 30 33 34 35
-PAR_I                : 30 33 34 35
-PRINT                : 34
-PRINTLN              : 33
+PAR_D                : 29 32 33 34
+PAR_I                : 29 32 33 34
+PRINT                : 33
+PRINTLN              : 32
 PRIVATE              : 
 PROTECTED            : 
 PUNTO                : 
-READLINE             : 35
+READLINE             : 34
 RETURN               : 
 REVERSE              : 
 SEALED               : 
-STRING               : 19 38 38 44 45
-STRINGCLASS          : 13
+STRING               : 18 48 48 54 55
+STRINGCLASS          : 12
 SUBGUION             : 
 SUPER                : 
 THIS                 : 
@@ -209,12 +216,12 @@ TO_FLOAT             :
 TO_INT               : 
 TO_LONG              : 
 TRAIT                : 
-TRUE                 : 24
+TRUE                 : 23
 TRY                  : 
 TYPE                 : 
-VAL                  : 8 9
-VAR                  : 7 10
-VARIABLE             : 7 8 11 21 30 31 32 40 41 42 43 44 45 46 47 48 48
+VAL                  : 7 8
+VAR                  : 6 9
+VARIABLE             : 6 7 10 20 29 30 31 37 40 50 51 52 53 54 55 56 57 58 58
 WHILE                : 
 WITH                 : 
 YIELD                : 
@@ -222,20 +229,23 @@ error                :
 
 Nonterminals, with rules where they appear
 
-asignacion           : 4
-booleanos            : 23 37 37 42 43
-comparacion          : 36 37 38 39 40 41 42 43 44 45 46 47 48
-contenido            : 1 30
+asignacion           : 3
+booleanos            : 22 38 41 47 47 52 53
+comparacion          : 46 47 48 49 50 51 52 53 54 55 56 57 58
+condicional          : 35
+contenido            : 1 29
 cuerpo               : 0
-declaracion          : 9 10
-entrada              : 6
+declaracion          : 8 9
+entrada              : 5
 funcion              : 2
-impresion            : 5
-numeros              : 22 36 36 40 41
-parametro            : 30 32
-relacional           : 3
-tipo                 : 11
-valor                : 7 8 9 10 33 34
+impresion            : 4
+logicos              : 35
+numeros              : 21 46 46 50 51
+parametro            : 29 31
+relacional           : 39 42
+tipo                 : 10
+valor                : 6 7 8 9 32 33
+valorC               : 35 36
 
 Parsing method: LALR
 
@@ -244,63 +254,31 @@ state 0
     (0) S' -> . cuerpo
     (1) cuerpo -> . contenido
     (2) cuerpo -> . funcion
-    (3) cuerpo -> . relacional
-    (4) contenido -> . asignacion
-    (5) contenido -> . impresion
-    (6) contenido -> . entrada
-    (30) funcion -> . DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
-    (36) relacional -> . numeros comparacion numeros
-    (37) relacional -> . booleanos comparacion booleanos
-    (38) relacional -> . STRING comparacion STRING
-    (39) relacional -> . CHAR comparacion CHAR
-    (40) relacional -> . VARIABLE comparacion numeros
-    (41) relacional -> . numeros comparacion VARIABLE
-    (42) relacional -> . VARIABLE comparacion booleanos
-    (43) relacional -> . booleanos comparacion VARIABLE
-    (44) relacional -> . VARIABLE comparacion STRING
-    (45) relacional -> . STRING comparacion VARIABLE
-    (46) relacional -> . VARIABLE comparacion CHAR
-    (47) relacional -> . CHAR comparacion VARIABLE
-    (48) relacional -> . VARIABLE comparacion VARIABLE
-    (7) asignacion -> . VAR VARIABLE IGUAL valor
-    (8) asignacion -> . VAL VARIABLE IGUAL valor
-    (9) asignacion -> . VAL declaracion IGUAL valor
-    (10) asignacion -> . VAR declaracion IGUAL valor
-    (33) impresion -> . PRINTLN PAR_I valor PAR_D
-    (34) impresion -> . PRINT PAR_I valor PAR_D
-    (35) entrada -> . READLINE PAR_I PAR_D
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (3) contenido -> . asignacion
+    (4) contenido -> . impresion
+    (5) contenido -> . entrada
+    (29) funcion -> . DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
+    (6) asignacion -> . VAR VARIABLE IGUAL valor
+    (7) asignacion -> . VAL VARIABLE IGUAL valor
+    (8) asignacion -> . VAL declaracion IGUAL valor
+    (9) asignacion -> . VAR declaracion IGUAL valor
+    (32) impresion -> . PRINTLN PAR_I valor PAR_D
+    (33) impresion -> . PRINT PAR_I valor PAR_D
+    (34) entrada -> . READLINE PAR_I PAR_D
 
-    DEF             shift and go to state 8
-    STRING          shift and go to state 12
-    CHAR            shift and go to state 13
-    VARIABLE        shift and go to state 9
-    VAR             shift and go to state 14
-    VAL             shift and go to state 15
-    PRINTLN         shift and go to state 16
-    PRINT           shift and go to state 17
-    READLINE        shift and go to state 18
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    DEF             shift and go to state 7
+    VAR             shift and go to state 8
+    VAL             shift and go to state 9
+    PRINTLN         shift and go to state 10
+    PRINT           shift and go to state 11
+    READLINE        shift and go to state 12
 
     cuerpo                         shift and go to state 1
     contenido                      shift and go to state 2
     funcion                        shift and go to state 3
-    relacional                     shift and go to state 4
-    asignacion                     shift and go to state 5
-    impresion                      shift and go to state 6
-    entrada                        shift and go to state 7
-    numeros                        shift and go to state 10
-    booleanos                      shift and go to state 11
+    asignacion                     shift and go to state 4
+    impresion                      shift and go to state 5
+    entrada                        shift and go to state 6
 
 state 1
 
@@ -324,974 +302,634 @@ state 3
 
 state 4
 
-    (3) cuerpo -> relacional .
+    (3) contenido -> asignacion .
 
-    $end            reduce using rule 3 (cuerpo -> relacional .)
+    $end            reduce using rule 3 (contenido -> asignacion .)
+    LLAVE_D         reduce using rule 3 (contenido -> asignacion .)
 
 
 state 5
 
-    (4) contenido -> asignacion .
+    (4) contenido -> impresion .
 
-    $end            reduce using rule 4 (contenido -> asignacion .)
-    LLAVE_D         reduce using rule 4 (contenido -> asignacion .)
+    $end            reduce using rule 4 (contenido -> impresion .)
+    LLAVE_D         reduce using rule 4 (contenido -> impresion .)
 
 
 state 6
 
-    (5) contenido -> impresion .
+    (5) contenido -> entrada .
 
-    $end            reduce using rule 5 (contenido -> impresion .)
-    LLAVE_D         reduce using rule 5 (contenido -> impresion .)
+    $end            reduce using rule 5 (contenido -> entrada .)
+    LLAVE_D         reduce using rule 5 (contenido -> entrada .)
 
 
 state 7
 
-    (6) contenido -> entrada .
+    (29) funcion -> DEF . VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
 
-    $end            reduce using rule 6 (contenido -> entrada .)
-    LLAVE_D         reduce using rule 6 (contenido -> entrada .)
+    VARIABLE        shift and go to state 13
 
 
 state 8
 
-    (30) funcion -> DEF . VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
+    (6) asignacion -> VAR . VARIABLE IGUAL valor
+    (9) asignacion -> VAR . declaracion IGUAL valor
+    (10) declaracion -> . VARIABLE DOBLE_PUNTO tipo
 
-    VARIABLE        shift and go to state 25
+    VARIABLE        shift and go to state 14
 
+    declaracion                    shift and go to state 15
 
 state 9
 
-    (40) relacional -> VARIABLE . comparacion numeros
-    (42) relacional -> VARIABLE . comparacion booleanos
-    (44) relacional -> VARIABLE . comparacion STRING
-    (46) relacional -> VARIABLE . comparacion CHAR
-    (48) relacional -> VARIABLE . comparacion VARIABLE
-    (49) comparacion -> . IGUAL_COMPARACION
-    (50) comparacion -> . DIFERENTE
-    (51) comparacion -> . MAYOR
-    (52) comparacion -> . MENOR
+    (7) asignacion -> VAL . VARIABLE IGUAL valor
+    (8) asignacion -> VAL . declaracion IGUAL valor
+    (10) declaracion -> . VARIABLE DOBLE_PUNTO tipo
 
-    IGUAL_COMPARACION shift and go to state 27
-    DIFERENTE       shift and go to state 28
-    MAYOR           shift and go to state 29
-    MENOR           shift and go to state 30
+    VARIABLE        shift and go to state 16
 
-    comparacion                    shift and go to state 26
+    declaracion                    shift and go to state 17
 
 state 10
 
-    (36) relacional -> numeros . comparacion numeros
-    (41) relacional -> numeros . comparacion VARIABLE
-    (49) comparacion -> . IGUAL_COMPARACION
-    (50) comparacion -> . DIFERENTE
-    (51) comparacion -> . MAYOR
-    (52) comparacion -> . MENOR
+    (32) impresion -> PRINTLN . PAR_I valor PAR_D
 
-    IGUAL_COMPARACION shift and go to state 27
-    DIFERENTE       shift and go to state 28
-    MAYOR           shift and go to state 29
-    MENOR           shift and go to state 30
+    PAR_I           shift and go to state 18
 
-    comparacion                    shift and go to state 31
 
 state 11
 
-    (37) relacional -> booleanos . comparacion booleanos
-    (43) relacional -> booleanos . comparacion VARIABLE
-    (49) comparacion -> . IGUAL_COMPARACION
-    (50) comparacion -> . DIFERENTE
-    (51) comparacion -> . MAYOR
-    (52) comparacion -> . MENOR
+    (33) impresion -> PRINT . PAR_I valor PAR_D
 
-    IGUAL_COMPARACION shift and go to state 27
-    DIFERENTE       shift and go to state 28
-    MAYOR           shift and go to state 29
-    MENOR           shift and go to state 30
+    PAR_I           shift and go to state 19
 
-    comparacion                    shift and go to state 32
 
 state 12
 
-    (38) relacional -> STRING . comparacion STRING
-    (45) relacional -> STRING . comparacion VARIABLE
-    (49) comparacion -> . IGUAL_COMPARACION
-    (50) comparacion -> . DIFERENTE
-    (51) comparacion -> . MAYOR
-    (52) comparacion -> . MENOR
+    (34) entrada -> READLINE . PAR_I PAR_D
 
-    IGUAL_COMPARACION shift and go to state 27
-    DIFERENTE       shift and go to state 28
-    MAYOR           shift and go to state 29
-    MENOR           shift and go to state 30
+    PAR_I           shift and go to state 20
 
-    comparacion                    shift and go to state 33
 
 state 13
 
-    (39) relacional -> CHAR . comparacion CHAR
-    (47) relacional -> CHAR . comparacion VARIABLE
-    (49) comparacion -> . IGUAL_COMPARACION
-    (50) comparacion -> . DIFERENTE
-    (51) comparacion -> . MAYOR
-    (52) comparacion -> . MENOR
+    (29) funcion -> DEF VARIABLE . PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
 
-    IGUAL_COMPARACION shift and go to state 27
-    DIFERENTE       shift and go to state 28
-    MAYOR           shift and go to state 29
-    MENOR           shift and go to state 30
+    PAR_I           shift and go to state 21
 
-    comparacion                    shift and go to state 34
 
 state 14
 
-    (7) asignacion -> VAR . VARIABLE IGUAL valor
-    (10) asignacion -> VAR . declaracion IGUAL valor
-    (11) declaracion -> . VARIABLE DOBLE_PUNTO tipo
+    (6) asignacion -> VAR VARIABLE . IGUAL valor
+    (10) declaracion -> VARIABLE . DOBLE_PUNTO tipo
 
-    VARIABLE        shift and go to state 35
+    IGUAL           shift and go to state 22
+    DOBLE_PUNTO     shift and go to state 23
 
-    declaracion                    shift and go to state 36
 
 state 15
 
-    (8) asignacion -> VAL . VARIABLE IGUAL valor
-    (9) asignacion -> VAL . declaracion IGUAL valor
-    (11) declaracion -> . VARIABLE DOBLE_PUNTO tipo
+    (9) asignacion -> VAR declaracion . IGUAL valor
 
-    VARIABLE        shift and go to state 37
+    IGUAL           shift and go to state 24
 
-    declaracion                    shift and go to state 38
 
 state 16
 
-    (33) impresion -> PRINTLN . PAR_I valor PAR_D
+    (7) asignacion -> VAL VARIABLE . IGUAL valor
+    (10) declaracion -> VARIABLE . DOBLE_PUNTO tipo
 
-    PAR_I           shift and go to state 39
+    IGUAL           shift and go to state 25
+    DOBLE_PUNTO     shift and go to state 23
 
 
 state 17
 
-    (34) impresion -> PRINT . PAR_I valor PAR_D
+    (8) asignacion -> VAL declaracion . IGUAL valor
 
-    PAR_I           shift and go to state 40
+    IGUAL           shift and go to state 26
 
 
 state 18
 
-    (35) entrada -> READLINE . PAR_I PAR_D
+    (32) impresion -> PRINTLN PAR_I . valor PAR_D
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    PAR_I           shift and go to state 41
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
+    valor                          shift and go to state 27
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 19
 
-    (26) numeros -> INT .
+    (33) impresion -> PRINT PAR_I . valor PAR_D
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    IGUAL_COMPARACION reduce using rule 26 (numeros -> INT .)
-    DIFERENTE       reduce using rule 26 (numeros -> INT .)
-    MAYOR           reduce using rule 26 (numeros -> INT .)
-    MENOR           reduce using rule 26 (numeros -> INT .)
-    $end            reduce using rule 26 (numeros -> INT .)
-    PAR_D           reduce using rule 26 (numeros -> INT .)
-    LLAVE_D         reduce using rule 26 (numeros -> INT .)
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
+    valor                          shift and go to state 39
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 20
 
-    (27) numeros -> LONG .
+    (34) entrada -> READLINE PAR_I . PAR_D
 
-    IGUAL_COMPARACION reduce using rule 27 (numeros -> LONG .)
-    DIFERENTE       reduce using rule 27 (numeros -> LONG .)
-    MAYOR           reduce using rule 27 (numeros -> LONG .)
-    MENOR           reduce using rule 27 (numeros -> LONG .)
-    $end            reduce using rule 27 (numeros -> LONG .)
-    PAR_D           reduce using rule 27 (numeros -> LONG .)
-    LLAVE_D         reduce using rule 27 (numeros -> LONG .)
+    PAR_D           shift and go to state 40
 
 
 state 21
 
-    (28) numeros -> FLOAT .
+    (29) funcion -> DEF VARIABLE PAR_I . parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
+    (30) parametro -> . VARIABLE
+    (31) parametro -> . VARIABLE COMA parametro
 
-    IGUAL_COMPARACION reduce using rule 28 (numeros -> FLOAT .)
-    DIFERENTE       reduce using rule 28 (numeros -> FLOAT .)
-    MAYOR           reduce using rule 28 (numeros -> FLOAT .)
-    MENOR           reduce using rule 28 (numeros -> FLOAT .)
-    $end            reduce using rule 28 (numeros -> FLOAT .)
-    PAR_D           reduce using rule 28 (numeros -> FLOAT .)
-    LLAVE_D         reduce using rule 28 (numeros -> FLOAT .)
+    VARIABLE        shift and go to state 41
 
+    parametro                      shift and go to state 42
 
 state 22
 
-    (29) numeros -> DOUBLE .
+    (6) asignacion -> VAR VARIABLE IGUAL . valor
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    IGUAL_COMPARACION reduce using rule 29 (numeros -> DOUBLE .)
-    DIFERENTE       reduce using rule 29 (numeros -> DOUBLE .)
-    MAYOR           reduce using rule 29 (numeros -> DOUBLE .)
-    MENOR           reduce using rule 29 (numeros -> DOUBLE .)
-    $end            reduce using rule 29 (numeros -> DOUBLE .)
-    PAR_D           reduce using rule 29 (numeros -> DOUBLE .)
-    LLAVE_D         reduce using rule 29 (numeros -> DOUBLE .)
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
+    valor                          shift and go to state 43
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 23
 
-    (24) booleanos -> TRUE .
+    (10) declaracion -> VARIABLE DOBLE_PUNTO . tipo
+    (11) tipo -> . CHARCLASS
+    (12) tipo -> . STRINGCLASS
+    (13) tipo -> . BOOLCLASS
+    (14) tipo -> . INTCLASS
+    (15) tipo -> . LONGCLASS
+    (16) tipo -> . DOUBLECLASS
+    (17) tipo -> . FLOATCLASS
 
-    IGUAL_COMPARACION reduce using rule 24 (booleanos -> TRUE .)
-    DIFERENTE       reduce using rule 24 (booleanos -> TRUE .)
-    MAYOR           reduce using rule 24 (booleanos -> TRUE .)
-    MENOR           reduce using rule 24 (booleanos -> TRUE .)
-    $end            reduce using rule 24 (booleanos -> TRUE .)
-    PAR_D           reduce using rule 24 (booleanos -> TRUE .)
-    LLAVE_D         reduce using rule 24 (booleanos -> TRUE .)
+    CHARCLASS       shift and go to state 45
+    STRINGCLASS     shift and go to state 46
+    BOOLCLASS       shift and go to state 47
+    INTCLASS        shift and go to state 48
+    LONGCLASS       shift and go to state 49
+    DOUBLECLASS     shift and go to state 50
+    FLOATCLASS      shift and go to state 51
 
+    tipo                           shift and go to state 44
 
 state 24
 
-    (25) booleanos -> FLASE .
+    (9) asignacion -> VAR declaracion IGUAL . valor
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    IGUAL_COMPARACION reduce using rule 25 (booleanos -> FLASE .)
-    DIFERENTE       reduce using rule 25 (booleanos -> FLASE .)
-    MAYOR           reduce using rule 25 (booleanos -> FLASE .)
-    MENOR           reduce using rule 25 (booleanos -> FLASE .)
-    $end            reduce using rule 25 (booleanos -> FLASE .)
-    PAR_D           reduce using rule 25 (booleanos -> FLASE .)
-    LLAVE_D         reduce using rule 25 (booleanos -> FLASE .)
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
+    valor                          shift and go to state 52
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 25
 
-    (30) funcion -> DEF VARIABLE . PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
+    (7) asignacion -> VAL VARIABLE IGUAL . valor
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    PAR_I           shift and go to state 42
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
+    valor                          shift and go to state 53
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 26
 
-    (40) relacional -> VARIABLE comparacion . numeros
-    (42) relacional -> VARIABLE comparacion . booleanos
-    (44) relacional -> VARIABLE comparacion . STRING
-    (46) relacional -> VARIABLE comparacion . CHAR
-    (48) relacional -> VARIABLE comparacion . VARIABLE
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (8) asignacion -> VAL declaracion IGUAL . valor
+    (18) valor -> . STRING
+    (19) valor -> . CHAR
+    (20) valor -> . VARIABLE
+    (21) valor -> . numeros
+    (22) valor -> . booleanos
+    (25) numeros -> . INT
+    (26) numeros -> . LONG
+    (27) numeros -> . FLOAT
+    (28) numeros -> . DOUBLE
+    (23) booleanos -> . TRUE
+    (24) booleanos -> . FLASE
 
-    STRING          shift and go to state 46
-    CHAR            shift and go to state 47
-    VARIABLE        shift and go to state 43
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    STRING          shift and go to state 28
+    CHAR            shift and go to state 29
+    VARIABLE        shift and go to state 30
+    INT             shift and go to state 33
+    LONG            shift and go to state 34
+    FLOAT           shift and go to state 35
+    DOUBLE          shift and go to state 36
+    TRUE            shift and go to state 37
+    FLASE           shift and go to state 38
 
-    numeros                        shift and go to state 44
-    booleanos                      shift and go to state 45
+    valor                          shift and go to state 54
+    numeros                        shift and go to state 31
+    booleanos                      shift and go to state 32
 
 state 27
 
-    (49) comparacion -> IGUAL_COMPARACION .
+    (32) impresion -> PRINTLN PAR_I valor . PAR_D
 
-    STRING          reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    CHAR            reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    VARIABLE        reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    INT             reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    LONG            reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    FLOAT           reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    DOUBLE          reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    TRUE            reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
-    FLASE           reduce using rule 49 (comparacion -> IGUAL_COMPARACION .)
+    PAR_D           shift and go to state 55
 
 
 state 28
 
-    (50) comparacion -> DIFERENTE .
+    (18) valor -> STRING .
 
-    STRING          reduce using rule 50 (comparacion -> DIFERENTE .)
-    CHAR            reduce using rule 50 (comparacion -> DIFERENTE .)
-    VARIABLE        reduce using rule 50 (comparacion -> DIFERENTE .)
-    INT             reduce using rule 50 (comparacion -> DIFERENTE .)
-    LONG            reduce using rule 50 (comparacion -> DIFERENTE .)
-    FLOAT           reduce using rule 50 (comparacion -> DIFERENTE .)
-    DOUBLE          reduce using rule 50 (comparacion -> DIFERENTE .)
-    TRUE            reduce using rule 50 (comparacion -> DIFERENTE .)
-    FLASE           reduce using rule 50 (comparacion -> DIFERENTE .)
+    PAR_D           reduce using rule 18 (valor -> STRING .)
+    $end            reduce using rule 18 (valor -> STRING .)
+    LLAVE_D         reduce using rule 18 (valor -> STRING .)
 
 
 state 29
 
-    (51) comparacion -> MAYOR .
+    (19) valor -> CHAR .
 
-    STRING          reduce using rule 51 (comparacion -> MAYOR .)
-    CHAR            reduce using rule 51 (comparacion -> MAYOR .)
-    VARIABLE        reduce using rule 51 (comparacion -> MAYOR .)
-    INT             reduce using rule 51 (comparacion -> MAYOR .)
-    LONG            reduce using rule 51 (comparacion -> MAYOR .)
-    FLOAT           reduce using rule 51 (comparacion -> MAYOR .)
-    DOUBLE          reduce using rule 51 (comparacion -> MAYOR .)
-    TRUE            reduce using rule 51 (comparacion -> MAYOR .)
-    FLASE           reduce using rule 51 (comparacion -> MAYOR .)
+    PAR_D           reduce using rule 19 (valor -> CHAR .)
+    $end            reduce using rule 19 (valor -> CHAR .)
+    LLAVE_D         reduce using rule 19 (valor -> CHAR .)
 
 
 state 30
 
-    (52) comparacion -> MENOR .
+    (20) valor -> VARIABLE .
 
-    STRING          reduce using rule 52 (comparacion -> MENOR .)
-    CHAR            reduce using rule 52 (comparacion -> MENOR .)
-    VARIABLE        reduce using rule 52 (comparacion -> MENOR .)
-    INT             reduce using rule 52 (comparacion -> MENOR .)
-    LONG            reduce using rule 52 (comparacion -> MENOR .)
-    FLOAT           reduce using rule 52 (comparacion -> MENOR .)
-    DOUBLE          reduce using rule 52 (comparacion -> MENOR .)
-    TRUE            reduce using rule 52 (comparacion -> MENOR .)
-    FLASE           reduce using rule 52 (comparacion -> MENOR .)
+    PAR_D           reduce using rule 20 (valor -> VARIABLE .)
+    $end            reduce using rule 20 (valor -> VARIABLE .)
+    LLAVE_D         reduce using rule 20 (valor -> VARIABLE .)
 
 
 state 31
 
-    (36) relacional -> numeros comparacion . numeros
-    (41) relacional -> numeros comparacion . VARIABLE
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
+    (21) valor -> numeros .
 
-    VARIABLE        shift and go to state 49
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
+    PAR_D           reduce using rule 21 (valor -> numeros .)
+    $end            reduce using rule 21 (valor -> numeros .)
+    LLAVE_D         reduce using rule 21 (valor -> numeros .)
 
-    numeros                        shift and go to state 48
 
 state 32
 
-    (37) relacional -> booleanos comparacion . booleanos
-    (43) relacional -> booleanos comparacion . VARIABLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (22) valor -> booleanos .
 
-    VARIABLE        shift and go to state 51
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    PAR_D           reduce using rule 22 (valor -> booleanos .)
+    $end            reduce using rule 22 (valor -> booleanos .)
+    LLAVE_D         reduce using rule 22 (valor -> booleanos .)
 
-    booleanos                      shift and go to state 50
 
 state 33
 
-    (38) relacional -> STRING comparacion . STRING
-    (45) relacional -> STRING comparacion . VARIABLE
+    (25) numeros -> INT .
 
-    STRING          shift and go to state 52
-    VARIABLE        shift and go to state 53
+    PAR_D           reduce using rule 25 (numeros -> INT .)
+    $end            reduce using rule 25 (numeros -> INT .)
+    LLAVE_D         reduce using rule 25 (numeros -> INT .)
 
 
 state 34
 
-    (39) relacional -> CHAR comparacion . CHAR
-    (47) relacional -> CHAR comparacion . VARIABLE
+    (26) numeros -> LONG .
 
-    CHAR            shift and go to state 54
-    VARIABLE        shift and go to state 55
+    PAR_D           reduce using rule 26 (numeros -> LONG .)
+    $end            reduce using rule 26 (numeros -> LONG .)
+    LLAVE_D         reduce using rule 26 (numeros -> LONG .)
 
 
 state 35
 
-    (7) asignacion -> VAR VARIABLE . IGUAL valor
-    (11) declaracion -> VARIABLE . DOBLE_PUNTO tipo
+    (27) numeros -> FLOAT .
 
-    IGUAL           shift and go to state 56
-    DOBLE_PUNTO     shift and go to state 57
+    PAR_D           reduce using rule 27 (numeros -> FLOAT .)
+    $end            reduce using rule 27 (numeros -> FLOAT .)
+    LLAVE_D         reduce using rule 27 (numeros -> FLOAT .)
 
 
 state 36
 
-    (10) asignacion -> VAR declaracion . IGUAL valor
+    (28) numeros -> DOUBLE .
 
-    IGUAL           shift and go to state 58
+    PAR_D           reduce using rule 28 (numeros -> DOUBLE .)
+    $end            reduce using rule 28 (numeros -> DOUBLE .)
+    LLAVE_D         reduce using rule 28 (numeros -> DOUBLE .)
 
 
 state 37
 
-    (8) asignacion -> VAL VARIABLE . IGUAL valor
-    (11) declaracion -> VARIABLE . DOBLE_PUNTO tipo
+    (23) booleanos -> TRUE .
 
-    IGUAL           shift and go to state 59
-    DOBLE_PUNTO     shift and go to state 57
+    PAR_D           reduce using rule 23 (booleanos -> TRUE .)
+    $end            reduce using rule 23 (booleanos -> TRUE .)
+    LLAVE_D         reduce using rule 23 (booleanos -> TRUE .)
 
 
 state 38
 
-    (9) asignacion -> VAL declaracion . IGUAL valor
+    (24) booleanos -> FLASE .
 
-    IGUAL           shift and go to state 60
+    PAR_D           reduce using rule 24 (booleanos -> FLASE .)
+    $end            reduce using rule 24 (booleanos -> FLASE .)
+    LLAVE_D         reduce using rule 24 (booleanos -> FLASE .)
 
 
 state 39
 
-    (33) impresion -> PRINTLN PAR_I . valor PAR_D
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (33) impresion -> PRINT PAR_I valor . PAR_D
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    PAR_D           shift and go to state 56
 
-    valor                          shift and go to state 61
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 40
 
-    (34) impresion -> PRINT PAR_I . valor PAR_D
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (34) entrada -> READLINE PAR_I PAR_D .
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    $end            reduce using rule 34 (entrada -> READLINE PAR_I PAR_D .)
+    LLAVE_D         reduce using rule 34 (entrada -> READLINE PAR_I PAR_D .)
 
-    valor                          shift and go to state 67
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 41
 
-    (35) entrada -> READLINE PAR_I . PAR_D
+    (30) parametro -> VARIABLE .
+    (31) parametro -> VARIABLE . COMA parametro
 
-    PAR_D           shift and go to state 68
+    PAR_D           reduce using rule 30 (parametro -> VARIABLE .)
+    COMA            shift and go to state 57
 
 
 state 42
 
-    (30) funcion -> DEF VARIABLE PAR_I . parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D
-    (31) parametro -> . VARIABLE
-    (32) parametro -> . VARIABLE COMA parametro
+    (29) funcion -> DEF VARIABLE PAR_I parametro . PAR_D IGUAL LLAVE_I contenido LLAVE_D
 
-    VARIABLE        shift and go to state 69
+    PAR_D           shift and go to state 58
 
-    parametro                      shift and go to state 70
 
 state 43
 
-    (48) relacional -> VARIABLE comparacion VARIABLE .
+    (6) asignacion -> VAR VARIABLE IGUAL valor .
 
-    $end            reduce using rule 48 (relacional -> VARIABLE comparacion VARIABLE .)
+    $end            reduce using rule 6 (asignacion -> VAR VARIABLE IGUAL valor .)
+    LLAVE_D         reduce using rule 6 (asignacion -> VAR VARIABLE IGUAL valor .)
 
 
 state 44
 
-    (40) relacional -> VARIABLE comparacion numeros .
+    (10) declaracion -> VARIABLE DOBLE_PUNTO tipo .
 
-    $end            reduce using rule 40 (relacional -> VARIABLE comparacion numeros .)
+    IGUAL           reduce using rule 10 (declaracion -> VARIABLE DOBLE_PUNTO tipo .)
 
 
 state 45
 
-    (42) relacional -> VARIABLE comparacion booleanos .
+    (11) tipo -> CHARCLASS .
 
-    $end            reduce using rule 42 (relacional -> VARIABLE comparacion booleanos .)
+    IGUAL           reduce using rule 11 (tipo -> CHARCLASS .)
 
 
 state 46
 
-    (44) relacional -> VARIABLE comparacion STRING .
+    (12) tipo -> STRINGCLASS .
 
-    $end            reduce using rule 44 (relacional -> VARIABLE comparacion STRING .)
+    IGUAL           reduce using rule 12 (tipo -> STRINGCLASS .)
 
 
 state 47
 
-    (46) relacional -> VARIABLE comparacion CHAR .
+    (13) tipo -> BOOLCLASS .
 
-    $end            reduce using rule 46 (relacional -> VARIABLE comparacion CHAR .)
+    IGUAL           reduce using rule 13 (tipo -> BOOLCLASS .)
 
 
 state 48
 
-    (36) relacional -> numeros comparacion numeros .
+    (14) tipo -> INTCLASS .
 
-    $end            reduce using rule 36 (relacional -> numeros comparacion numeros .)
+    IGUAL           reduce using rule 14 (tipo -> INTCLASS .)
 
 
 state 49
 
-    (41) relacional -> numeros comparacion VARIABLE .
+    (15) tipo -> LONGCLASS .
 
-    $end            reduce using rule 41 (relacional -> numeros comparacion VARIABLE .)
+    IGUAL           reduce using rule 15 (tipo -> LONGCLASS .)
 
 
 state 50
 
-    (37) relacional -> booleanos comparacion booleanos .
+    (16) tipo -> DOUBLECLASS .
 
-    $end            reduce using rule 37 (relacional -> booleanos comparacion booleanos .)
+    IGUAL           reduce using rule 16 (tipo -> DOUBLECLASS .)
 
 
 state 51
 
-    (43) relacional -> booleanos comparacion VARIABLE .
+    (17) tipo -> FLOATCLASS .
 
-    $end            reduce using rule 43 (relacional -> booleanos comparacion VARIABLE .)
+    IGUAL           reduce using rule 17 (tipo -> FLOATCLASS .)
 
 
 state 52
 
-    (38) relacional -> STRING comparacion STRING .
+    (9) asignacion -> VAR declaracion IGUAL valor .
 
-    $end            reduce using rule 38 (relacional -> STRING comparacion STRING .)
+    $end            reduce using rule 9 (asignacion -> VAR declaracion IGUAL valor .)
+    LLAVE_D         reduce using rule 9 (asignacion -> VAR declaracion IGUAL valor .)
 
 
 state 53
 
-    (45) relacional -> STRING comparacion VARIABLE .
+    (7) asignacion -> VAL VARIABLE IGUAL valor .
 
-    $end            reduce using rule 45 (relacional -> STRING comparacion VARIABLE .)
+    $end            reduce using rule 7 (asignacion -> VAL VARIABLE IGUAL valor .)
+    LLAVE_D         reduce using rule 7 (asignacion -> VAL VARIABLE IGUAL valor .)
 
 
 state 54
 
-    (39) relacional -> CHAR comparacion CHAR .
+    (8) asignacion -> VAL declaracion IGUAL valor .
 
-    $end            reduce using rule 39 (relacional -> CHAR comparacion CHAR .)
+    $end            reduce using rule 8 (asignacion -> VAL declaracion IGUAL valor .)
+    LLAVE_D         reduce using rule 8 (asignacion -> VAL declaracion IGUAL valor .)
 
 
 state 55
 
-    (47) relacional -> CHAR comparacion VARIABLE .
+    (32) impresion -> PRINTLN PAR_I valor PAR_D .
 
-    $end            reduce using rule 47 (relacional -> CHAR comparacion VARIABLE .)
+    $end            reduce using rule 32 (impresion -> PRINTLN PAR_I valor PAR_D .)
+    LLAVE_D         reduce using rule 32 (impresion -> PRINTLN PAR_I valor PAR_D .)
 
 
 state 56
 
-    (7) asignacion -> VAR VARIABLE IGUAL . valor
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (33) impresion -> PRINT PAR_I valor PAR_D .
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    $end            reduce using rule 33 (impresion -> PRINT PAR_I valor PAR_D .)
+    LLAVE_D         reduce using rule 33 (impresion -> PRINT PAR_I valor PAR_D .)
 
-    valor                          shift and go to state 71
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 57
 
-    (11) declaracion -> VARIABLE DOBLE_PUNTO . tipo
-    (12) tipo -> . CHARCLASS
-    (13) tipo -> . STRINGCLASS
-    (14) tipo -> . BOOLCLASS
-    (15) tipo -> . INTCLASS
-    (16) tipo -> . LONGCLASS
-    (17) tipo -> . DOUBLECLASS
-    (18) tipo -> . FLOATCLASS
+    (31) parametro -> VARIABLE COMA . parametro
+    (30) parametro -> . VARIABLE
+    (31) parametro -> . VARIABLE COMA parametro
 
-    CHARCLASS       shift and go to state 73
-    STRINGCLASS     shift and go to state 74
-    BOOLCLASS       shift and go to state 75
-    INTCLASS        shift and go to state 76
-    LONGCLASS       shift and go to state 77
-    DOUBLECLASS     shift and go to state 78
-    FLOATCLASS      shift and go to state 79
+    VARIABLE        shift and go to state 41
 
-    tipo                           shift and go to state 72
+    parametro                      shift and go to state 59
 
 state 58
 
-    (10) asignacion -> VAR declaracion IGUAL . valor
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (29) funcion -> DEF VARIABLE PAR_I parametro PAR_D . IGUAL LLAVE_I contenido LLAVE_D
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    IGUAL           shift and go to state 60
 
-    valor                          shift and go to state 80
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 59
 
-    (8) asignacion -> VAL VARIABLE IGUAL . valor
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (31) parametro -> VARIABLE COMA parametro .
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    PAR_D           reduce using rule 31 (parametro -> VARIABLE COMA parametro .)
 
-    valor                          shift and go to state 81
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 60
 
-    (9) asignacion -> VAL declaracion IGUAL . valor
-    (19) valor -> . STRING
-    (20) valor -> . CHAR
-    (21) valor -> . VARIABLE
-    (22) valor -> . numeros
-    (23) valor -> . booleanos
-    (26) numeros -> . INT
-    (27) numeros -> . LONG
-    (28) numeros -> . FLOAT
-    (29) numeros -> . DOUBLE
-    (24) booleanos -> . TRUE
-    (25) booleanos -> . FLASE
+    (29) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL . LLAVE_I contenido LLAVE_D
 
-    STRING          shift and go to state 62
-    CHAR            shift and go to state 63
-    VARIABLE        shift and go to state 64
-    INT             shift and go to state 19
-    LONG            shift and go to state 20
-    FLOAT           shift and go to state 21
-    DOUBLE          shift and go to state 22
-    TRUE            shift and go to state 23
-    FLASE           shift and go to state 24
+    LLAVE_I         shift and go to state 61
 
-    valor                          shift and go to state 82
-    numeros                        shift and go to state 65
-    booleanos                      shift and go to state 66
 
 state 61
 
-    (33) impresion -> PRINTLN PAR_I valor . PAR_D
+    (29) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I . contenido LLAVE_D
+    (3) contenido -> . asignacion
+    (4) contenido -> . impresion
+    (5) contenido -> . entrada
+    (6) asignacion -> . VAR VARIABLE IGUAL valor
+    (7) asignacion -> . VAL VARIABLE IGUAL valor
+    (8) asignacion -> . VAL declaracion IGUAL valor
+    (9) asignacion -> . VAR declaracion IGUAL valor
+    (32) impresion -> . PRINTLN PAR_I valor PAR_D
+    (33) impresion -> . PRINT PAR_I valor PAR_D
+    (34) entrada -> . READLINE PAR_I PAR_D
 
-    PAR_D           shift and go to state 83
+    VAR             shift and go to state 8
+    VAL             shift and go to state 9
+    PRINTLN         shift and go to state 10
+    PRINT           shift and go to state 11
+    READLINE        shift and go to state 12
 
+    contenido                      shift and go to state 62
+    asignacion                     shift and go to state 4
+    impresion                      shift and go to state 5
+    entrada                        shift and go to state 6
 
 state 62
 
-    (19) valor -> STRING .
+    (29) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido . LLAVE_D
 
-    PAR_D           reduce using rule 19 (valor -> STRING .)
-    $end            reduce using rule 19 (valor -> STRING .)
-    LLAVE_D         reduce using rule 19 (valor -> STRING .)
+    LLAVE_D         shift and go to state 63
 
 
 state 63
 
-    (20) valor -> CHAR .
+    (29) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D .
 
-    PAR_D           reduce using rule 20 (valor -> CHAR .)
-    $end            reduce using rule 20 (valor -> CHAR .)
-    LLAVE_D         reduce using rule 20 (valor -> CHAR .)
-
-
-state 64
-
-    (21) valor -> VARIABLE .
-
-    PAR_D           reduce using rule 21 (valor -> VARIABLE .)
-    $end            reduce using rule 21 (valor -> VARIABLE .)
-    LLAVE_D         reduce using rule 21 (valor -> VARIABLE .)
-
-
-state 65
-
-    (22) valor -> numeros .
-
-    PAR_D           reduce using rule 22 (valor -> numeros .)
-    $end            reduce using rule 22 (valor -> numeros .)
-    LLAVE_D         reduce using rule 22 (valor -> numeros .)
-
-
-state 66
-
-    (23) valor -> booleanos .
-
-    PAR_D           reduce using rule 23 (valor -> booleanos .)
-    $end            reduce using rule 23 (valor -> booleanos .)
-    LLAVE_D         reduce using rule 23 (valor -> booleanos .)
-
-
-state 67
-
-    (34) impresion -> PRINT PAR_I valor . PAR_D
-
-    PAR_D           shift and go to state 84
-
-
-state 68
-
-    (35) entrada -> READLINE PAR_I PAR_D .
-
-    $end            reduce using rule 35 (entrada -> READLINE PAR_I PAR_D .)
-    LLAVE_D         reduce using rule 35 (entrada -> READLINE PAR_I PAR_D .)
-
-
-state 69
-
-    (31) parametro -> VARIABLE .
-    (32) parametro -> VARIABLE . COMA parametro
-
-    PAR_D           reduce using rule 31 (parametro -> VARIABLE .)
-    COMA            shift and go to state 85
-
-
-state 70
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro . PAR_D IGUAL LLAVE_I contenido LLAVE_D
-
-    PAR_D           shift and go to state 86
-
-
-state 71
-
-    (7) asignacion -> VAR VARIABLE IGUAL valor .
-
-    $end            reduce using rule 7 (asignacion -> VAR VARIABLE IGUAL valor .)
-    LLAVE_D         reduce using rule 7 (asignacion -> VAR VARIABLE IGUAL valor .)
-
-
-state 72
-
-    (11) declaracion -> VARIABLE DOBLE_PUNTO tipo .
-
-    IGUAL           reduce using rule 11 (declaracion -> VARIABLE DOBLE_PUNTO tipo .)
-
-
-state 73
-
-    (12) tipo -> CHARCLASS .
-
-    IGUAL           reduce using rule 12 (tipo -> CHARCLASS .)
-
-
-state 74
-
-    (13) tipo -> STRINGCLASS .
-
-    IGUAL           reduce using rule 13 (tipo -> STRINGCLASS .)
-
-
-state 75
-
-    (14) tipo -> BOOLCLASS .
-
-    IGUAL           reduce using rule 14 (tipo -> BOOLCLASS .)
-
-
-state 76
-
-    (15) tipo -> INTCLASS .
-
-    IGUAL           reduce using rule 15 (tipo -> INTCLASS .)
-
-
-state 77
-
-    (16) tipo -> LONGCLASS .
-
-    IGUAL           reduce using rule 16 (tipo -> LONGCLASS .)
-
-
-state 78
-
-    (17) tipo -> DOUBLECLASS .
-
-    IGUAL           reduce using rule 17 (tipo -> DOUBLECLASS .)
-
-
-state 79
-
-    (18) tipo -> FLOATCLASS .
-
-    IGUAL           reduce using rule 18 (tipo -> FLOATCLASS .)
-
-
-state 80
-
-    (10) asignacion -> VAR declaracion IGUAL valor .
-
-    $end            reduce using rule 10 (asignacion -> VAR declaracion IGUAL valor .)
-    LLAVE_D         reduce using rule 10 (asignacion -> VAR declaracion IGUAL valor .)
-
-
-state 81
-
-    (8) asignacion -> VAL VARIABLE IGUAL valor .
-
-    $end            reduce using rule 8 (asignacion -> VAL VARIABLE IGUAL valor .)
-    LLAVE_D         reduce using rule 8 (asignacion -> VAL VARIABLE IGUAL valor .)
-
-
-state 82
-
-    (9) asignacion -> VAL declaracion IGUAL valor .
-
-    $end            reduce using rule 9 (asignacion -> VAL declaracion IGUAL valor .)
-    LLAVE_D         reduce using rule 9 (asignacion -> VAL declaracion IGUAL valor .)
-
-
-state 83
-
-    (33) impresion -> PRINTLN PAR_I valor PAR_D .
-
-    $end            reduce using rule 33 (impresion -> PRINTLN PAR_I valor PAR_D .)
-    LLAVE_D         reduce using rule 33 (impresion -> PRINTLN PAR_I valor PAR_D .)
-
-
-state 84
-
-    (34) impresion -> PRINT PAR_I valor PAR_D .
-
-    $end            reduce using rule 34 (impresion -> PRINT PAR_I valor PAR_D .)
-    LLAVE_D         reduce using rule 34 (impresion -> PRINT PAR_I valor PAR_D .)
-
-
-state 85
-
-    (32) parametro -> VARIABLE COMA . parametro
-    (31) parametro -> . VARIABLE
-    (32) parametro -> . VARIABLE COMA parametro
-
-    VARIABLE        shift and go to state 69
-
-    parametro                      shift and go to state 87
-
-state 86
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro PAR_D . IGUAL LLAVE_I contenido LLAVE_D
-
-    IGUAL           shift and go to state 88
-
-
-state 87
-
-    (32) parametro -> VARIABLE COMA parametro .
-
-    PAR_D           reduce using rule 32 (parametro -> VARIABLE COMA parametro .)
-
-
-state 88
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL . LLAVE_I contenido LLAVE_D
-
-    LLAVE_I         shift and go to state 89
-
-
-state 89
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I . contenido LLAVE_D
-    (4) contenido -> . asignacion
-    (5) contenido -> . impresion
-    (6) contenido -> . entrada
-    (7) asignacion -> . VAR VARIABLE IGUAL valor
-    (8) asignacion -> . VAL VARIABLE IGUAL valor
-    (9) asignacion -> . VAL declaracion IGUAL valor
-    (10) asignacion -> . VAR declaracion IGUAL valor
-    (33) impresion -> . PRINTLN PAR_I valor PAR_D
-    (34) impresion -> . PRINT PAR_I valor PAR_D
-    (35) entrada -> . READLINE PAR_I PAR_D
-
-    VAR             shift and go to state 14
-    VAL             shift and go to state 15
-    PRINTLN         shift and go to state 16
-    PRINT           shift and go to state 17
-    READLINE        shift and go to state 18
-
-    contenido                      shift and go to state 90
-    asignacion                     shift and go to state 5
-    impresion                      shift and go to state 6
-    entrada                        shift and go to state 7
-
-state 90
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido . LLAVE_D
-
-    LLAVE_D         shift and go to state 91
-
-
-state 91
-
-    (30) funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D .
-
-    $end            reduce using rule 30 (funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D .)
+    $end            reduce using rule 29 (funcion -> DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D .)
 
