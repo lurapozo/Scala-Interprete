@@ -8,15 +8,19 @@ from lexen import tokens
 # Cuerpo
 def p_cuerpo(p):
   '''cuerpo : funcion
+  | impresion
+  | entrada
   | asignacion
   | while
   | for
+  | match
   | if
   | funcion cuerpo
   | asignacion cuerpo
   | while cuerpo
   | for cuerpo
-  | if cuerpo'''
+  | if cuerpo
+  | match cuerpo'''
 
 # Contenido de Funciones y de estructuras de control
 def p_contenido(p):
@@ -25,6 +29,7 @@ def p_contenido(p):
   | entrada
   | while
   | for
+  | match
   | if
   | aritmetica
   | asignacion contenido
@@ -33,7 +38,14 @@ def p_contenido(p):
   | while contenido
   | for contenido
   | if contenido
+  | match contenido
   | aritmetica contenido'''
+
+# Contendio para estrcutra match de una lienea 
+def p_contenidoLine(p):
+  '''contenidoLine : asignacion
+  | impresion
+  | entrada'''
 
 # Asignacion realizada por: Ramos Pozo
 def p_asignacion(p):
@@ -212,6 +224,7 @@ def p_valores(p):
 
 
 # Estructuras de Control
+
 # While realizada por: Ramos Pozo
 def p_while(p):
   '''while : WHILE PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D'''
@@ -224,6 +237,83 @@ def p_for(p):
   | FOR PAR_I VARIABLE ITERATOR INT UNTIL INT PAR_D LLAVE_I contenido LLAVE_D
   | FOR PAR_I VAR VARIABLE ITERATOR INT TO INT PAR_D LLAVE_I contenido LLAVE_D
   | FOR PAR_I VAR VARIABLE ITERATOR INT UNTIL INT PAR_D LLAVE_I contenido LLAVE_D'''
+
+# Match por Gabriel Maldonado
+def p_match(p):
+  '''match : VARIABLE MATCH  LLAVE_I cases LLAVE_D'''
+
+def p_cases(p):
+  '''cases : casesInt
+    | casesLgn
+    | casesFlt
+    | casesDob
+    | casesStr
+    | casesChar'''
+
+def p_caseInt(p):
+  '''caseInt : CASE INT FUNCION_FLECHA codeBlock'''
+
+def p_casesInt(p):
+  ''' casesInt : caseInt 
+      | caseInt casesInt
+      | caseInt defcase'''
+
+def p_caseLgn(p):
+  '''caseLgn : CASE LONG FUNCION_FLECHA codeBlock'''
+
+def p_casesLgn(p):
+  ''' casesLgn : caseLgn 
+      | caseLgn casesLgn
+      | caseLgn defcase'''
+
+def p_caseFlt(p):
+  '''caseFlt : CASE FLOAT FUNCION_FLECHA codeBlock'''
+
+def p_casesFlt(p):
+  ''' casesFlt : caseFlt 
+      | caseFlt casesFlt
+      | caseFlt defcase'''
+
+def p_caseDob(p):
+  '''caseDob : CASE DOUBLE FUNCION_FLECHA codeBlock'''
+
+def p_casesDob(p):
+  ''' casesDob : caseDob 
+      | caseDob casesDob
+      | caseDob defcase'''
+
+def p_caseStr(p):
+  '''caseStr : CASE STRING FUNCION_FLECHA codeBlock'''
+
+def p_casesStr(p):
+  ''' casesStr : caseStr
+      | caseStr casesStr
+      | caseStr defcase'''
+
+def p_caseChar(p):
+  '''caseChar : CASE CHAR FUNCION_FLECHA codeBlock'''
+
+def p_casesChar(p):
+  ''' casesChar : caseChar
+      | caseChar casesChar
+      | caseChar defcase'''
+
+def p_caseBool(p):
+  '''caseBool : CASE booleanos FUNCION_FLECHA codeBlock'''
+
+def p_casesBool(p):
+  ''' casesBool : caseBool
+      | caseBool casesBool
+      | caseBool defcase'''
+
+
+def p_defcase(p):
+  '''defcase : CASE SUBGUION FUNCION_FLECHA codeBlock'''
+
+def p_codeBlock(p):
+  ''' codeBlock : contenidoLine
+      | LLAVE_I contenido LLAVE_D'''
+
 #Condicion if por Juan Pisco
 def p_if(p):
   '''if : IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D
@@ -316,23 +406,21 @@ def validaRegla(s):
   print(result)
 
 probar = '''
-def funcion(entero: Int) (value: Float = 4.5f ):Float = {
-  while(true){
-      if(i != 1) {
-        println("Hola")
-      } else if(i<2) {
-        println("F")
-      } else {
+  def main()= {
+    println("Ingrese un numero: ")
+    val opt = "4"
+
+    opt match{
+      case "1" => print("1")
+      case "2" => print("2")
+      case "3" => print("3")
+      case "4" => {
+        println("Ingrese otro numero: ")
         readLine()
       }
-    readLine() 
-    readLine()
+      //case _ => print("Fuera de rango")
+    }
   }
-  for (var x <- c) {
-    println(1)
-  } 
-  return value
-}
 '''
 
 validaRegla(probar)

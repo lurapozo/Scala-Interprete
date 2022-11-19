@@ -14,6 +14,8 @@ object lexer {
     println("3. Float")
     println("4. Double")
     print("Opcion:  ")
+
+    
     val opt:Int = readLine().toInt
 
     opt match{
