@@ -42,6 +42,8 @@ reservadas = {
   "this": "THIS",
   "type": "TYPE",
   "yield": "YIELD",
+  "to": "TO",
+  "until": "UNTIL",
   "scala.io.StdIn.readLine": "LIBRERIA_IO",
 }
 

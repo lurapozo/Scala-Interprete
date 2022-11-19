@@ -11,10 +11,14 @@ def p_cuerpo(p):
   | funcionDefecto
   | asignacion
   | while
+  | for
+  | if
   | funcion cuerpo
   | funcionDefecto cuerpo
   | asignacion cuerpo
-  | while cuerpo'''
+  | while cuerpo
+  | for cuerpo
+  | if cuerpo'''
 
 # Contenido de Funciones y de estructuras de control
 def p_contenido(p):
@@ -22,14 +26,23 @@ def p_contenido(p):
   | impresion
   | entrada
   | while
+  | for
+  | if
+  | aritmetica
   | asignacion contenido
   | impresion contenido
   | entrada contenido
-  | while contenido'''
+  | while contenido
+  | for contenido
+  | if contenido
+  | aritmetica contenido'''
 
 # Asignacion realizada por: Ramos Pozo
 def p_asignacion(p):
   '''asignacion : VAR VARIABLE IGUAL VARIABLE
+  | VAL VARIABLE IGUAL VARIABLE
+  | VAR VARIABLE IGUAL aritmetica
+  | VAL VARIABLE IGUAL aritmetica
   | asignacionLong
   | asignacionInt
   | asignacionFloat
@@ -37,7 +50,8 @@ def p_asignacion(p):
   | asignacionString
   | asignacionChar
   | asignacionBoolean
-  | array'''
+  | array
+  | list'''
 
 def p_asignacionLong(p):
   '''asignacionLong : VAR VARIABLE IGUAL LONG
@@ -94,6 +108,7 @@ def p_asignacionBoolean(p):
   | VAL VARIABLE DOBLE_PUNTO BOOLCLASS IGUAL booleanos
   | VAR VARIABLE DOBLE_PUNTO BOOLCLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO BOOLCLASS IGUAL VARIABLE'''
+
 # Tipos de Datos realizado por: Ramos Pozo
 def p_tipo(p):
   '''tipo : CHARCLASS
@@ -122,7 +137,7 @@ def p_numeros(p):
   | DOUBLE'''
 
 
-# Definicion de funcion
+# Funcion sin retorno por Juan Pisco
 def p_funcion(p):
   'funcion : DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D'
 
@@ -142,6 +157,7 @@ def p_parametro(p):
 
 def p_declaracion(p):
   '''declaracion : VARIABLE DOBLE_PUNTO tipo'''
+
 # Impresion realziada por: Ramos Pozo
 def p_impresion(p):
   '''impresion : PRINTLN PAR_I valorI PAR_D
@@ -164,6 +180,13 @@ def p_array(p):
   | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS PAR_I valores PAR_D
   | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS CORCHETE_I tipo CORCHETE_D PAR_I INT PAR_D'''
 
+# List por Juan Pisco
+def p_list(p):
+  '''list : VAL VARIABLE IGUAL LISTCLASS PAR_I valores PAR_D
+  | VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I tipo CORCHETE_D IGUAL LISTCLASS PAR_I valores PAR_D'''
+
+
+
 def p_valores(p):
   '''valores : valor
   | valor COMA valores'''
@@ -174,6 +197,27 @@ def p_valores(p):
 def p_while(p):
   '''while : WHILE PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D'''
 
+# For por Juan Pisco
+def p_for(p):
+  '''for : FOR PAR_I VAR VARIABLE ITERATOR VARIABLE PAR_D LLAVE_I contenido LLAVE_D
+  | FOR PAR_I VARIABLE ITERATOR VARIABLE PAR_D LLAVE_I contenido LLAVE_D
+  | FOR PAR_I VARIABLE ITERATOR INT TO INT PAR_D LLAVE_I contenido LLAVE_D
+  | FOR PAR_I VARIABLE ITERATOR INT UNTIL INT PAR_D LLAVE_I contenido LLAVE_D
+  | FOR PAR_I VAR VARIABLE ITERATOR INT TO INT PAR_D LLAVE_I contenido LLAVE_D
+  | FOR PAR_I VAR VARIABLE ITERATOR INT UNTIL INT PAR_D LLAVE_I contenido LLAVE_D'''
+#Condicion if por Juan Pisco
+def p_if(p):
+  '''if : IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D
+  | if elseif
+  | if else
+  '''
+
+def p_elseif(p):
+  '''elseif : ELSE IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D'''
+
+def p_else(p):
+  '''else : ELSE LLAVE_I contenido LLAVE_D
+  | elseif else'''
 
 #Condicionales por Juan Pisco
 def p_condicional(p):
@@ -197,6 +241,9 @@ def p_logicos(p):
 #Comparaciones por Juan Pisco
 def p_relacional(p):
   '''relacional : numeros comparacion numeros
+  | aritmetica comparacion aritmetica
+  | aritmetica comparacion numeros
+  | numeros comparacion aritmetica
   | booleanos comparacion booleanos
   | STRING comparacion STRING
   | CHAR comparacion CHAR
@@ -216,8 +263,21 @@ def p_comparacion(p):
   | MAYOR
   | MENOR'''
 
+# Expresiones aritmeticas por Juan Pisco
+def p_aritmetica(p):
+  '''aritmetica : numeros aritmeticos numeros
+  | VARIABLE aritmeticos numeros
+  | numeros aritmeticos VARIABLE
+  | VARIABLE aritmeticos VARIABLE
+  | aritmetica aritmeticos numeros
+  | aritmetica aritmeticos VARIABLE'''
 
-
+def p_aritmeticos(p):
+  '''aritmeticos : MENOS
+  | MAS
+  | MULTIPLICACION
+  | DIVISION
+  | MOD'''
 
 def p_error(p):
   if p:
@@ -237,13 +297,24 @@ def validaRegla(s):
   print(result)
 
 probar = '''
-def funcion( i:Int) = {
+def funcion( i:Int = 8) = {
   while(true){
+      if(i != 1) {
+        println("Hola")
+      } else if(i<2) {
+        println("F")
+      } else {
+        readLine()
+      }
     readLine() 
     readLine()
+  }
+  for (var x <- c) {
+    println(1)
   } 
   var i:Int = 1
 }'''
+
 validaRegla(probar)
 while True:
   try:
