@@ -8,24 +8,30 @@ from lexen import tokens
 #6 Cuerpo
 def p_cuerpo(p):
   '''cuerpo : contenido
-  | funcion'''
-
+  | funcion
+  | funcionDefecto
+  | asignacion'''
 
 def p_contenido(p):
-  '''contenido : asignacion
+  '''contenido : contenidoControl
+  | while'''
+
+def p_contenidoControl(p):
+  '''contenidoControl : asignacion
   | impresion
   | entrada'''
-
 
 # Asignacion realizada por: Ramos Pozo
 def p_asignacion(p):
   '''asignacion : VAR VARIABLE IGUAL valor
   | VAL VARIABLE IGUAL valor
   | VAL declaracion IGUAL valor
-  | VAR declaracion IGUAL valor'''
+  | VAR declaracion IGUAL valor
+  | array'''
 
 def p_declaracion(p):
   '''declaracion : VARIABLE DOBLE_PUNTO tipo'''
+
 
 # Tipos de Datos realizado por: Ramos Pozo
 def p_tipo(p):
@@ -54,26 +60,58 @@ def p_numeros(p):
   | FLOAT
   | DOUBLE'''
 
+
 # Definicion de funcion
 def p_funcion(p):
   'funcion : DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D'
 
+# Funcion con valores por defecto realizada por: Ramos Pozo
+def p_funcionDefecto(p):
+  '''funcionDefecto : DEF VARIABLE parametroDefecto IGUAL LLAVE_I contenido LLAVE_D
+  '''
+
+def p_parametroDefecto(p):
+  '''parametroDefecto : PAR_I parametro IGUAL valor PAR_D
+  | PAR_I parametro IGUAL valor PAR_D parametroDefecto'''
+
+
 def p_parametro(p):
-  '''parametro : VARIABLE
-  | VARIABLE COMA parametro'''
+  '''parametro : declaracion
+  | declaracion COMA parametro'''
 
 
-# Impresion
+# Impresion realziada por: Ramos Pozo
 def p_impresion(p):
-  '''impresion : PRINTLN PAR_I valor PAR_D
-  | PRINT PAR_I valor PAR_D'''
+  '''impresion : PRINTLN PAR_I valorI PAR_D
+  | PRINT PAR_I valorI PAR_D'''
+
+def p_valorI(p):
+  '''valorI : valor MAS valorI
+  | valor'''
 
 
-# Entrada de datos
+# Entrada de datos realizada por: Ramos Pozo
 def p_entrada(p):
   '''entrada : READLINE PAR_I PAR_D'''
 
+
 # Estructura de Datos
+#Array realizado por: Ramos Pozo
+def p_array(p):
+  '''array : VAR VARIABLE IGUAL ARRAYCLASS PAR_I valores PAR_D
+  | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS PAR_I valores PAR_D
+  | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS CORCHETE_I tipo CORCHETE_D PAR_I INT PAR_D'''
+
+def p_valores(p):
+  '''valores : valor
+  | valor COMA valores'''
+
+
+# Estructuras de Control
+# While realizada por: Ramos Pozo
+def p_while(p):
+  '''while : WHILE PAR_I condicional PAR_D LLAVE_I contenidoControl LLAVE_D'''
+
 
 #Condicionales por Juan Pisco
 def p_condicional(p):
@@ -92,6 +130,8 @@ def p_logicos(p):
   '''logicos : AND
   | OR
   | NOT'''
+
+
 #Comparaciones por Juan Pisco
 def p_relacional(p):
   '''relacional : numeros comparacion numeros
@@ -113,6 +153,9 @@ def p_comparacion(p):
   | DIFERENTE
   | MAYOR
   | MENOR'''
+
+
+
 
 def p_error(p):
   if p:
