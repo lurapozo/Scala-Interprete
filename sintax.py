@@ -8,13 +8,11 @@ from lexen import tokens
 # Cuerpo
 def p_cuerpo(p):
   '''cuerpo : funcion
-  | funcionDefecto
   | asignacion
   | while
   | for
   | if
   | funcion cuerpo
-  | funcionDefecto cuerpo
   | asignacion cuerpo
   | while cuerpo
   | for cuerpo
@@ -137,26 +135,47 @@ def p_numeros(p):
   | DOUBLE'''
 
 
-# Funcion sin retorno por Juan Pisco
+# Funciones sin retorno por Juan Pisco
 def p_funcion(p):
-  'funcion : DEF VARIABLE PAR_I parametro PAR_D IGUAL LLAVE_I contenido LLAVE_D'
-
-# Funcion con valores por defecto realizada por: Ramos Pozo
-def p_funcionDefecto(p):
-  '''funcionDefecto : DEF VARIABLE parametroDefecto IGUAL LLAVE_I contenido LLAVE_D
-  '''
-
-def p_parametroDefecto(p):
-  '''parametroDefecto : PAR_I parametro IGUAL valor PAR_D
-  | PAR_I parametro IGUAL valor PAR_D parametroDefecto'''
+  'funcion : DEF VARIABLE  parametro  IGUAL LLAVE_I contenido LLAVE_D'
 
 
-def p_parametro(p):
-  '''parametro : declaracion
-  | declaracion COMA parametro'''
-
+# Funciones con valores por defecto realizada por: Ramos Pozo
 def p_declaracion(p):
   '''declaracion : VARIABLE DOBLE_PUNTO tipo'''
+
+def p_declaracion_defecto(p):
+  '''declaracion :  VARIABLE DOBLE_PUNTO tipo IGUAL valor '''
+
+def p_parametro(p):
+  '''parametro : parametros
+  | PAR_I PAR_D '''
+
+def p_parametros(p):
+  '''parametros : PAR_I declaracion PAR_D 
+    | PAR_I declaracion PAR_D parametros'''
+
+
+#Funcion con retorno realizada por Gabriel Maldonado
+def p_funcion_return(p):
+  '''funcion : DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN valor LLAVE_D '''
+
+def p_funcion_returnTupla(p):
+  '''funcion : DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN valor LLAVE_D '''
+
+def p_dectipo(p):
+  '''dectipo : DOBLE_PUNTO tipo '''
+
+def p_dectipoTupla(p):
+  '''dectipoTupla : DOBLE_PUNTO PAR_I tipos PAR_D'''
+
+def p_tipos(p):
+  '''tipos : tipo
+    | tipo tiposentry'''
+
+def p_tipoentry(p):
+  '''tiposentry : COMA tipo 
+  | COMA tipo tiposentry'''
 
 # Impresion realziada por: Ramos Pozo
 def p_impresion(p):
@@ -297,7 +316,7 @@ def validaRegla(s):
   print(result)
 
 probar = '''
-def funcion( i:Int = 8) = {
+def funcion(entero: Int) (value: Float = 4.5f ):Float = {
   while(true){
       if(i != 1) {
         println("Hola")
@@ -312,10 +331,12 @@ def funcion( i:Int = 8) = {
   for (var x <- c) {
     println(1)
   } 
-  var i:Int = 1
-}'''
+  return value
+}
+'''
 
 validaRegla(probar)
+'''
 while True:
   try:
     s = input('calc > ')
@@ -323,3 +344,4 @@ while True:
     break
   if not s: continue
   validaRegla(s)
+'''
