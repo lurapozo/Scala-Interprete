@@ -8,6 +8,7 @@ from lexen import tokens
 # Cuerpo
 def p_cuerpo(p):
   '''cuerpo : funcion
+  | funcall
   | impresion
   | entrada
   | asignacion
@@ -25,6 +26,8 @@ def p_cuerpo(p):
 # Contenido de Funciones y de estructuras de control
 def p_contenido(p):
   '''contenido : asignacion
+  | reasignacion
+  | funcall
   | impresion
   | entrada
   | while
@@ -33,6 +36,8 @@ def p_contenido(p):
   | if
   | aritmetica
   | asignacion contenido
+  | reasignacion contenido
+  | funcall contenido
   | impresion contenido
   | entrada contenido
   | while contenido
@@ -44,6 +49,8 @@ def p_contenido(p):
 # Contendio para estrcutra match de una lienea 
 def p_contenidoLine(p):
   '''contenidoLine : asignacion
+  | reasignacion
+  | funcall
   | impresion
   | entrada'''
 
@@ -53,6 +60,8 @@ def p_asignacion(p):
   | VAL VARIABLE IGUAL VARIABLE
   | VAR VARIABLE IGUAL aritmetica
   | VAL VARIABLE IGUAL aritmetica
+  | VAR VARIABLE IGUAL returnfun
+  | VAL VARIABLE IGUAL returnfun
   | asignacionLong
   | asignacionInt
   | asignacionFloat
@@ -119,6 +128,11 @@ def p_asignacionBoolean(p):
   | VAR VARIABLE DOBLE_PUNTO BOOLCLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO BOOLCLASS IGUAL VARIABLE'''
 
+# Reasignacion de valor a variable por Gabriel Maldonado
+def p_reasignacion(p):
+  '''reasignacion :  VARIABLE IGUAL valor
+      | VARIABLE IGUAL returnfun'''
+
 # Tipos de Datos realizado por: Ramos Pozo
 def p_tipo(p):
   '''tipo : CHARCLASS
@@ -170,10 +184,14 @@ def p_parametros(p):
 
 #Funcion con retorno realizada por Gabriel Maldonado
 def p_funcion_return(p):
-  '''funcion : DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN valor LLAVE_D '''
+  '''funcion : DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN valor LLAVE_D 
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN VARIABLE LLAVE_D
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN returnfun LLAVE_D'''
 
 def p_funcion_returnTupla(p):
-  '''funcion : DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN valor LLAVE_D '''
+  '''funcion : DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN tuple LLAVE_D
+      | DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN VARIABLE LLAVE_D 
+      | DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN returnfun LLAVE_D'''
 
 def p_dectipo(p):
   '''dectipo : DOBLE_PUNTO tipo '''
@@ -189,6 +207,7 @@ def p_tipoentry(p):
   '''tiposentry : COMA tipo 
   | COMA tipo tiposentry'''
 
+
 # Impresion realziada por: Ramos Pozo
 def p_impresion(p):
   '''impresion : PRINTLN PAR_I valorI PAR_D
@@ -203,6 +222,31 @@ def p_valorI(p):
 def p_entrada(p):
   '''entrada : READLINE PAR_I PAR_D'''
 
+#Llamadas a funciones por : Gabriel Maldonado
+def p_funcall(p):
+  '''funcall : VARIABLE PAR_I valores PAR_D
+    | VARIABLE PAR_I  PAR_D'''
+
+def p_returnfun(p):
+  ''' returnfun : returnCastable
+      | castingcall'''
+
+def p_returnCastable(p):
+  '''returnCastable : entrada
+      | funcall'''
+  
+# Funciones casting por : Gabriel Maldonado
+
+def p_castingcall(p):
+  '''castingcall : returnCastable PUNTO castingfun
+      | VARIABLE PUNTO castingfun'''
+
+
+def p_castingfun(p):
+  '''castingfun : TO_INT
+    | TO_DOUBLE
+    | TO_FLOAT
+    | TO_LONG'''
 
 # Estructura de Datos
 #Array realizado por: Ramos Pozo
@@ -217,11 +261,21 @@ def p_list(p):
   | VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I tipo CORCHETE_D IGUAL LISTCLASS PAR_I valores PAR_D'''
 
 
-
 def p_valores(p):
   '''valores : valor
   | valor COMA valores'''
 
+# Tuple por Gabriel Maldonado
+def p_tuple(p): 
+  '''tuple : PAR_I valores PAR_D'''
+
+def p_asignacion_tuple(p):
+  '''asignacion : VAR VARIABLE IGUAL tuple 
+      | VAL VARIABLE IGUAL tuple'''
+
+def p_asignacion_tupleDec(p):
+  '''asignacion : VAR VARIABLE dectipoTupla IGUAL tuple 
+      | VAL VARIABLE dectipoTupla IGUAL tuple'''
 
 # Estructuras de Control
 
@@ -248,7 +302,8 @@ def p_cases(p):
     | casesFlt
     | casesDob
     | casesStr
-    | casesChar'''
+    | casesChar
+    | casesBool'''
 
 def p_caseInt(p):
   '''caseInt : CASE INT FUNCION_FLECHA codeBlock'''
@@ -406,20 +461,34 @@ def validaRegla(s):
   print(result)
 
 probar = '''
-  def main()= {
-    println("Ingrese un numero: ")
-    val opt = "4"
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+    val aaa = aaa.toInt
 
     opt match{
-      case "1" => print("1")
-      case "2" => print("2")
-      case "3" => print("3")
-      case "4" => {
-        println("Ingrese otro numero: ")
-        readLine()
-      }
-      //case _ => print("Fuera de rango")
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
     }
+
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+
   }
 '''
 

@@ -19,10 +19,10 @@ object lexer {
     val opt:Int = readLine().toInt
 
     opt match{
-      case 1 => value.toInt
-      case 2 => value.toLong
-      case 3 => value.toFloat
-      case 4 => value.toDouble
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
     }
 
     val tupla: (String , Double) = (constante , value)
