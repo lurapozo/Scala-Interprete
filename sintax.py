@@ -4,7 +4,12 @@ from lexen import tokens
 
 #Crear las siguientes reglas
 
+def p_inicio(p):
+  ''' inicio : OBJECT VARIABLE LLAVE_I cuerpo LLAVE_D
+  | IMPORT io inicio'''
 
+def p_io(p):
+  ''' io : VARIABLE PUNTO VARIABLE PUNTO VARIABLE PUNTO READLINE'''
 # Cuerpo
 def p_cuerpo(p):
   '''cuerpo : funcion
@@ -142,14 +147,18 @@ def p_tipo(p):
   | INTCLASS
   | LONGCLASS
   | DOUBLECLASS
-  | FLOATCLASS'''
+  | FLOATCLASS
+  | ARRAYCLASS CORCHETE_I tipo CORCHETE_D
+  | LISTCLASS CORCHETE_I tipo CORCHETE_D'''
 
 def p_valor(p):
   '''valor : STRING
   | CHAR
   | VARIABLE
   | numeros
-  | booleanos'''
+  | booleanos
+  | VARIABLE PAR_I VARIABLE PAR_D
+  | VARIABLE PAR_I INT PAR_D'''
 
 def p_booleanos(p):
   '''booleanos : TRUE
@@ -188,7 +197,14 @@ def p_parametros(p):
 def p_funcion_return(p):
   '''funcion : DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN valor LLAVE_D 
     | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN VARIABLE LLAVE_D
-    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN returnfun LLAVE_D'''
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN returnfun LLAVE_D
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I contenido RETURN aritmetica LLAVE_D'''
+
+def p_funcion_return_vacia(p):
+  '''funcion : DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I RETURN valor LLAVE_D 
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I RETURN VARIABLE LLAVE_D
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I RETURN returnfun LLAVE_D
+    | DEF VARIABLE  parametro  dectipo IGUAL LLAVE_I RETURN aritmetica LLAVE_D'''
 
 def p_funcion_returnTupla(p):
   '''funcion : DEF VARIABLE  parametro  dectipoTupla IGUAL LLAVE_I contenido RETURN tuple LLAVE_D
@@ -226,8 +242,13 @@ def p_entrada(p):
 
 #Llamadas a funciones por : Gabriel Maldonado
 def p_funcall(p):
-  '''funcall : VARIABLE PAR_I valores PAR_D
-    | VARIABLE PAR_I  PAR_D'''
+  '''funcall : VARIABLE varparen'''
+
+def p_varparen(p):
+  ''' varparen : PAR_I valores PAR_D
+  | PAR_I PAR_D
+  | varparen PAR_I valores PAR_D
+  | varparen PAR_I PAR_D'''
 
 def p_returnfun(p):
   ''' returnfun : returnCastable
@@ -467,34 +488,10 @@ def validaRegla(s):
   result = parser.parse(s)
   print(result)
 
-probar = '''
-  def ingreseConstante(constante:String) {
-    if(primero == segundo){
-      println("Los numeros ingresados son iguales!")
-    }
-    else if(primero > segundo){
-      println("El primer numero es mayor que el segundo!")
-    }
-    else if(primero < segundo){
-      println("El primer numero es menor que el segundo!")
-    }
-
-    if (suma % 2 != 0){
-      println("La suma de ambos valores da un valor impar")
-    }
-    else {
-      println("La suma de ambos valores da un valor par")
-    }
-  }
-'''
-
-validaRegla(probar)
-'''
-while True:
-  try:
-    s = input('calc > ')
-  except EOFError:
-    break
-  if not s: continue
-  validaRegla(s)
-'''
+print('21-11-2022 15:26')
+print('')
+file = open("source.scala")
+archivo = file.read()
+file.close()
+validaRegla(archivo)
+print('--------------------------------------------------')

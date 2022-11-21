@@ -16,7 +16,7 @@ object lexer {
     print("Opcion:  ")
 
     
-    val opt:Int = readLine().toInt
+    val opt = readLine().toInt
 
     opt match{
       case 1 => value = value.toInt
@@ -45,7 +45,7 @@ object lexer {
     array(0) = "hola"
     arreglo(1) = 4
     var i = 0
-    var arreglo2 = arreglo.reverse
+    //var arreglo2 = arreglo.reverse
     while (i<3) {
       println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
       i = i + 1
@@ -94,9 +94,9 @@ object lexer {
     val entero = 1
     val caracter = 'd'
 
-    val tupla: (String , Double) = ingreseConstante("pi")
+    val tupla = ingreseConstante("pi")
     
-    println(tupla._1 + " " + tupla._2)
+    //println(tupla._1 + " " + tupla._2)
     funcionDeArreglos()
     funcionPisco()
   }
