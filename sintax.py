@@ -164,7 +164,8 @@ def p_numeros(p):
 
 # Funciones sin retorno por Juan Pisco
 def p_funcion(p):
-  'funcion : DEF VARIABLE  parametro  IGUAL LLAVE_I contenido LLAVE_D'
+  '''funcion : DEF VARIABLE parametro IGUAL LLAVE_I contenido LLAVE_D
+  | DEF VARIABLE parametro LLAVE_I contenido LLAVE_D'''
 
 
 # Funciones con valores por defecto realizada por: Ramos Pozo
@@ -382,7 +383,8 @@ def p_if(p):
   '''
 
 def p_elseif(p):
-  '''elseif : ELSE IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D'''
+  '''elseif : ELSE IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D
+  | ELSE IF PAR_I condicional PAR_D LLAVE_I contenido LLAVE_D elseif'''
 
 def p_else(p):
   '''else : ELSE LLAVE_I contenido LLAVE_D
@@ -466,34 +468,23 @@ def validaRegla(s):
   print(result)
 
 probar = '''
-  def ingreseConstante(constante:String) : (String , Double) = {
-
-    print("Ingrese constante: ")
-    var value = readLine().toDouble
-
-    println("Escoja el tipo de numero al que persenese la constante: ")
-    println("1.Int ")
-    println("2.Long ")
-    println("3. Float")
-    println("4. Double")
-    print("Opcion:  ")
-
-    
-    val opt = readLine().toInt
-    val aaa = aaa.toInt
-
-    opt match{
-      case 1 => value = value.toInt
-      case 2 =>  value = value.toLong
-      case 3 =>  value = value.toFloat
-      case 4 =>  value = value.toDouble
+  def ingreseConstante(constante:String) {
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
     }
 
-
-    val tupla: (String , Double) = (constante , value)
-
-    return tupla
-
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
   }
 '''
 
