@@ -241,30 +241,56 @@ def t_COMMENT(t):
   pass
 
 
+output = ""
+
+
 def t_error(t):
+  global output
   print("Illegal character '%s'" % t.value[0])
+  lastout = output
+  output = lastout + "Illegal character " + t.value[0] + "\n"
   t.lexer.skip(1)
 
 
-#Constuxion del lex
 lexer = lex()
+
+def getTokens(lexer):
+  global output
+  output = ""
+
+  for tok in lexer:
+    lastout = output
+    output = lastout + str(tok) + "\n"
+
+
+def prosesarLexico(data):
+    global output
+    global lexer
+
+    #Lea el archivo input del usuario
+    
+    lexer.input(data)
+    getTokens(lexer)
+
+    return output
 
 
 '''
-def getTokens(lexer):
-  for tok in lexer:
-    print(tok)
-
-
-
 #Lectura de archivo
 print('Mi primer Lexer')
 file = open("source.scala")
 archivo = file.read()
 file.close()
-lexer.input(archivo)
-getTokens(lexer)
+    
+print(prosesar(archivo))
+'''
 
+
+
+
+
+
+'''
 print('Mi primer Lexer')
 while True:
   linea = input(">")

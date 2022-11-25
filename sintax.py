@@ -471,27 +471,43 @@ def p_aritmeticos(p):
   | DIVISION
   | MOD'''
 
+
+output = ""
+
 def p_error(p):
+
+  global output
+
   if p:
     print(
       f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}"
     )
+    
+    output += f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos} \n"
+
     parser.errok()
   else:
     print("Error de sintaxis Fin de Linea")
+    output += "Error de sintaxis Fin de Linea \n"
+
 
 
 # Build the parser
 parser = yacc()
 
-def validaRegla(s):
-  result = parser.parse(s)
-  print(result)
+def prosesarSintax(data):
+  global parser
+  global output
 
-print('21-11-2022 15:26')
-print('')
+  result = parser.parse(data)
+
+
+  return output + str(result)
+
+
+
 file = open("source.scala")
 archivo = file.read()
 file.close()
-validaRegla(archivo)
+print( parser.parse(archivo))
 print('--------------------------------------------------')
