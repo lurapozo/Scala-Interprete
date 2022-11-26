@@ -350,16 +350,16 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: LONGCLASS, Línea: 15, Col: 262 
-Error de sintaxis - Token: PAR_D, Línea: 15, Col: 267 
-Error de sintaxis - Token: IGUAL, Línea: 15, Col: 269 
-Error de sintaxis - Token: PAR_I, Línea: 15, Col: 271 
-Error de sintaxis - Token: LONG, Línea: 15, Col: 272 
-Error de sintaxis - Token: COMA, Línea: 15, Col: 277 
-Error de sintaxis - Token: LONG, Línea: 15, Col: 279 
-Error de sintaxis - Token: PAR_D, Línea: 15, Col: 282 
-Error de sintaxis - Token: LLAVE_D, Línea: 16, Col: 286 
-Error de sintaxis - Token: LLAVE_D, Línea: 17, Col: 288 
+Error de sintaxis - Token: LONGCLASS, Lï¿½nea: 15, Col: 262 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 15, Col: 267 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 15, Col: 269 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 15, Col: 271 
+Error de sintaxis - Token: LONG, Lï¿½nea: 15, Col: 272 
+Error de sintaxis - Token: COMA, Lï¿½nea: 15, Col: 277 
+Error de sintaxis - Token: LONG, Lï¿½nea: 15, Col: 279 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 15, Col: 282 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 16, Col: 286 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 17, Col: 288 
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
@@ -378,10 +378,10 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: FLOAT, Línea: 24, Col: 281 
-Error de sintaxis - Token: PAR_D, Línea: 24, Col: 285 
-Error de sintaxis - Token: LLAVE_D, Línea: 25, Col: 289 
-Error de sintaxis - Token: LLAVE_D, Línea: 26, Col: 291 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 24, Col: 281 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 24, Col: 285 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 25, Col: 289 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 26, Col: 291 
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
@@ -400,10 +400,10 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: COMA, Línea: 33, Col: 269 
-Error de sintaxis - Token: FLOATCLASS, Línea: 33, Col: 271 
-Error de sintaxis - Token: COMA, Línea: 33, Col: 293 
-Error de sintaxis - Token: FLOAT, Línea: 33, Col: 295 
+Error de sintaxis - Token: COMA, Lï¿½nea: 33, Col: 269 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 33, Col: 271 
+Error de sintaxis - Token: COMA, Lï¿½nea: 33, Col: 293 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 33, Col: 295 
 None
 --------------------------------------------------
 
@@ -421,11 +421,11 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: COMA, Línea: 42, Col: 269 
-Error de sintaxis - Token: FLOATCLASS, Línea: 42, Col: 271 
-Error de sintaxis - Token: VARIABLE, Línea: 42, Col: 281 
-Error de sintaxis - Token: LLAVE_D, Línea: 43, Col: 289 
-Error de sintaxis - Token: LLAVE_D, Línea: 44, Col: 291 
+Error de sintaxis - Token: COMA, Lï¿½nea: 42, Col: 269 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 42, Col: 271 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 42, Col: 281 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 43, Col: 289 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 44, Col: 291 
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------

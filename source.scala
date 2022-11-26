@@ -26,7 +26,7 @@ object lexer {
       case 4 =>  value = value.toDouble
     }
 
-    val tupla: (String , Double) = (constante , value)
+    val tupla: (String , Double) = ("Hola" , 5.5)
 
     return tupla
   

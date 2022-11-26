@@ -304,9 +304,7 @@ def p_asignacion_tuple(p):
   '''asignacion : VAR VARIABLE IGUAL tuple 
       | VAL VARIABLE IGUAL tuple'''
 
-def p_asignacion_tupleDec(p):
-  '''asignacion : VAR VARIABLE dectipoTupla IGUAL tuple 
-      | VAL VARIABLE dectipoTupla IGUAL tuple'''
+
 
 # Estructuras de Control
 
@@ -477,6 +475,47 @@ def p_aritmeticos(p):
 
 # Analisis Semantico
 
+# Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
+def p_asignacion_tupla(p):
+  '''asignacion : VAR VARIABLE DOBLE_PUNTO  dectupla
+      | VAL VARIABLE DOBLE_PUNTO dectupla '''
+
+def p_dectupla_strOther(p):
+  '''dectupla : PAR_I STRINGCLASS COMA INTCLASS PAR_D IGUAL PAR_I STRING COMA INT PAR_D
+              | PAR_I STRINGCLASS COMA LONGCLASS PAR_D IGUAL PAR_I STRING COMA LONG PAR_D
+              | PAR_I STRINGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I STRING COMA DOUBLE PAR_D
+              | PAR_I STRINGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I STRING COMA FLOAT PAR_D '''
+
+def p_dectupla_floatOther(p):
+  '''dectupla : PAR_I FLOATCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I FLOAT COMA STRING PAR_D
+              | PAR_I FLOATCLASS COMA LONGCLASS PAR_D IGUAL PAR_I FLOAT COMA LONG PAR_D
+              | PAR_I FLOATCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I FLOAT COMA DOUBLE PAR_D
+              | PAR_I FLOATCLASS COMA  INTCLASS PAR_D IGUAL PAR_I FLOAT COMA INT PAR_D '''
+
+def p_dectupla_doubleOther(p):
+  '''dectupla : PAR_I DOUBLECLASS COMA STRINGCLASS PAR_D IGUAL PAR_I DOUBLE COMA STRING PAR_D
+              | PAR_I DOUBLECLASS COMA LONGCLASS PAR_D IGUAL PAR_I DOUBLE COMA LONG PAR_D
+              | PAR_I DOUBLECLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I DOUBLE COMA FLOAT PAR_D
+              | PAR_I DOUBLECLASS COMA  INTCLASS PAR_D IGUAL PAR_I DOUBLE COMA INT PAR_D '''
+
+def p_dectupla_longOther(p):
+  '''dectupla : PAR_I LONGCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I LONG COMA STRING PAR_D
+              | PAR_I LONGCLASS COMA INTCLASS PAR_D IGUAL PAR_I LONG COMA INT PAR_D
+              | PAR_I LONGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I LONG COMA DOUBLE PAR_D
+              | PAR_I LONGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I LONG COMA FLOAT  PAR_D '''
+
+def p_dectupla_intOther(p):
+  '''dectupla : PAR_I INTCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I INT COMA STRING PAR_D
+              | PAR_I INTCLASS COMA LONGCLASS PAR_D IGUAL PAR_I INT COMA LONG PAR_D
+              | PAR_I INTCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I INT COMA DOUBLE PAR_D
+              | PAR_I INTCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I INT COMA FLOAT PAR_D '''
+
+
+
+
+
+
+
 
 def p_error(p):
 
@@ -498,17 +537,18 @@ def p_error(p):
 parser = yacc()
 
 def prosesarSintax(data):
-  
   global parser
   global output
+
+  parser = yacc()
+  
   output = ""
   result = parser.parse(data)
 
   #Output guardado en log.txt
   log = open("log.txt", "a")
   current_dateTime = datetime.now()
-
-  print()
+  
   log.write("\nFecha y hora: " + str(current_dateTime) +"\n")
   log.write("\nInput: \n")
   log.write(data)
@@ -517,11 +557,13 @@ def prosesarSintax(data):
   log.write('\n--------------------------------------------------\n')
   log.close()
   return output + str(result)
+  
 
 
-
+'''
 file = open("source.scala")
 archivo = file.read()
 file.close()
 print( prosesarSintax(archivo))
 print('--------------------------------------------------')
+'''

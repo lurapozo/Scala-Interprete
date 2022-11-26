@@ -39,23 +39,24 @@ def iniciarInterfase():
     output.config(state= DISABLED)
 
     def getLexen():
-
-
         output.config(state= NORMAL)
         borrar(output)
 
-        data = cuadro.get("1.0", "end")
+        data1 = ""
+        data1 = cuadro.get("1.0", "end")
         
-        output.insert("end", prosesarLexico(data))
+        output.insert("end", prosesarLexico(data1))
         output.config(state= DISABLED)
     
+
     def getSintax():
         output.config(state= NORMAL)
         borrar(output)
 
-        data = cuadro.get("1.0", "end")
+        data2 = ""
+        data2 = cuadro.get("1.0", "end")
         
-        output.insert("end", prosesarSintax(data))
+        output.insert("end", prosesarSintax(data2))
         output.config(state= DISABLED)
 
     

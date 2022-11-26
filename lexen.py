@@ -99,7 +99,7 @@ def t_FLOAT(t):
 
 
 def t_DOUBLE(t):
-  r'\d*\.\d+?'
+  r'\d*\.\d+'
 
   t.value = float(t.value)
   return t
@@ -273,7 +273,7 @@ def prosesarLexico(data):
     
     lexer.input(data)
     getTokens(lexer)
-
+    
     return output
 
 
