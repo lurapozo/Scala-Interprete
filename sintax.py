@@ -491,7 +491,6 @@ def p_error(p):
     output += "Error de sintaxis Fin de Linea \n"
 
 
-
 # Build the parser
 parser = yacc()
 
@@ -501,7 +500,12 @@ def prosesarSintax(data):
 
   result = parser.parse(data)
 
-
+  #Output guardado en log.txt
+  log = open("log.txt", "a")
+  log.write("\nFecha yyyy/mm/dd\n")
+  log.write(output)
+  log.write('\n--------------------------------------------------\n')
+  log.close()
   return output + str(result)
 
 
