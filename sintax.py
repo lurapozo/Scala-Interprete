@@ -3,6 +3,9 @@ from ply.lex import *
 from lexen import tokens
 from lexen import output
 
+from datetime import datetime
+
+
 #Crear las siguientes reglas
 
 def p_inicio(p):
@@ -503,8 +506,14 @@ def prosesarSintax(data):
 
   #Output guardado en log.txt
   log = open("log.txt", "a")
-  log.write("\nFecha yyyy/mm/dd\n")
-  log.write(output)
+  current_dateTime = datetime.now()
+
+  print()
+  log.write("\nFecha y hora: " + str(current_dateTime) +"\n")
+  log.write("\nInput: \n")
+  log.write(data)
+  log.write("\nOutput: \n")
+  log.write(output + str(result))
   log.write('\n--------------------------------------------------\n')
   log.close()
   return output + str(result)
