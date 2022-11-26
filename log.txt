@@ -2388,3 +2388,208 @@ object lexer {
 Output: 
 None
 --------------------------------------------------
+
+Fecha y hora: 2022-11-26 16:24:31.151312
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = ("Hola" , 5.5)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 16:24:35.787571
+
+Input: 
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = 500
+    var long2 : Long = 4584l
+
+    var float1 : Float = 300
+    var float2 : Float = 4584l
+    var float3 : Float = 5478.54f
+
+    var double1 : Double = 457
+    var double2 : Double = 7854l
+    var double3 : Double = 547.845f
+    var double4 : Double = 5574.548  
+  }
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 16:25:05.850002
+
+Input: 
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = 500
+    var long2 : Long = 4584.54f
+
+    var float1 : Float = 300
+    var float2 : Float = 4584l
+    var float3 : Float = 5478.54
+
+    var double1 : Double = 457
+    var double2 : Double = 7854l
+    var double3 : Double = 547.845f
+    var double4 : Double = 5574.548  
+  }
+}
+
+Output: 
+Error de sintaxis - Token: FLOAT, Línea: 126, Col: 101 
+Error de sintaxis - Token: VAR, Línea: 128, Col: 115 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 128, Col: 126 
+Error de sintaxis - Token: FLOATCLASS, Línea: 128, Col: 128 
+Error de sintaxis - Token: IGUAL, Línea: 128, Col: 134 
+Error de sintaxis - Token: VAR, Línea: 129, Col: 144 
+Error de sintaxis - Token: VARIABLE, Línea: 129, Col: 148 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 129, Col: 155 
+Error de sintaxis - Token: FLOATCLASS, Línea: 129, Col: 157 
+Error de sintaxis - Token: IGUAL, Línea: 129, Col: 163 
+Error de sintaxis - Token: LONG, Línea: 129, Col: 165 
+Error de sintaxis - Token: VAR, Línea: 130, Col: 175 
+Error de sintaxis - Token: VARIABLE, Línea: 130, Col: 179 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 130, Col: 186 
+Error de sintaxis - Token: FLOATCLASS, Línea: 130, Col: 188 
+Error de sintaxis - Token: IGUAL, Línea: 130, Col: 194 
+Error de sintaxis - Token: DOUBLE, Línea: 130, Col: 196 
+Error de sintaxis - Token: VAR, Línea: 132, Col: 209 
+Error de sintaxis - Token: VARIABLE, Línea: 132, Col: 213 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 132, Col: 221 
+Error de sintaxis - Token: DOUBLECLASS, Línea: 132, Col: 223 
+Error de sintaxis - Token: IGUAL, Línea: 132, Col: 230 
+Error de sintaxis - Token: INT, Línea: 132, Col: 232 
+Error de sintaxis - Token: VAR, Línea: 133, Col: 240 
+Error de sintaxis - Token: VARIABLE, Línea: 133, Col: 244 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 133, Col: 252 
+Error de sintaxis - Token: DOUBLECLASS, Línea: 133, Col: 254 
+Error de sintaxis - Token: IGUAL, Línea: 133, Col: 261 
+Error de sintaxis - Token: LONG, Línea: 133, Col: 263 
+Error de sintaxis - Token: VAR, Línea: 134, Col: 273 
+Error de sintaxis - Token: VARIABLE, Línea: 134, Col: 277 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 134, Col: 285 
+Error de sintaxis - Token: DOUBLECLASS, Línea: 134, Col: 287 
+Error de sintaxis - Token: IGUAL, Línea: 134, Col: 294 
+Error de sintaxis - Token: FLOAT, Línea: 134, Col: 296 
+Error de sintaxis - Token: VAR, Línea: 135, Col: 309 
+Error de sintaxis - Token: VARIABLE, Línea: 135, Col: 313 
+Error de sintaxis - Token: DOBLE_PUNTO, Línea: 135, Col: 321 
+Error de sintaxis - Token: DOUBLECLASS, Línea: 135, Col: 323 
+Error de sintaxis - Token: IGUAL, Línea: 135, Col: 330 
+Error de sintaxis - Token: DOUBLE, Línea: 135, Col: 332 
+Error de sintaxis - Token: LLAVE_D, Línea: 136, Col: 345 
+Error de sintaxis - Token: LLAVE_D, Línea: 137, Col: 347 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------

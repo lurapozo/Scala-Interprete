@@ -10,7 +10,10 @@ from datetime import datetime
 
 def p_inicio(p):
   ''' inicio : OBJECT VARIABLE LLAVE_I cuerpo LLAVE_D
-  | IMPORT io inicio'''
+  | IMPORT io inicio
+  | cuerpo
+  '''
+  
 
 def p_io(p):
   ''' io : VARIABLE PUNTO VARIABLE PUNTO VARIABLE PUNTO READLINE'''
@@ -82,11 +85,7 @@ def p_asignacion(p):
   | list'''
 
 def p_asignacionLong(p):
-  '''asignacionLong : VAR VARIABLE IGUAL LONG
-  | VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL LONG
-  | VAL VARIABLE IGUAL LONG
-  | VAL VARIABLE DOBLE_PUNTO LONGCLASS IGUAL LONG
-  | VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL VARIABLE
+  '''asignacionLong :  VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO LONGCLASS IGUAL VARIABLE'''
   
 def p_asignacionInt(p):
@@ -98,19 +97,11 @@ def p_asignacionInt(p):
   | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE'''
 
 def p_asignacionFloat(p):
-  '''asignacionFloat : VAR VARIABLE IGUAL FLOAT
-  | VAR VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL FLOAT
-  | VAL VARIABLE IGUAL FLOAT
-  | VAL VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL FLOAT
-  | VAR VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL VARIABLE
+  '''asignacionFloat : VAR VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL VARIABLE'''
 
 def p_asignacionDouble(p):
-  '''asignacionDouble : VAR VARIABLE IGUAL DOUBLE
-  | VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL DOUBLE
-  | VAL VARIABLE IGUAL DOUBLE
-  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL DOUBLE
-  | VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE
+  '''asignacionDouble : VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE'''
 
 def p_asignacionString(p):
@@ -479,46 +470,6 @@ def p_arrayInt(p):
   '''arrayInt : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I INTCLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresInt PAR_D
   '''
 
-# Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
-def p_asignacion_tupla(p):
-  '''asignacion : VAR VARIABLE DOBLE_PUNTO  dectupla
-      | VAL VARIABLE DOBLE_PUNTO dectupla '''
-
-def p_dectupla_strOther(p):
-  '''dectupla : PAR_I STRINGCLASS COMA INTCLASS PAR_D IGUAL PAR_I STRING COMA INT PAR_D
-              | PAR_I STRINGCLASS COMA LONGCLASS PAR_D IGUAL PAR_I STRING COMA LONG PAR_D
-              | PAR_I STRINGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I STRING COMA DOUBLE PAR_D
-              | PAR_I STRINGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I STRING COMA FLOAT PAR_D '''
-
-def p_dectupla_floatOther(p):
-  '''dectupla : PAR_I FLOATCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I FLOAT COMA STRING PAR_D
-              | PAR_I FLOATCLASS COMA LONGCLASS PAR_D IGUAL PAR_I FLOAT COMA LONG PAR_D
-              | PAR_I FLOATCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I FLOAT COMA DOUBLE PAR_D
-              | PAR_I FLOATCLASS COMA  INTCLASS PAR_D IGUAL PAR_I FLOAT COMA INT PAR_D '''
-
-def p_dectupla_doubleOther(p):
-  '''dectupla : PAR_I DOUBLECLASS COMA STRINGCLASS PAR_D IGUAL PAR_I DOUBLE COMA STRING PAR_D
-              | PAR_I DOUBLECLASS COMA LONGCLASS PAR_D IGUAL PAR_I DOUBLE COMA LONG PAR_D
-              | PAR_I DOUBLECLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I DOUBLE COMA FLOAT PAR_D
-              | PAR_I DOUBLECLASS COMA  INTCLASS PAR_D IGUAL PAR_I DOUBLE COMA INT PAR_D '''
-
-def p_dectupla_longOther(p):
-  '''dectupla : PAR_I LONGCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I LONG COMA STRING PAR_D
-              | PAR_I LONGCLASS COMA INTCLASS PAR_D IGUAL PAR_I LONG COMA INT PAR_D
-              | PAR_I LONGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I LONG COMA DOUBLE PAR_D
-              | PAR_I LONGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I LONG COMA FLOAT  PAR_D '''
-
-def p_dectupla_intOther(p):
-  '''dectupla : PAR_I INTCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I INT COMA STRING PAR_D
-              | PAR_I INTCLASS COMA LONGCLASS PAR_D IGUAL PAR_I INT COMA LONG PAR_D
-              | PAR_I INTCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I INT COMA DOUBLE PAR_D
-              | PAR_I INTCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I INT COMA FLOAT PAR_D '''
-
-
-
-
-
-
 
 def p_arrayDouble(p):
   '''arrayDouble : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I DOUBLECLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresDouble PAR_D'''
@@ -530,6 +481,76 @@ def p_valoresInt(p):
 def p_valoresDouble(p):
   '''valoresDouble : DOUBLE
   | valoresDouble COMA DOUBLE'''
+
+
+# Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
+def p_asignacion_tupla(p):
+  '''asignacion : VAR VARIABLE DOBLE_PUNTO  dectupla
+      | VAL VARIABLE DOBLE_PUNTO dectupla '''
+
+def p_dectupla_strOther(p):
+  '''dectupla : PAR_I STRINGCLASS COMA INTCLASS PAR_D IGUAL PAR_I STRING COMA INT PAR_D
+  | PAR_I STRINGCLASS COMA LONGCLASS PAR_D IGUAL PAR_I STRING COMA LONG PAR_D
+  | PAR_I STRINGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I STRING COMA DOUBLE PAR_D
+  | PAR_I STRINGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I STRING COMA FLOAT PAR_D '''
+
+def p_dectupla_floatOther(p):
+  '''dectupla : PAR_I FLOATCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I FLOAT COMA STRING PAR_D
+  | PAR_I FLOATCLASS COMA LONGCLASS PAR_D IGUAL PAR_I FLOAT COMA LONG PAR_D
+  | PAR_I FLOATCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I FLOAT COMA DOUBLE PAR_D
+  | PAR_I FLOATCLASS COMA  INTCLASS PAR_D IGUAL PAR_I FLOAT COMA INT PAR_D '''
+
+def p_dectupla_doubleOther(p):
+  '''dectupla : PAR_I DOUBLECLASS COMA STRINGCLASS PAR_D IGUAL PAR_I DOUBLE COMA STRING PAR_D
+  | PAR_I DOUBLECLASS COMA LONGCLASS PAR_D IGUAL PAR_I DOUBLE COMA LONG PAR_D
+  | PAR_I DOUBLECLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I DOUBLE COMA FLOAT PAR_D
+  | PAR_I DOUBLECLASS COMA  INTCLASS PAR_D IGUAL PAR_I DOUBLE COMA INT PAR_D '''
+
+def p_dectupla_longOther(p):
+  '''dectupla : PAR_I LONGCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I LONG COMA STRING PAR_D
+  | PAR_I LONGCLASS COMA INTCLASS PAR_D IGUAL PAR_I LONG COMA INT PAR_D
+  | PAR_I LONGCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I LONG COMA DOUBLE PAR_D
+  | PAR_I LONGCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I LONG COMA FLOAT  PAR_D '''
+
+def p_dectupla_intOther(p):
+  '''dectupla : PAR_I INTCLASS COMA STRINGCLASS PAR_D IGUAL PAR_I INT COMA STRING PAR_D
+  | PAR_I INTCLASS COMA LONGCLASS PAR_D IGUAL PAR_I INT COMA LONG PAR_D
+  | PAR_I INTCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I INT COMA DOUBLE PAR_D
+  | PAR_I INTCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I INT COMA FLOAT PAR_D '''
+
+
+#Casting automantico para asignacion de variables por Gabriel Maldonado
+def p_asignacionLong_cast(p):
+  '''asignacionLong : VAR VARIABLE IGUAL longvalues
+  | VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL longvalues
+  | VAL VARIABLE IGUAL longvalues
+  | VAL VARIABLE DOBLE_PUNTO LONGCLASS IGUAL longvalues'''
+
+def p_longvalues(p):
+  '''longvalues : INT
+  | LONG'''
+
+
+def p_asignacionFloat_cast(p):
+  '''asignacionFloat : VAR VARIABLE IGUAL floatvalues
+  | VAR VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL floatvalues
+  | VAL VARIABLE IGUAL floatvalues
+  | VAL VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL floatvalues''' 
+
+def p_floatvalues(p):
+  '''floatvalues : FLOAT
+  | longvalues'''
+
+def p_asignacionDouble_cast(p):
+  '''asignacionDouble : VAR VARIABLE IGUAL doublevalues
+  | VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL doublevalues
+  | VAL VARIABLE IGUAL doublevalues
+  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL doublevalues'''
+
+def p_doublevalues(p):
+  '''doublevalues : DOUBLE
+  | floatvalues'''
+
 
 def p_error(p):
 
@@ -562,7 +583,7 @@ def prosesarSintax(data):
   #Output guardado en log.txt
   log = open("log.txt", "a")
   current_dateTime = datetime.now()
-  
+  '''
   log.write("\nFecha y hora: " + str(current_dateTime) +"\n")
   log.write("\nInput: \n")
   log.write(data)
@@ -570,14 +591,14 @@ def prosesarSintax(data):
   log.write(output + str(result))
   log.write('\n--------------------------------------------------\n')
   log.close()
+  '''
   return output + str(result)
   
 
 
-'''
+
 file = open("source.scala")
 archivo = file.read()
 file.close()
 print( prosesarSintax(archivo))
 print('--------------------------------------------------')
-'''

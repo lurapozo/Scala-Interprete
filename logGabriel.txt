@@ -429,3 +429,96 @@ Error de sintaxis - Token: LLAVE_D, L�nea: 44, Col: 291
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
+
+
+Fecha y hora: 2022-11-26 16:24:35.787571
+
+Input: 
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = 500
+    var long2 : Long = 4584l
+
+    var float1 : Float = 300
+    var float2 : Float = 4584l
+    var float3 : Float = 5478.54f
+
+    var double1 : Double = 457
+    var double2 : Double = 7854l
+    var double3 : Double = 547.845f
+    var double4 : Double = 5574.548  
+  }
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 16:25:05.850002
+
+Input: 
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = 500
+    var long2 : Long = 4584.54f
+
+    var float1 : Float = 300
+    var float2 : Float = 4584l
+    var float3 : Float = 5478.54
+
+    var double1 : Double = 457
+    var double2 : Double = 7854l
+    var double3 : Double = 547.845f
+    var double4 : Double = 5574.548  
+  }
+}
+
+Output: 
+Error de sintaxis - Token: FLOAT, L�nea: 126, Col: 101 
+Error de sintaxis - Token: VAR, L�nea: 128, Col: 115 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 128, Col: 126 
+Error de sintaxis - Token: FLOATCLASS, L�nea: 128, Col: 128 
+Error de sintaxis - Token: IGUAL, L�nea: 128, Col: 134 
+Error de sintaxis - Token: VAR, L�nea: 129, Col: 144 
+Error de sintaxis - Token: VARIABLE, L�nea: 129, Col: 148 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 129, Col: 155 
+Error de sintaxis - Token: FLOATCLASS, L�nea: 129, Col: 157 
+Error de sintaxis - Token: IGUAL, L�nea: 129, Col: 163 
+Error de sintaxis - Token: LONG, L�nea: 129, Col: 165 
+Error de sintaxis - Token: VAR, L�nea: 130, Col: 175 
+Error de sintaxis - Token: VARIABLE, L�nea: 130, Col: 179 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 130, Col: 186 
+Error de sintaxis - Token: FLOATCLASS, L�nea: 130, Col: 188 
+Error de sintaxis - Token: IGUAL, L�nea: 130, Col: 194 
+Error de sintaxis - Token: DOUBLE, L�nea: 130, Col: 196 
+Error de sintaxis - Token: VAR, L�nea: 132, Col: 209 
+Error de sintaxis - Token: VARIABLE, L�nea: 132, Col: 213 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 132, Col: 221 
+Error de sintaxis - Token: DOUBLECLASS, L�nea: 132, Col: 223 
+Error de sintaxis - Token: IGUAL, L�nea: 132, Col: 230 
+Error de sintaxis - Token: INT, L�nea: 132, Col: 232 
+Error de sintaxis - Token: VAR, L�nea: 133, Col: 240 
+Error de sintaxis - Token: VARIABLE, L�nea: 133, Col: 244 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 133, Col: 252 
+Error de sintaxis - Token: DOUBLECLASS, L�nea: 133, Col: 254 
+Error de sintaxis - Token: IGUAL, L�nea: 133, Col: 261 
+Error de sintaxis - Token: LONG, L�nea: 133, Col: 263 
+Error de sintaxis - Token: VAR, L�nea: 134, Col: 273 
+Error de sintaxis - Token: VARIABLE, L�nea: 134, Col: 277 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 134, Col: 285 
+Error de sintaxis - Token: DOUBLECLASS, L�nea: 134, Col: 287 
+Error de sintaxis - Token: IGUAL, L�nea: 134, Col: 294 
+Error de sintaxis - Token: FLOAT, L�nea: 134, Col: 296 
+Error de sintaxis - Token: VAR, L�nea: 135, Col: 309 
+Error de sintaxis - Token: VARIABLE, L�nea: 135, Col: 313 
+Error de sintaxis - Token: DOBLE_PUNTO, L�nea: 135, Col: 321 
+Error de sintaxis - Token: DOUBLECLASS, L�nea: 135, Col: 323 
+Error de sintaxis - Token: IGUAL, L�nea: 135, Col: 330 
+Error de sintaxis - Token: DOUBLE, L�nea: 135, Col: 332 
+Error de sintaxis - Token: LLAVE_D, L�nea: 136, Col: 345 
+Error de sintaxis - Token: LLAVE_D, L�nea: 137, Col: 347 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
