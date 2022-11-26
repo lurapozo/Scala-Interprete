@@ -1,6 +1,7 @@
 from ply.yacc import *
 from ply.lex import *
 from lexen import tokens
+from lexen import output
 
 #Crear las siguientes reglas
 
@@ -471,8 +472,8 @@ def p_aritmeticos(p):
   | DIVISION
   | MOD'''
 
+# Analisis Semantico
 
-output = ""
 
 def p_error(p):
 
@@ -482,10 +483,9 @@ def p_error(p):
     print(
       f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}"
     )
-    
     output += f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos} \n"
-
     parser.errok()
+    
   else:
     print("Error de sintaxis Fin de Linea")
     output += "Error de sintaxis Fin de Linea \n"
@@ -496,9 +496,10 @@ def p_error(p):
 parser = yacc()
 
 def prosesarSintax(data):
+  
   global parser
   global output
-
+  output = ""
   result = parser.parse(data)
 
 
@@ -509,5 +510,5 @@ def prosesarSintax(data):
 file = open("source.scala")
 archivo = file.read()
 file.close()
-print( parser.parse(archivo))
+print( prosesarSintax(archivo))
 print('--------------------------------------------------')

@@ -1,5 +1,6 @@
 import scala.io.StdIn.readLine
 //Lenguaje usado: Scala 2.13
+
 object lexer {
 
   //Algoritmo Gabriel Maldonado
@@ -28,7 +29,7 @@ object lexer {
     val tupla: (String , Double) = (constante , value)
 
     return tupla
-
+  
   }
 
   //Algoritmos hecho por Ramos Pozo

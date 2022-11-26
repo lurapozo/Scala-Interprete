@@ -251,8 +251,8 @@ def t_error(t):
   output = lastout + "Illegal character " + t.value[0] + "\n"
   t.lexer.skip(1)
 
-
 lexer = lex()
+
 
 def getTokens(lexer):
   global output
@@ -266,6 +266,8 @@ def getTokens(lexer):
 def prosesarLexico(data):
     global output
     global lexer
+
+    lexer = lex()
 
     #Lea el archivo input del usuario
     
