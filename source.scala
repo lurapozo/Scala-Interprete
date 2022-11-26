@@ -42,6 +42,8 @@ object lexer {
     var sum = suma(primero)()
     println("Numero ingresado + 7 = "  + sum)
     var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1)
+
     var array:Array[String] = new Array[String](1)
     array(0) = "hola"
     arreglo(1) = 4

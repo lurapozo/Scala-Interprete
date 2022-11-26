@@ -279,11 +279,11 @@ def p_castingfun(p):
 #Array realizado por: Ramos Pozo
 def p_array(p):
   '''array : VAR VARIABLE IGUAL ARRAYCLASS PAR_I valores PAR_D
-  | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS PAR_I valores PAR_D
   | VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL NEW ARRAYCLASS CORCHETE_I tipo CORCHETE_D PAR_I INT PAR_D
   | VAL VARIABLE IGUAL ARRAYCLASS PAR_I valores PAR_D
-  | VAL VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL ARRAYCLASS PAR_I valores PAR_D
-  | VAL VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL NEW ARRAYCLASS CORCHETE_I tipo CORCHETE_D PAR_I INT PAR_D'''
+  | VAL VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I tipo CORCHETE_D IGUAL NEW ARRAYCLASS CORCHETE_I tipo CORCHETE_D PAR_I INT PAR_D
+  | arrayInt
+  | arrayDouble'''
 
 # List por Juan Pisco
 def p_list(p):
@@ -476,7 +476,21 @@ def p_aritmeticos(p):
   | MOD'''
 
 # Analisis Semantico
+#Argumentos para Array realizado por: Ramos Pozo
+def p_arrayInt(p):
+  '''arrayInt : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I INTCLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresInt PAR_D
+  '''
 
+def p_arrayDouble(p):
+  '''arrayDouble : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I DOUBLECLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresDouble PAR_D'''
+
+def p_valoresInt(p):
+  '''valoresInt : INT
+  | valoresInt COMA INT'''
+
+def p_valoresDouble(p):
+  '''valoresDouble : DOUBLE
+  | valoresDouble COMA DOUBLE'''
 
 def p_error(p):
 
