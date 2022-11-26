@@ -11,6 +11,114 @@ object lexer {
   }
 }
 
+
+Fecha y hora: 2022-11-25 22:15:53.035510
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
 Output: 
 None
 --------------------------------------------------
@@ -27,6 +135,113 @@ object lexer {
   }
 }
 
+Fecha y hora: 2022-11-25 22:15:55.554404
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
 Output: 
 None
 --------------------------------------------------
@@ -43,6 +258,113 @@ object lexer {
   }
 }
 
+Fecha y hora: 2022-11-25 22:16:16.139483
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
 Output: 
 None
 --------------------------------------------------
@@ -63,6 +385,381 @@ object lexer {
   }
 }
 
+Fecha y hora: 2022-11-25 22:16:38.856350
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Int] = Array(1.1,2.1,3.1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 45, Col: 1081 
+Error de sintaxis - Token: COMA, Lï¿½nea: 45, Col: 1084 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 45, Col: 1085 
+Error de sintaxis - Token: COMA, Lï¿½nea: 45, Col: 1088 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 45, Col: 1089 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 45, Col: 1092 
+Error de sintaxis - Token: VAR, Lï¿½nea: 47, Col: 1099 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 47, Col: 1103 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 47, Col: 1108 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1109 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1114 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1115 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1121 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 47, Col: 1123 
+Error de sintaxis - Token: NEW, Lï¿½nea: 47, Col: 1125 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1129 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1134 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1135 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1141 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 47, Col: 1142 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-25 22:16:45.681727
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Int] = Array(1.1,2.1,'s')
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 45, Col: 1081 
+Error de sintaxis - Token: COMA, Lï¿½nea: 45, Col: 1084 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 45, Col: 1085 
+Error de sintaxis - Token: COMA, Lï¿½nea: 45, Col: 1088 
+Error de sintaxis - Token: CHAR, Lï¿½nea: 45, Col: 1089 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 45, Col: 1092 
+Error de sintaxis - Token: VAR, Lï¿½nea: 47, Col: 1099 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 47, Col: 1103 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 47, Col: 1108 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1109 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1114 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1115 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1121 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 47, Col: 1123 
+Error de sintaxis - Token: NEW, Lï¿½nea: 47, Col: 1125 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1129 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1134 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1135 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1141 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 47, Col: 1142 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-25 22:17:12.440481
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
 Output: 
 None
 --------------------------------------------------
@@ -79,6 +776,809 @@ object lexer {
   }
 }
 
+Fecha y hora: 2022-11-25 22:17:18.560618
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1, 1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+Error de sintaxis - Token: INT, Lï¿½nea: 45, Col: 1093 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 45, Col: 1094 
+Error de sintaxis - Token: VAR, Lï¿½nea: 47, Col: 1101 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 47, Col: 1105 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 47, Col: 1110 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1111 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1116 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1117 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1123 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 47, Col: 1125 
+Error de sintaxis - Token: NEW, Lï¿½nea: 47, Col: 1127 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1131 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1136 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1137 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1143 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 47, Col: 1144 
+Error de sintaxis - Token: INT, Lï¿½nea: 47, Col: 1145 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 47, Col: 1146 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 48, Col: 1152 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 48, Col: 1157 
+Error de sintaxis - Token: INT, Lï¿½nea: 48, Col: 1158 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 48, Col: 1159 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 48, Col: 1161 
+Error de sintaxis - Token: STRING, Lï¿½nea: 48, Col: 1163 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 49, Col: 1174 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 49, Col: 1181 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1182 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 49, Col: 1183 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 49, Col: 1185 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1187 
+Error de sintaxis - Token: VAR, Lï¿½nea: 50, Col: 1193 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 50, Col: 1197 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 50, Col: 1199 
+Error de sintaxis - Token: INT, Lï¿½nea: 50, Col: 1201 
+Error de sintaxis - Token: WHILE, Lï¿½nea: 52, Col: 1244 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 52, Col: 1250 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 52, Col: 1251 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 52, Col: 1252 
+Error de sintaxis - Token: INT, Lï¿½nea: 52, Col: 1253 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 52, Col: 1254 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 52, Col: 1256 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 53, Col: 1264 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1271 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1272 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1301 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1303 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1305 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1307 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1313 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1315 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1323 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1324 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1325 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1326 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1334 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 54, Col: 1336 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1338 
+Error de sintaxis - Token: MAS, Lï¿½nea: 54, Col: 1340 
+Error de sintaxis - Token: INT, Lï¿½nea: 54, Col: 1342 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 55, Col: 1348 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 56, Col: 1352 
+Error de sintaxis - Token: DEF, Lï¿½nea: 58, Col: 1397 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 58, Col: 1401 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 58, Col: 1413 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 58, Col: 1414 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 58, Col: 1416 
+Error de sintaxis - Token: VAL, Lï¿½nea: 59, Col: 1422 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 59, Col: 1426 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 59, Col: 1431 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1432 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 59, Col: 1436 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 59, Col: 1437 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 59, Col: 1443 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 59, Col: 1445 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1447 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 59, Col: 1451 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1452 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1461 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1462 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1471 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1472 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 59, Col: 1481 
+Error de sintaxis - Token: VAL, Lï¿½nea: 60, Col: 1487 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 60, Col: 1491 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 60, Col: 1501 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 60, Col: 1503 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 60, Col: 1507 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1508 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1509 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1510 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1511 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1512 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 60, Col: 1513 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 61, Col: 1519 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 61, Col: 1526 
+Error de sintaxis - Token: STRING, Lï¿½nea: 61, Col: 1527 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 61, Col: 1546 
+Error de sintaxis - Token: FOR, Lï¿½nea: 62, Col: 1552 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 62, Col: 1556 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1557 
+Error de sintaxis - Token: ITERATOR, Lï¿½nea: 62, Col: 1559 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1562 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 62, Col: 1567 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 62, Col: 1569 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 63, Col: 1577 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 63, Col: 1584 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 63, Col: 1585 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 63, Col: 1586 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 64, Col: 1592 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 65, Col: 1598 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 65, Col: 1603 
+Error de sintaxis - Token: STRING, Lï¿½nea: 65, Col: 1604 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 65, Col: 1624 
+Error de sintaxis - Token: VAR, Lï¿½nea: 66, Col: 1630 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 66, Col: 1634 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 66, Col: 1642 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 66, Col: 1644 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 66, Col: 1652 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 66, Col: 1653 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 66, Col: 1654 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 66, Col: 1655 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 67, Col: 1665 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 67, Col: 1670 
+Error de sintaxis - Token: STRING, Lï¿½nea: 67, Col: 1671 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 67, Col: 1694 
+Error de sintaxis - Token: VAR, Lï¿½nea: 68, Col: 1700 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 68, Col: 1704 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 68, Col: 1712 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 68, Col: 1714 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 68, Col: 1722 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 68, Col: 1723 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 68, Col: 1724 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 68, Col: 1725 
+Error de sintaxis - Token: VAR, Lï¿½nea: 69, Col: 1735 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1739 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 69, Col: 1744 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1746 
+Error de sintaxis - Token: MAS, Lï¿½nea: 69, Col: 1754 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1756 
+Error de sintaxis - Token: VAR, Lï¿½nea: 70, Col: 1768 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1772 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 70, Col: 1778 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1780 
+Error de sintaxis - Token: MULTIPLICACION, Lï¿½nea: 70, Col: 1788 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1790 
+Error de sintaxis - Token: VAR, Lï¿½nea: 71, Col: 1802 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1806 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 71, Col: 1811 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1813 
+Error de sintaxis - Token: DIVISION, Lï¿½nea: 71, Col: 1821 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1823 
+Error de sintaxis - Token: VAR, Lï¿½nea: 72, Col: 1835 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1839 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 72, Col: 1845 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1847 
+Error de sintaxis - Token: MENOS, Lï¿½nea: 72, Col: 1855 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1857 
+Error de sintaxis - Token: IF, Lï¿½nea: 73, Col: 1869 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 73, Col: 1871 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1872 
+Error de sintaxis - Token: IGUAL_COMPARACION, Lï¿½nea: 73, Col: 1880 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1883 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 73, Col: 1890 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 73, Col: 1891 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 74, Col: 1899 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 74, Col: 1906 
+Error de sintaxis - Token: STRING, Lï¿½nea: 74, Col: 1907 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 74, Col: 1944 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 75, Col: 1950 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 76, Col: 1956 
+Error de sintaxis - Token: IF, Lï¿½nea: 76, Col: 1961 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 76, Col: 1963 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1964 
+Error de sintaxis - Token: MAYOR, Lï¿½nea: 76, Col: 1972 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1974 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 76, Col: 1981 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 76, Col: 1982 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 77, Col: 1990 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 77, Col: 1997 
+Error de sintaxis - Token: STRING, Lï¿½nea: 77, Col: 1998 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 77, Col: 2041 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 78, Col: 2047 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 79, Col: 2053 
+Error de sintaxis - Token: IF, Lï¿½nea: 79, Col: 2058 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 79, Col: 2060 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2061 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 79, Col: 2069 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2071 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 79, Col: 2078 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 79, Col: 2079 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 80, Col: 2087 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 80, Col: 2094 
+Error de sintaxis - Token: STRING, Lï¿½nea: 80, Col: 2095 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 80, Col: 2138 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 81, Col: 2144 
+Error de sintaxis - Token: IF, Lï¿½nea: 83, Col: 2151 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 83, Col: 2154 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 83, Col: 2155 
+Error de sintaxis - Token: MOD, Lï¿½nea: 83, Col: 2160 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2162 
+Error de sintaxis - Token: DIFERENTE, Lï¿½nea: 83, Col: 2164 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2167 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 83, Col: 2168 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 83, Col: 2169 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 84, Col: 2177 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 84, Col: 2184 
+Error de sintaxis - Token: STRING, Lï¿½nea: 84, Col: 2185 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 84, Col: 2229 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 85, Col: 2235 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 86, Col: 2241 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 86, Col: 2246 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 87, Col: 2254 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 87, Col: 2261 
+Error de sintaxis - Token: STRING, Lï¿½nea: 87, Col: 2262 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 87, Col: 2304 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 88, Col: 2310 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 90, Col: 2315 
+Error de sintaxis - Token: DEF, Lï¿½nea: 92, Col: 2320 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2324 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 92, Col: 2328 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2329 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 92, Col: 2333 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 92, Col: 2335 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 92, Col: 2340 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 92, Col: 2341 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 92, Col: 2347 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 92, Col: 2348 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 92, Col: 2350 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 92, Col: 2352 
+Error de sintaxis - Token: VAL, Lï¿½nea: 93, Col: 2358 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 93, Col: 2362 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 93, Col: 2368 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 93, Col: 2370 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 93, Col: 2375 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-25 22:17:25.376329
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1, 'c')
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+Error de sintaxis - Token: CHAR, Lï¿½nea: 45, Col: 1093 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 45, Col: 1096 
+Error de sintaxis - Token: VAR, Lï¿½nea: 47, Col: 1103 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 47, Col: 1107 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 47, Col: 1112 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1113 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1118 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1119 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1125 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 47, Col: 1127 
+Error de sintaxis - Token: NEW, Lï¿½nea: 47, Col: 1129 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1133 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1138 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1139 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1145 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 47, Col: 1146 
+Error de sintaxis - Token: INT, Lï¿½nea: 47, Col: 1147 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 47, Col: 1148 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 48, Col: 1154 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 48, Col: 1159 
+Error de sintaxis - Token: INT, Lï¿½nea: 48, Col: 1160 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 48, Col: 1161 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 48, Col: 1163 
+Error de sintaxis - Token: STRING, Lï¿½nea: 48, Col: 1165 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 49, Col: 1176 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 49, Col: 1183 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1184 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 49, Col: 1185 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 49, Col: 1187 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1189 
+Error de sintaxis - Token: VAR, Lï¿½nea: 50, Col: 1195 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 50, Col: 1199 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 50, Col: 1201 
+Error de sintaxis - Token: INT, Lï¿½nea: 50, Col: 1203 
+Error de sintaxis - Token: WHILE, Lï¿½nea: 52, Col: 1246 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 52, Col: 1252 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 52, Col: 1253 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 52, Col: 1254 
+Error de sintaxis - Token: INT, Lï¿½nea: 52, Col: 1255 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 52, Col: 1256 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 52, Col: 1258 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 53, Col: 1266 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1273 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1274 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1303 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1305 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1307 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1309 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1315 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1317 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1325 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1326 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1327 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1328 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1336 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 54, Col: 1338 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1340 
+Error de sintaxis - Token: MAS, Lï¿½nea: 54, Col: 1342 
+Error de sintaxis - Token: INT, Lï¿½nea: 54, Col: 1344 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 55, Col: 1350 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 56, Col: 1354 
+Error de sintaxis - Token: DEF, Lï¿½nea: 58, Col: 1399 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 58, Col: 1403 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 58, Col: 1415 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 58, Col: 1416 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 58, Col: 1418 
+Error de sintaxis - Token: VAL, Lï¿½nea: 59, Col: 1424 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 59, Col: 1428 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 59, Col: 1433 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1434 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 59, Col: 1438 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 59, Col: 1439 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 59, Col: 1445 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 59, Col: 1447 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1449 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 59, Col: 1453 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1454 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1463 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1464 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1473 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1474 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 59, Col: 1483 
+Error de sintaxis - Token: VAL, Lï¿½nea: 60, Col: 1489 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 60, Col: 1493 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 60, Col: 1503 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 60, Col: 1505 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 60, Col: 1509 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1510 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1511 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1512 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1513 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1514 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 60, Col: 1515 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 61, Col: 1521 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 61, Col: 1528 
+Error de sintaxis - Token: STRING, Lï¿½nea: 61, Col: 1529 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 61, Col: 1548 
+Error de sintaxis - Token: FOR, Lï¿½nea: 62, Col: 1554 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 62, Col: 1558 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1559 
+Error de sintaxis - Token: ITERATOR, Lï¿½nea: 62, Col: 1561 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1564 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 62, Col: 1569 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 62, Col: 1571 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 63, Col: 1579 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 63, Col: 1586 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 63, Col: 1587 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 63, Col: 1588 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 64, Col: 1594 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 65, Col: 1600 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 65, Col: 1605 
+Error de sintaxis - Token: STRING, Lï¿½nea: 65, Col: 1606 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 65, Col: 1626 
+Error de sintaxis - Token: VAR, Lï¿½nea: 66, Col: 1632 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 66, Col: 1636 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 66, Col: 1644 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 66, Col: 1646 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 66, Col: 1654 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 66, Col: 1655 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 66, Col: 1656 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 66, Col: 1657 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 67, Col: 1667 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 67, Col: 1672 
+Error de sintaxis - Token: STRING, Lï¿½nea: 67, Col: 1673 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 67, Col: 1696 
+Error de sintaxis - Token: VAR, Lï¿½nea: 68, Col: 1702 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 68, Col: 1706 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 68, Col: 1714 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 68, Col: 1716 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 68, Col: 1724 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 68, Col: 1725 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 68, Col: 1726 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 68, Col: 1727 
+Error de sintaxis - Token: VAR, Lï¿½nea: 69, Col: 1737 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1741 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 69, Col: 1746 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1748 
+Error de sintaxis - Token: MAS, Lï¿½nea: 69, Col: 1756 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1758 
+Error de sintaxis - Token: VAR, Lï¿½nea: 70, Col: 1770 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1774 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 70, Col: 1780 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1782 
+Error de sintaxis - Token: MULTIPLICACION, Lï¿½nea: 70, Col: 1790 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1792 
+Error de sintaxis - Token: VAR, Lï¿½nea: 71, Col: 1804 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1808 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 71, Col: 1813 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1815 
+Error de sintaxis - Token: DIVISION, Lï¿½nea: 71, Col: 1823 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1825 
+Error de sintaxis - Token: VAR, Lï¿½nea: 72, Col: 1837 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1841 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 72, Col: 1847 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1849 
+Error de sintaxis - Token: MENOS, Lï¿½nea: 72, Col: 1857 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1859 
+Error de sintaxis - Token: IF, Lï¿½nea: 73, Col: 1871 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 73, Col: 1873 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1874 
+Error de sintaxis - Token: IGUAL_COMPARACION, Lï¿½nea: 73, Col: 1882 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1885 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 73, Col: 1892 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 73, Col: 1893 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 74, Col: 1901 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 74, Col: 1908 
+Error de sintaxis - Token: STRING, Lï¿½nea: 74, Col: 1909 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 74, Col: 1946 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 75, Col: 1952 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 76, Col: 1958 
+Error de sintaxis - Token: IF, Lï¿½nea: 76, Col: 1963 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 76, Col: 1965 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1966 
+Error de sintaxis - Token: MAYOR, Lï¿½nea: 76, Col: 1974 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1976 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 76, Col: 1983 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 76, Col: 1984 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 77, Col: 1992 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 77, Col: 1999 
+Error de sintaxis - Token: STRING, Lï¿½nea: 77, Col: 2000 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 77, Col: 2043 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 78, Col: 2049 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 79, Col: 2055 
+Error de sintaxis - Token: IF, Lï¿½nea: 79, Col: 2060 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 79, Col: 2062 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2063 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 79, Col: 2071 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2073 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 79, Col: 2080 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 79, Col: 2081 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 80, Col: 2089 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 80, Col: 2096 
+Error de sintaxis - Token: STRING, Lï¿½nea: 80, Col: 2097 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 80, Col: 2140 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 81, Col: 2146 
+Error de sintaxis - Token: IF, Lï¿½nea: 83, Col: 2153 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 83, Col: 2156 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 83, Col: 2157 
+Error de sintaxis - Token: MOD, Lï¿½nea: 83, Col: 2162 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2164 
+Error de sintaxis - Token: DIFERENTE, Lï¿½nea: 83, Col: 2166 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2169 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 83, Col: 2170 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 83, Col: 2171 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 84, Col: 2179 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 84, Col: 2186 
+Error de sintaxis - Token: STRING, Lï¿½nea: 84, Col: 2187 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 84, Col: 2231 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 85, Col: 2237 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 86, Col: 2243 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 86, Col: 2248 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 87, Col: 2256 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 87, Col: 2263 
+Error de sintaxis - Token: STRING, Lï¿½nea: 87, Col: 2264 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 87, Col: 2306 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 88, Col: 2312 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 90, Col: 2317 
+Error de sintaxis - Token: DEF, Lï¿½nea: 92, Col: 2322 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2326 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 92, Col: 2330 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2331 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 92, Col: 2335 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 92, Col: 2337 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 92, Col: 2342 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 92, Col: 2343 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 92, Col: 2349 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 92, Col: 2350 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 92, Col: 2352 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 92, Col: 2354 
+Error de sintaxis - Token: VAL, Lï¿½nea: 93, Col: 2360 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 93, Col: 2364 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 93, Col: 2370 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 93, Col: 2372 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 93, Col: 2377 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-25 22:17:30.158777
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
 Output: 
 None
 --------------------------------------------------
@@ -350,16 +1850,16 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: LONGCLASS, Línea: 15, Col: 262 
-Error de sintaxis - Token: PAR_D, Línea: 15, Col: 267 
-Error de sintaxis - Token: IGUAL, Línea: 15, Col: 269 
-Error de sintaxis - Token: PAR_I, Línea: 15, Col: 271 
-Error de sintaxis - Token: LONG, Línea: 15, Col: 272 
-Error de sintaxis - Token: COMA, Línea: 15, Col: 277 
-Error de sintaxis - Token: LONG, Línea: 15, Col: 279 
-Error de sintaxis - Token: PAR_D, Línea: 15, Col: 282 
-Error de sintaxis - Token: LLAVE_D, Línea: 16, Col: 286 
-Error de sintaxis - Token: LLAVE_D, Línea: 17, Col: 288 
+Error de sintaxis - Token: LONGCLASS, Lï¿½nea: 15, Col: 262 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 15, Col: 267 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 15, Col: 269 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 15, Col: 271 
+Error de sintaxis - Token: LONG, Lï¿½nea: 15, Col: 272 
+Error de sintaxis - Token: COMA, Lï¿½nea: 15, Col: 277 
+Error de sintaxis - Token: LONG, Lï¿½nea: 15, Col: 279 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 15, Col: 282 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 16, Col: 286 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 17, Col: 288 
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
@@ -378,10 +1878,10 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: FLOAT, Línea: 24, Col: 281 
-Error de sintaxis - Token: PAR_D, Línea: 24, Col: 285 
-Error de sintaxis - Token: LLAVE_D, Línea: 25, Col: 289 
-Error de sintaxis - Token: LLAVE_D, Línea: 26, Col: 291 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 24, Col: 281 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 24, Col: 285 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 25, Col: 289 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 26, Col: 291 
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
@@ -400,10 +1900,10 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: COMA, Línea: 33, Col: 269 
-Error de sintaxis - Token: FLOATCLASS, Línea: 33, Col: 271 
-Error de sintaxis - Token: COMA, Línea: 33, Col: 293 
-Error de sintaxis - Token: FLOAT, Línea: 33, Col: 295 
+Error de sintaxis - Token: COMA, Lï¿½nea: 33, Col: 269 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 33, Col: 271 
+Error de sintaxis - Token: COMA, Lï¿½nea: 33, Col: 293 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 33, Col: 295 
 None
 --------------------------------------------------
 
@@ -421,11 +1921,470 @@ object lexer {
 }
 
 Output: 
-Error de sintaxis - Token: COMA, Línea: 42, Col: 269 
-Error de sintaxis - Token: FLOATCLASS, Línea: 42, Col: 271 
-Error de sintaxis - Token: VARIABLE, Línea: 42, Col: 281 
-Error de sintaxis - Token: LLAVE_D, Línea: 43, Col: 289 
-Error de sintaxis - Token: LLAVE_D, Línea: 44, Col: 291 
+Error de sintaxis - Token: COMA, Lï¿½nea: 42, Col: 269 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 42, Col: 271 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 42, Col: 281 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 43, Col: 289 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 44, Col: 291 
 Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+Fecha y hora: 2022-11-25 22:17:35.908781
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1,1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
+Error de sintaxis - Token: INT, Lï¿½nea: 45, Col: 1092 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 45, Col: 1093 
+Error de sintaxis - Token: VAR, Lï¿½nea: 47, Col: 1100 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 47, Col: 1104 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 47, Col: 1109 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1110 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1115 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1116 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1122 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 47, Col: 1124 
+Error de sintaxis - Token: NEW, Lï¿½nea: 47, Col: 1126 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 47, Col: 1130 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 47, Col: 1135 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 47, Col: 1136 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 47, Col: 1142 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 47, Col: 1143 
+Error de sintaxis - Token: INT, Lï¿½nea: 47, Col: 1144 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 47, Col: 1145 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 48, Col: 1151 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 48, Col: 1156 
+Error de sintaxis - Token: INT, Lï¿½nea: 48, Col: 1157 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 48, Col: 1158 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 48, Col: 1160 
+Error de sintaxis - Token: STRING, Lï¿½nea: 48, Col: 1162 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 49, Col: 1173 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 49, Col: 1180 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1181 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 49, Col: 1182 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 49, Col: 1184 
+Error de sintaxis - Token: INT, Lï¿½nea: 49, Col: 1186 
+Error de sintaxis - Token: VAR, Lï¿½nea: 50, Col: 1192 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 50, Col: 1196 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 50, Col: 1198 
+Error de sintaxis - Token: INT, Lï¿½nea: 50, Col: 1200 
+Error de sintaxis - Token: WHILE, Lï¿½nea: 52, Col: 1243 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 52, Col: 1249 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 52, Col: 1250 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 52, Col: 1251 
+Error de sintaxis - Token: INT, Lï¿½nea: 52, Col: 1252 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 52, Col: 1253 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 52, Col: 1255 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 53, Col: 1263 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1270 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1271 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1300 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1302 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1304 
+Error de sintaxis - Token: STRING, Lï¿½nea: 53, Col: 1306 
+Error de sintaxis - Token: MAS, Lï¿½nea: 53, Col: 1312 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1314 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 53, Col: 1322 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 53, Col: 1323 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1324 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 53, Col: 1325 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1333 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 54, Col: 1335 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 54, Col: 1337 
+Error de sintaxis - Token: MAS, Lï¿½nea: 54, Col: 1339 
+Error de sintaxis - Token: INT, Lï¿½nea: 54, Col: 1341 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 55, Col: 1347 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 56, Col: 1351 
+Error de sintaxis - Token: DEF, Lï¿½nea: 58, Col: 1396 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 58, Col: 1400 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 58, Col: 1412 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 58, Col: 1413 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 58, Col: 1415 
+Error de sintaxis - Token: VAL, Lï¿½nea: 59, Col: 1421 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 59, Col: 1425 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 59, Col: 1430 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1431 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 59, Col: 1435 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 59, Col: 1436 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 59, Col: 1442 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 59, Col: 1444 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 59, Col: 1446 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 59, Col: 1450 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1451 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1460 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1461 
+Error de sintaxis - Token: COMA, Lï¿½nea: 59, Col: 1470 
+Error de sintaxis - Token: STRING, Lï¿½nea: 59, Col: 1471 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 59, Col: 1480 
+Error de sintaxis - Token: VAL, Lï¿½nea: 60, Col: 1486 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 60, Col: 1490 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 60, Col: 1500 
+Error de sintaxis - Token: LISTCLASS, Lï¿½nea: 60, Col: 1502 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 60, Col: 1506 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1507 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1508 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1509 
+Error de sintaxis - Token: COMA, Lï¿½nea: 60, Col: 1510 
+Error de sintaxis - Token: INT, Lï¿½nea: 60, Col: 1511 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 60, Col: 1512 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 61, Col: 1518 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 61, Col: 1525 
+Error de sintaxis - Token: STRING, Lï¿½nea: 61, Col: 1526 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 61, Col: 1545 
+Error de sintaxis - Token: FOR, Lï¿½nea: 62, Col: 1551 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 62, Col: 1555 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1556 
+Error de sintaxis - Token: ITERATOR, Lï¿½nea: 62, Col: 1558 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 62, Col: 1561 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 62, Col: 1566 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 62, Col: 1568 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 63, Col: 1576 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 63, Col: 1583 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 63, Col: 1584 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 63, Col: 1585 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 64, Col: 1591 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 65, Col: 1597 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 65, Col: 1602 
+Error de sintaxis - Token: STRING, Lï¿½nea: 65, Col: 1603 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 65, Col: 1623 
+Error de sintaxis - Token: VAR, Lï¿½nea: 66, Col: 1629 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 66, Col: 1633 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 66, Col: 1641 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 66, Col: 1643 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 66, Col: 1651 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 66, Col: 1652 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 66, Col: 1653 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 66, Col: 1654 
+Error de sintaxis - Token: PRINT, Lï¿½nea: 67, Col: 1664 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 67, Col: 1669 
+Error de sintaxis - Token: STRING, Lï¿½nea: 67, Col: 1670 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 67, Col: 1693 
+Error de sintaxis - Token: VAR, Lï¿½nea: 68, Col: 1699 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 68, Col: 1703 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 68, Col: 1711 
+Error de sintaxis - Token: READLINE, Lï¿½nea: 68, Col: 1713 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 68, Col: 1721 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 68, Col: 1722 
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 68, Col: 1723 
+Error de sintaxis - Token: TO_INT, Lï¿½nea: 68, Col: 1724 
+Error de sintaxis - Token: VAR, Lï¿½nea: 69, Col: 1734 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1738 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 69, Col: 1743 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1745 
+Error de sintaxis - Token: MAS, Lï¿½nea: 69, Col: 1753 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 69, Col: 1755 
+Error de sintaxis - Token: VAR, Lï¿½nea: 70, Col: 1767 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1771 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 70, Col: 1777 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1779 
+Error de sintaxis - Token: MULTIPLICACION, Lï¿½nea: 70, Col: 1787 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 70, Col: 1789 
+Error de sintaxis - Token: VAR, Lï¿½nea: 71, Col: 1801 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1805 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 71, Col: 1810 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1812 
+Error de sintaxis - Token: DIVISION, Lï¿½nea: 71, Col: 1820 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 71, Col: 1822 
+Error de sintaxis - Token: VAR, Lï¿½nea: 72, Col: 1834 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1838 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 72, Col: 1844 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1846 
+Error de sintaxis - Token: MENOS, Lï¿½nea: 72, Col: 1854 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 72, Col: 1856 
+Error de sintaxis - Token: IF, Lï¿½nea: 73, Col: 1868 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 73, Col: 1870 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1871 
+Error de sintaxis - Token: IGUAL_COMPARACION, Lï¿½nea: 73, Col: 1879 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 73, Col: 1882 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 73, Col: 1889 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 73, Col: 1890 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 74, Col: 1898 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 74, Col: 1905 
+Error de sintaxis - Token: STRING, Lï¿½nea: 74, Col: 1906 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 74, Col: 1943 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 75, Col: 1949 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 76, Col: 1955 
+Error de sintaxis - Token: IF, Lï¿½nea: 76, Col: 1960 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 76, Col: 1962 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1963 
+Error de sintaxis - Token: MAYOR, Lï¿½nea: 76, Col: 1971 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 76, Col: 1973 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 76, Col: 1980 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 76, Col: 1981 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 77, Col: 1989 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 77, Col: 1996 
+Error de sintaxis - Token: STRING, Lï¿½nea: 77, Col: 1997 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 77, Col: 2040 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 78, Col: 2046 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 79, Col: 2052 
+Error de sintaxis - Token: IF, Lï¿½nea: 79, Col: 2057 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 79, Col: 2059 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2060 
+Error de sintaxis - Token: MENOR, Lï¿½nea: 79, Col: 2068 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 79, Col: 2070 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 79, Col: 2077 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 79, Col: 2078 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 80, Col: 2086 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 80, Col: 2093 
+Error de sintaxis - Token: STRING, Lï¿½nea: 80, Col: 2094 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 80, Col: 2137 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 81, Col: 2143 
+Error de sintaxis - Token: IF, Lï¿½nea: 83, Col: 2150 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 83, Col: 2153 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 83, Col: 2154 
+Error de sintaxis - Token: MOD, Lï¿½nea: 83, Col: 2159 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2161 
+Error de sintaxis - Token: DIFERENTE, Lï¿½nea: 83, Col: 2163 
+Error de sintaxis - Token: INT, Lï¿½nea: 83, Col: 2166 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 83, Col: 2167 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 83, Col: 2168 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 84, Col: 2176 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 84, Col: 2183 
+Error de sintaxis - Token: STRING, Lï¿½nea: 84, Col: 2184 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 84, Col: 2228 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 85, Col: 2234 
+Error de sintaxis - Token: ELSE, Lï¿½nea: 86, Col: 2240 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 86, Col: 2245 
+Error de sintaxis - Token: PRINTLN, Lï¿½nea: 87, Col: 2253 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 87, Col: 2260 
+Error de sintaxis - Token: STRING, Lï¿½nea: 87, Col: 2261 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 87, Col: 2303 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 88, Col: 2309 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 90, Col: 2314 
+Error de sintaxis - Token: DEF, Lï¿½nea: 92, Col: 2319 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2323 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 92, Col: 2327 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 92, Col: 2328 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 92, Col: 2332 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 92, Col: 2334 
+Error de sintaxis - Token: CORCHETE_I, Lï¿½nea: 92, Col: 2339 
+Error de sintaxis - Token: STRINGCLASS, Lï¿½nea: 92, Col: 2340 
+Error de sintaxis - Token: CORCHETE_D, Lï¿½nea: 92, Col: 2346 
+Error de sintaxis - Token: PAR_D, Lï¿½nea: 92, Col: 2347 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 92, Col: 2349 
+Error de sintaxis - Token: LLAVE_I, Lï¿½nea: 92, Col: 2351 
+Error de sintaxis - Token: VAL, Lï¿½nea: 93, Col: 2357 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 93, Col: 2361 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 93, Col: 2367 
+Error de sintaxis - Token: ARRAYCLASS, Lï¿½nea: 93, Col: 2369 
+Error de sintaxis - Token: PAR_I, Lï¿½nea: 93, Col: 2374 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-25 22:17:47.492134
+
+Input: 
+import scala.io.StdIn.readLine
+//Lenguaje usado: Scala 2.13
+
+object lexer {
+
+  //Algoritmo Gabriel Maldonado
+  def ingreseConstante(constante:String) : (String , Double) = {
+
+    print("Ingrese constante: ")
+    var value = readLine().toDouble
+
+    println("Escoja el tipo de numero al que persenese la constante: ")
+    println("1.Int ")
+    println("2.Long ")
+    println("3. Float")
+    println("4. Double")
+    print("Opcion:  ")
+
+    
+    val opt = readLine().toInt
+
+    opt match{
+      case 1 => value = value.toInt
+      case 2 =>  value = value.toLong
+      case 3 =>  value = value.toFloat
+      case 4 =>  value = value.toDouble
+    }
+
+    val tupla: (String , Double) = (constante , value)
+
+    return tupla
+  
+  }
+
+  //Algoritmos hecho por Ramos Pozo
+  def suma (x: Int = 6)(y: Int = 7): Int = {
+    return x + y
+  }
+  def funcionDeArreglos() = {
+    print("Ingrese un numero: ")
+    val primero = readLine().toInt
+    var sum = suma(primero)()
+    println("Numero ingresado + 7 = "  + sum)
+    var arreglo:Array[Int] = Array(1,2,3)
+    var arreglo:Array[Double] = Array(1.1,2.1)
+
+    var array:Array[String] = new Array[String](1)
+    array(0) = "hola"
+    arreglo(1) = 4
+    var i = 0
+    //var arreglo2 = arreglo.reverse
+    while (i<3) {
+      println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
+      i = i + 1
+    }
+  }
+  //Algoritmo realizado por Pisco Jordan
+  def funcionPisco() {
+    val lista:List[String] = List("primero","segundo","tercero")
+    val otraLista = List(1,2,3)
+    println("Imprimiendo lista")
+    for (i <- lista) {
+      println(i)
+    }
+    print("Ingrese 1 numero: ")
+    var primero = readLine().toInt
+    print("Ingrese otro numero: ")
+    var segundo = readLine().toInt
+    var suma = primero + segundo
+    var multi = primero * segundo
+    var divi = primero / segundo
+    var resta = primero - segundo
+    if(primero == segundo){
+      println("Los numeros ingresados son iguales!")
+    }
+    else if(primero > segundo){
+      println("El primer numero es mayor que el segundo!")
+    }
+    else if(primero < segundo){
+      println("El primer numero es menor que el segundo!")
+    }
+
+    if (suma % 2 != 0){
+      println("La suma de ambos valores da un valor impar")
+    }
+    else {
+      println("La suma de ambos valores da un valor par")
+    }
+
+  }
+
+  def main(args: Array[String]) = {
+    val lista = Array(1.2, 1.0)
+    val largo = 100l
+    val flotate = 1.2f
+    val doble = 1.2
+    val entero = 1
+    val caracter = 'd'
+
+    val tupla = ingreseConstante("pi")
+    
+    //println(tupla._1 + " " + tupla._2)
+    funcionDeArreglos()
+    funcionPisco()
+  }
+}
+Output: 
 None
 --------------------------------------------------
