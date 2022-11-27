@@ -461,8 +461,21 @@ def p_aritmetica(p):
   | numeros aritmeticos VARIABLE
   | VARIABLE aritmeticos VARIABLE
   | aritmetica aritmeticos numeros
-  | aritmetica aritmeticos VARIABLE
-  | suma'''
+  | aritmetica aritmeticos VARIABLE'''
+
+def p_aritmetica_suma(p):
+  '''aritmetica : suma
+  | VARIABLE MAS numeros
+  | numeros MAS VARIABLE
+  | VARIABLE MAS VARIABLE
+  | aritmetica MAS numeros
+  | aritmetica MAS VARIABLE
+  | INT MAS INT
+  | DOUBLE MAS DOUBLE
+  | LONG MAS LONG
+  | FLOAT MAS FLOAT
+  '''
+
 
 def p_aritmeticos(p):
   '''aritmeticos : MENOS
@@ -758,7 +771,7 @@ def prosesarSintax(data):
   output = ""
   result = parser.parse(data)
 
-  saveToLog(data , result , "log.txt")
+  #saveToLog(data , result , "log.txt")
 
   return output + str(result)
   
