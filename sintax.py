@@ -623,7 +623,7 @@ def p_asignacionLong_cast(p):
   | VAL VARIABLE DOBLE_PUNTO LONGCLASS IGUAL longvalues'''
 
 def p_longvalues(p):
-  '''longvalues : INT
+  '''longvalues : LONG
   | intvalues
   | stringCastLong'''
 
@@ -726,33 +726,21 @@ def p_error(p):
   global output
 
   if p:
-    print(
-      f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}"
-    )
+    #print(f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}")
     output += f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos} \n"
     parser.errok()
     
   else:
-    print("Error de sintaxis Fin de Linea")
+    #print("Error de sintaxis Fin de Linea")
     output += "Error de sintaxis Fin de Linea \n"
 
 
 # Build the parser
 parser = yacc()
 
-def prosesarSintax(data):
-  global parser
-  global output
-
-  parser = yacc()
-  
-  output = ""
-  result = parser.parse(data)
-
-  #Output guardado en log.txt
-  log = open("log.txt", "a")
+def saveToLog(data , result , archivoLog):
+  log = open(archivoLog , "a")
   current_dateTime = datetime.now()
-  '''
   log.write("\nFecha y hora: " + str(current_dateTime) +"\n")
   log.write("\nInput: \n")
   log.write(data)
@@ -760,15 +748,25 @@ def prosesarSintax(data):
   log.write(output + str(result))
   log.write('\n--------------------------------------------------\n')
   log.close()
-  '''
+
+
+def prosesarSintax(data):
+  global parser
+  global output
+
+  parser = yacc()
+  output = ""
+  result = parser.parse(data)
+
+  saveToLog(data , result , "log.txt")
+
   return output + str(result)
   
 
 
-'''
+
 file = open("source.scala")
 archivo = file.read()
 file.close()
 print( prosesarSintax(archivo))
 print('--------------------------------------------------')
-'''

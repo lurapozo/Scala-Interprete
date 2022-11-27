@@ -33,7 +33,7 @@ object lexer {
 
   //Algoritmos hecho por Ramos Pozo
   def suma (x: Int = 6)(y: Int = 7): Int = {
-    return x + y
+    return x //+ y
   }
   def funcionDeArreglos() = {
     print("Ingrese un numero: ")
@@ -50,7 +50,7 @@ object lexer {
     //var arreglo2 = arreglo.reverse
     while (i<3) {
       println("Arreglo creado en posicion "+ i + " = " + arreglo2(i))
-      i = i + 1
+      i = i //+ 1
     }
   }
   //Algoritmo realizado por Pisco Jordan
@@ -65,7 +65,7 @@ object lexer {
     var primero = readLine().toInt
     print("Ingrese otro numero: ")
     var segundo = readLine().toInt
-    var suma = primero + segundo
+    var suma = primero //+ segundo
     var multi = primero * segundo
     var divi = primero / segundo
     var resta = primero - segundo

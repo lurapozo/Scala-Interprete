@@ -268,35 +268,7 @@ def prosesarLexico(data):
     global output
     global lexer
 
-    lexer = lex()
-
-    #Lea el archivo input del usuario
-    
+    lexer = lex()    
     lexer.input(data)
     getTokens(lexer)
-    
     return output
-
-
-'''
-#Lectura de archivo
-print('Mi primer Lexer')
-file = open("source.scala")
-archivo = file.read()
-file.close()
-    
-print(prosesar(archivo))
-'''
-
-
-
-
-
-
-'''
-print('Mi primer Lexer')
-while True:
-  linea = input(">")
-  lexer.input(linea)
-  getTokens(lexer)
-'''
