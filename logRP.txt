@@ -1,0 +1,108 @@
+Fecha y hora: 2022-11-26 21:17:06.976354
+
+Input: 
+object cast {
+  def main(args: Array[String]) = {
+    "ddd".startsWith("d")
+  }
+  }
+Output: 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 54 
+Error de sintaxis - Token: PUNTO, Línea: 3, Col: 59 
+Error de sintaxis - Token: STARTSWITH, Línea: 3, Col: 60 
+Error de sintaxis - Token: PAR_I, Línea: 3, Col: 70 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 71 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 74 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 78 
+Error de sintaxis - Token: LLAVE_D, Línea: 5, Col: 82 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 21:23:21.626893
+
+Input: 
+object cast {
+
+    "ddd".startsWith("d")
+  
+}
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 21:25:25.868322
+
+Input: 
+object cast {
+
+    "ddd".startsWith("d")
+  
+}
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 21:26:49.412653
+
+Input: 
+object cast {
+
+    "ddd".startsWith("de")
+  
+}
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 21:29:41.355934
+
+Input: 
+object cast {
+
+    var i : Boolean = "ddd".startsWith("d")
+  
+}
+Output: 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 37 
+Error de sintaxis - Token: PUNTO, Línea: 3, Col: 42 
+Error de sintaxis - Token: STARTSWITH, Línea: 3, Col: 43 
+Error de sintaxis - Token: PAR_I, Línea: 3, Col: 53 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 54 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 57 
+Error de sintaxis - Token: LLAVE_D, Línea: 5, Col: 62 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 21:30:08.213325
+
+Input: 
+object cast {
+  var bool : Boolean = true
+  var i : Boolean = "ddd".startsWith("d")
+  
+}
+Output: 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 62 
+Error de sintaxis - Token: PUNTO, Línea: 3, Col: 67 
+Error de sintaxis - Token: STARTSWITH, Línea: 3, Col: 68 
+Error de sintaxis - Token: PAR_I, Línea: 3, Col: 78 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 79 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 82 
+Error de sintaxis - Token: LLAVE_D, Línea: 5, Col: 87 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 09:16:02.176870
+
+Input: 
+object cast {
+  var bool : Boolean = true
+  var i : Boolean = "ddd".startsWith("d")
+  
+}
+Output: 
+None
+--------------------------------------------------

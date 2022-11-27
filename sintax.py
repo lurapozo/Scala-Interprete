@@ -29,12 +29,14 @@ def p_cuerpo(p):
   | for
   | match
   | if
+  | startsWith
   | funcion cuerpo
   | asignacion cuerpo
   | while cuerpo
   | for cuerpo
   | if cuerpo
-  | match cuerpo'''
+  | match cuerpo
+  | startsWith cuerpo'''
 
 # Contenido de Funciones y de estructuras de control
 def p_contenido(p):
@@ -48,6 +50,7 @@ def p_contenido(p):
   | match
   | if
   | aritmetica
+  | startsWith
   | asignacion contenido
   | reasignacion contenido
   | funcall contenido
@@ -57,7 +60,8 @@ def p_contenido(p):
   | for contenido
   | if contenido
   | match contenido
-  | aritmetica contenido'''
+  | aritmetica contenido
+  | startsWith contenido'''
 
 # Contendio para estrcutra match de una lienea 
 def p_contenidoLine(p):
@@ -154,7 +158,8 @@ def p_valor(p):
 
 def p_booleanos(p):
   '''booleanos : TRUE
-  | FLASE'''
+  | FLASE
+  | startsWith'''
 
 def p_numeros(p):
   '''numeros : INT
@@ -467,7 +472,6 @@ def p_arrayInt(p):
   '''arrayInt : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I INTCLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresInt PAR_D
   '''
 
-
 def p_arrayDouble(p):
   '''arrayDouble : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I DOUBLECLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresDouble PAR_D'''
 
@@ -479,6 +483,13 @@ def p_valoresDouble(p):
   '''valoresDouble : DOUBLE
   | valoresDouble COMA DOUBLE'''
 
+#Metodo startsWith por: Ramos Pozo
+def p_startsWith(p):
+  '''startsWith : STRING PUNTO STARTSWITH PAR_I STRING PAR_D'''
+  if (len(p)==7):
+    p[0] = p[1][1:-1].startswith(p[5][1:-1])
+    p[0]=str(p[0]).lower()
+    #print(p[0])
 
 # Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
 def p_asignacion_tupla(p):
@@ -515,7 +526,6 @@ def p_dectupla_intOther(p):
   | PAR_I INTCLASS COMA  DOUBLECLASS PAR_D IGUAL PAR_I INT COMA DOUBLE PAR_D
   | PAR_I INTCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I INT COMA FLOAT PAR_D '''
 
-
 #Casting automantico para asignacion de variables numericas por Gabriel Maldonado
 
 def p_asignacionInt(p):
@@ -528,7 +538,6 @@ def p_intvalues(p):
   '''intvalues : INT
   | stringCastInt'''
 
-
 def p_asignacionLong_cast(p):
   '''asignacionLong : VAR VARIABLE IGUAL longvalues
   | VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL longvalues
@@ -539,7 +548,6 @@ def p_longvalues(p):
   '''longvalues : INT
   | intvalues
   | stringCastLong'''
-
 
 def p_asignacionFloat_cast(p):
   '''asignacionFloat : VAR VARIABLE IGUAL floatvalues
@@ -585,7 +593,6 @@ def p_stringCastInt(p):
   else:
     output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo entero \n"
 
-
 def p_stringCastLong(p):
   """stringCastLong : STRING PUNTO TO_LONG"""
 
@@ -619,7 +626,6 @@ def p_stringCastFloat(p):
   except ValueError:
     output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo punto flotante \n"
 
-
 def p_stringCastDouble(p):
   """stringCastDouble : STRING PUNTO TO_DOUBLE"""
 
@@ -636,7 +642,6 @@ def p_stringCastDouble(p):
     
   except ValueError:
     output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo punto flotante \n"
-
 
 def p_error(p):
 

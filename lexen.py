@@ -44,6 +44,7 @@ reservadas = {
   "yield": "YIELD",
   "to": "TO",
   "until": "UNTIL",
+  "startsWith":"STARTSWITH",
   "scala.io.StdIn.readLine": "LIBRERIA_IO",
 }
 
