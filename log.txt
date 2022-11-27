@@ -2547,49 +2547,87 @@ object cast {
 }
 
 Output: 
-Error de sintaxis - Token: FLOAT, Línea: 126, Col: 101 
-Error de sintaxis - Token: VAR, Línea: 128, Col: 115 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 128, Col: 126 
-Error de sintaxis - Token: FLOATCLASS, Línea: 128, Col: 128 
-Error de sintaxis - Token: IGUAL, Línea: 128, Col: 134 
-Error de sintaxis - Token: VAR, Línea: 129, Col: 144 
-Error de sintaxis - Token: VARIABLE, Línea: 129, Col: 148 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 129, Col: 155 
-Error de sintaxis - Token: FLOATCLASS, Línea: 129, Col: 157 
-Error de sintaxis - Token: IGUAL, Línea: 129, Col: 163 
-Error de sintaxis - Token: LONG, Línea: 129, Col: 165 
-Error de sintaxis - Token: VAR, Línea: 130, Col: 175 
-Error de sintaxis - Token: VARIABLE, Línea: 130, Col: 179 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 130, Col: 186 
-Error de sintaxis - Token: FLOATCLASS, Línea: 130, Col: 188 
-Error de sintaxis - Token: IGUAL, Línea: 130, Col: 194 
-Error de sintaxis - Token: DOUBLE, Línea: 130, Col: 196 
-Error de sintaxis - Token: VAR, Línea: 132, Col: 209 
-Error de sintaxis - Token: VARIABLE, Línea: 132, Col: 213 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 132, Col: 221 
-Error de sintaxis - Token: DOUBLECLASS, Línea: 132, Col: 223 
-Error de sintaxis - Token: IGUAL, Línea: 132, Col: 230 
-Error de sintaxis - Token: INT, Línea: 132, Col: 232 
-Error de sintaxis - Token: VAR, Línea: 133, Col: 240 
-Error de sintaxis - Token: VARIABLE, Línea: 133, Col: 244 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 133, Col: 252 
-Error de sintaxis - Token: DOUBLECLASS, Línea: 133, Col: 254 
-Error de sintaxis - Token: IGUAL, Línea: 133, Col: 261 
-Error de sintaxis - Token: LONG, Línea: 133, Col: 263 
-Error de sintaxis - Token: VAR, Línea: 134, Col: 273 
-Error de sintaxis - Token: VARIABLE, Línea: 134, Col: 277 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 134, Col: 285 
-Error de sintaxis - Token: DOUBLECLASS, Línea: 134, Col: 287 
-Error de sintaxis - Token: IGUAL, Línea: 134, Col: 294 
-Error de sintaxis - Token: FLOAT, Línea: 134, Col: 296 
-Error de sintaxis - Token: VAR, Línea: 135, Col: 309 
-Error de sintaxis - Token: VARIABLE, Línea: 135, Col: 313 
-Error de sintaxis - Token: DOBLE_PUNTO, Línea: 135, Col: 321 
-Error de sintaxis - Token: DOUBLECLASS, Línea: 135, Col: 323 
-Error de sintaxis - Token: IGUAL, Línea: 135, Col: 330 
-Error de sintaxis - Token: DOUBLE, Línea: 135, Col: 332 
-Error de sintaxis - Token: LLAVE_D, Línea: 136, Col: 345 
-Error de sintaxis - Token: LLAVE_D, Línea: 137, Col: 347 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 126, Col: 101 
+Error de sintaxis - Token: VAR, Lï¿½nea: 128, Col: 115 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 128, Col: 126 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 128, Col: 128 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 128, Col: 134 
+Error de sintaxis - Token: VAR, Lï¿½nea: 129, Col: 144 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 129, Col: 148 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 129, Col: 155 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 129, Col: 157 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 129, Col: 163 
+Error de sintaxis - Token: LONG, Lï¿½nea: 129, Col: 165 
+Error de sintaxis - Token: VAR, Lï¿½nea: 130, Col: 175 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 130, Col: 179 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 130, Col: 186 
+Error de sintaxis - Token: FLOATCLASS, Lï¿½nea: 130, Col: 188 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 130, Col: 194 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 130, Col: 196 
+Error de sintaxis - Token: VAR, Lï¿½nea: 132, Col: 209 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 132, Col: 213 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 132, Col: 221 
+Error de sintaxis - Token: DOUBLECLASS, Lï¿½nea: 132, Col: 223 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 132, Col: 230 
+Error de sintaxis - Token: INT, Lï¿½nea: 132, Col: 232 
+Error de sintaxis - Token: VAR, Lï¿½nea: 133, Col: 240 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 133, Col: 244 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 133, Col: 252 
+Error de sintaxis - Token: DOUBLECLASS, Lï¿½nea: 133, Col: 254 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 133, Col: 261 
+Error de sintaxis - Token: LONG, Lï¿½nea: 133, Col: 263 
+Error de sintaxis - Token: VAR, Lï¿½nea: 134, Col: 273 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 134, Col: 277 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 134, Col: 285 
+Error de sintaxis - Token: DOUBLECLASS, Lï¿½nea: 134, Col: 287 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 134, Col: 294 
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 134, Col: 296 
+Error de sintaxis - Token: VAR, Lï¿½nea: 135, Col: 309 
+Error de sintaxis - Token: VARIABLE, Lï¿½nea: 135, Col: 313 
+Error de sintaxis - Token: DOBLE_PUNTO, Lï¿½nea: 135, Col: 321 
+Error de sintaxis - Token: DOUBLECLASS, Lï¿½nea: 135, Col: 323 
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 135, Col: 330 
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 135, Col: 332 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 136, Col: 345 
+Error de sintaxis - Token: LLAVE_D, Lï¿½nea: 137, Col: 347 
 Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 19:27:29.275185
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = "50045".toLong   
+    var long2 : Int = "8745".toInt  
+    var long3 : Float = "78.4568".toFloat   
+    var long4 : Double = "89856.815".toDouble 
+  }
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 19:29:29.287723
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = "50045.45".toLong   
+    var long2 : Int = "8745.005".toInt  
+    var long3 : Float = "78".toFloat   
+    var long4 : Double = "89855".toDouble 
+  }
+}
+
+Output: 
+Error de semantico - Token: "50045.45", Línea: 5, Col: 75 no es de tipo entero 
+Error de semantico - Token: "8745.005", Línea: 6, Col: 118 no es de tipo entero 
 None
 --------------------------------------------------

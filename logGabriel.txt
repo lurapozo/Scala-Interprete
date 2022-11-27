@@ -522,3 +522,41 @@ Error de sintaxis - Token: LLAVE_D, L�nea: 137, Col: 347
 Error de sintaxis Fin de Linea 
 None
 --------------------------------------------------
+
+Fecha y hora: 2022-11-26 19:27:29.275185
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = "50045".toLong   
+    var long2 : Int = "8745".toInt  
+    var long3 : Float = "78.4568".toFloat   
+    var long4 : Double = "89856.815".toDouble 
+  }
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-26 19:29:29.287723
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+
+    var long1 : Long = "50045.45".toLong   
+    var long2 : Int = "8745.005".toInt  
+    var long3 : Float = "78".toFloat   
+    var long4 : Double = "89855".toDouble 
+  }
+}
+
+Output: 
+Error de semantico - Token: "50045.45", L�nea: 5, Col: 75 no es de tipo entero 
+Error de semantico - Token: "8745.005", L�nea: 6, Col: 118 no es de tipo entero 
+None
+--------------------------------------------------

@@ -2,6 +2,7 @@ from ply.yacc import *
 from ply.lex import *
 from lexen import tokens
 from lexen import output
+import sys
 
 from datetime import datetime
 
@@ -89,11 +90,7 @@ def p_asignacionLong(p):
   | VAL VARIABLE DOBLE_PUNTO LONGCLASS IGUAL VARIABLE'''
   
 def p_asignacionInt(p):
-  '''asignacionInt : VAR VARIABLE IGUAL INT
-  | VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL INT
-  | VAL VARIABLE IGUAL INT
-  | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL INT
-  | VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE
+  '''asignacionInt : VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE
   | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE'''
 
 def p_asignacionFloat(p):
@@ -519,7 +516,19 @@ def p_dectupla_intOther(p):
   | PAR_I INTCLASS COMA  FLOATCLASS PAR_D IGUAL PAR_I INT COMA FLOAT PAR_D '''
 
 
-#Casting automantico para asignacion de variables por Gabriel Maldonado
+#Casting automantico para asignacion de variables numericas por Gabriel Maldonado
+
+def p_asignacionInt(p):
+  '''asignacionInt : VAR VARIABLE IGUAL intvalues
+    | VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL intvalues
+    | VAL VARIABLE IGUAL intvalues
+    | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL intvalues'''
+
+def p_intvalues(p):
+  '''intvalues : INT
+  | stringCastInt'''
+
+
 def p_asignacionLong_cast(p):
   '''asignacionLong : VAR VARIABLE IGUAL longvalues
   | VAR VARIABLE DOBLE_PUNTO LONGCLASS IGUAL longvalues
@@ -528,7 +537,8 @@ def p_asignacionLong_cast(p):
 
 def p_longvalues(p):
   '''longvalues : INT
-  | LONG'''
+  | intvalues
+  | stringCastLong'''
 
 
 def p_asignacionFloat_cast(p):
@@ -539,7 +549,8 @@ def p_asignacionFloat_cast(p):
 
 def p_floatvalues(p):
   '''floatvalues : FLOAT
-  | longvalues'''
+  | longvalues
+  | stringCastFloat'''
 
 def p_asignacionDouble_cast(p):
   '''asignacionDouble : VAR VARIABLE IGUAL doublevalues
@@ -549,7 +560,82 @@ def p_asignacionDouble_cast(p):
 
 def p_doublevalues(p):
   '''doublevalues : DOUBLE
-  | floatvalues'''
+  | floatvalues
+  | stringCastDouble'''
+
+#Casting de string a numero para asignacion de variables numericas por Gabriel Maldonado
+
+maxInt = 2147483647
+maxLong = 9223372036854775807
+maxFloat = ((2 - 2**(-23)) * 21**27)
+maxDouble = sys.float_info.max
+def p_stringCastInt(p):
+  """stringCastInt : STRING PUNTO TO_INT"""
+
+  global output
+  global maxInt
+  posibleInt = str(p[1][1:-1])
+
+  if (posibleInt.isdigit()):
+    numero = int(posibleInt)
+    if(numero <= maxInt and numero>=0):
+      p[0] = numero
+    else:
+      output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} esta fuera de rango de un Int \n"
+  else:
+    output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo entero \n"
+
+
+def p_stringCastLong(p):
+  """stringCastLong : STRING PUNTO TO_LONG"""
+
+  global output
+  global maxLong
+  posibleLong = str(p[1][1:-1])
+
+  if (posibleLong.isdigit()):
+    numero = int(posibleLong)
+    if(numero <= maxLong and numero>=0):
+      p[0] = numero
+    else:
+      output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} esta fuera de rango de un Long \n"
+  else:
+    output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo entero \n"
+
+def p_stringCastFloat(p):
+  """stringCastFloat : STRING PUNTO TO_FLOAT"""
+
+  global output
+  global maxFloat
+
+  posibleFloat = str(p[1][1:-1])
+  try:
+    decimal = float(posibleFloat)
+    if(decimal <= maxFloat and decimal>=0):
+      p[0] = decimal
+    else:
+      output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} esta fuera de rango de un Float \n"
+    
+  except ValueError:
+    output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo punto flotante \n"
+
+
+def p_stringCastDouble(p):
+  """stringCastDouble : STRING PUNTO TO_DOUBLE"""
+
+  global output
+  global maxDouble
+
+  posibleDouble = str(p[1][1:-1])
+  try:
+    decimal = float(posibleDouble)
+    if(decimal <= maxDouble and decimal>=0):
+      p[0] = decimal
+    else:
+      output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} esta fuera de rango de un Double \n"
+    
+  except ValueError:
+    output += f"Error de semantico - Token: {p[1]}, Línea: {p.lineno(1)}, Col: {p.lexpos(1)} no es de tipo punto flotante \n"
 
 
 def p_error(p):
@@ -596,9 +682,10 @@ def prosesarSintax(data):
   
 
 
-
+'''
 file = open("source.scala")
 archivo = file.read()
 file.close()
 print( prosesarSintax(archivo))
 print('--------------------------------------------------')
+'''
