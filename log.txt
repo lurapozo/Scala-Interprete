@@ -2768,3 +2768,387 @@ object cast {
 Output: 
 None
 --------------------------------------------------
+
+
+Fecha y hora: 2022-11-27 13:09:07.290841
+
+Input: 
+
+object cast {
+  val a:List[String] = List("a","b")  
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:09:20.948819
+
+Input: 
+
+object cast {
+  val a:List[String] = List("a","b", 1)  
+}
+
+Output: 
+Error de sintaxis - Token: INT, Línea: 3, Col: 52 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 53 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 57 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:09:44.219442
+
+Input: 
+
+object cast {
+  val a:List[Char] = List("a","b")  
+}
+
+Output: 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 41 
+Error de sintaxis - Token: COMA, Línea: 3, Col: 44 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 45 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 48 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 52 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:10:09.501141
+
+Input: 
+
+object cast {
+  val a:List[Char] = List('a','b')  
+}
+
+Output: 
+Error de sintaxis - Token: CHAR, Línea: 3, Col: 41 
+Error de sintaxis - Token: COMA, Línea: 3, Col: 44 
+Error de sintaxis - Token: CHAR, Línea: 3, Col: 45 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 48 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 52 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:10:40.215640
+
+Input: 
+
+object cast {
+  val a:List[Char] = List('a','b')  
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:11:13.023084
+
+Input: 
+
+object cast {
+  val a:List[Char] = List('a','b', "c")  
+}
+
+Output: 
+Error de sintaxis - Token: STRING, Línea: 3, Col: 50 
+Error de sintaxis - Token: PAR_D, Línea: 3, Col: 53 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 57 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:18:31.309061
+
+Input: 
+
+object cast {
+  1 + 'a'
+}
+
+Output: 
+Error de sintaxis - Token: INT, Línea: 3, Col: 17 
+Error de sintaxis - Token: MAS, Línea: 3, Col: 19 
+Error de sintaxis - Token: CHAR, Línea: 3, Col: 21 
+Error de sintaxis - Token: LLAVE_D, Línea: 4, Col: 25 
+Error de sintaxis Fin de Linea 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:23:53.904962
+
+Input: 
+
+object cast {
+  var aa = 1 + 'a'
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:25:33.951544
+
+Input: 
+
+object cast {
+  var aa = 1 + 'a'
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:26:23.350751
+
+Input: 
+
+object cast {
+  var aa = 'a' + 1
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:29:13.455912
+
+Input: 
+
+object cast {
+  var aa = 'a' + "aa"
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:30:11.826897
+
+Input: 
+
+object cast {
+  var aa = "aa" + 'b'
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:30:25.387646
+
+Input: 
+
+object cast {
+  var aa: String = "aa" + 'b'
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 3, Col: 39 
+Error de sintaxis - Token: CHAR, Línea: 3, Col: 41 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:47:56.855457
+
+Input: 
+
+object cast {
+  var aa = 1.2 + 'b'
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:48:36.685337
+
+Input: 
+
+object cast {
+  var aa = 1.2 + 1
+}
+
+Output: 
+None
+--------------------------------------------------
+
+
+Fecha y hora: 2022-11-27 13:49:23.209361
+
+Input: 
+
+object cast {
+  var aa = 1.2 + 1
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:53:33.407700
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 13:56:46.178474
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:02:46.022371
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 + 'a'
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 60 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:02:48.630999
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 + 'a'
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 60 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:06:18.397854
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 + 'a'
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 60 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:06:21.257329
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 + 'a'
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 60 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:07:34.791538
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:07:43.119136
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 1 + 'a'
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 60 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:07:54.189000
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 'a' + 1
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+Error de sintaxis - Token: CHAR, Línea: 4, Col: 58 
+Error de sintaxis - Token: MAS, Línea: 4, Col: 62 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:09:49.054597
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 'a' + 1
+  var cc:String = 'c' + "aaaaa"
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 14:45:49.769478
+
+Input: 
+
+object cast {
+  var aa: Double = 1.2 + 1
+  var bb: Int = 'a' + 1
+  var cc:String = 'c' + "aaaaa"
+  var dd:String = "Hola " + 'a'
+}
+
+Output: 
+None
+--------------------------------------------------

@@ -95,7 +95,8 @@ def p_asignacionLong(p):
   
 def p_asignacionInt(p):
   '''asignacionInt : VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE
-  | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE'''
+  | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL VARIABLE
+  | asignacionSumInt'''
 
 def p_asignacionFloat(p):
   '''asignacionFloat : VAR VARIABLE DOBLE_PUNTO FLOATCLASS IGUAL VARIABLE
@@ -103,7 +104,8 @@ def p_asignacionFloat(p):
 
 def p_asignacionDouble(p):
   '''asignacionDouble : VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE
-  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE'''
+  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL VARIABLE
+  | asignacionSumDouble'''
 
 def p_asignacionString(p):
   '''asignacionString : VAR VARIABLE IGUAL STRING
@@ -111,7 +113,8 @@ def p_asignacionString(p):
   | VAL VARIABLE IGUAL STRING
   | VAL VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL STRING
   | VAR VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL VARIABLE
-  | VAL VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL VARIABLE'''
+  | VAL VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL VARIABLE
+  | asignacionSumString'''
 
 def p_asignacionChar(p):
   '''asignacionChar : VAR VARIABLE IGUAL CHAR
@@ -281,8 +284,9 @@ def p_array(p):
 # List por Juan Pisco
 def p_list(p):
   '''list : VAL VARIABLE IGUAL LISTCLASS PAR_I valores PAR_D
-  | VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I tipo CORCHETE_D IGUAL NEW LISTCLASS PAR_I valores PAR_D
-  | VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I tipo CORCHETE_D IGUAL LISTCLASS PAR_I valores PAR_D'''
+  | VAR VARIABLE IGUAL LISTCLASS PAR_I valores PAR_D
+  | listChar
+  | listString'''
 
 
 def p_valores(p):
@@ -457,11 +461,11 @@ def p_aritmetica(p):
   | numeros aritmeticos VARIABLE
   | VARIABLE aritmeticos VARIABLE
   | aritmetica aritmeticos numeros
-  | aritmetica aritmeticos VARIABLE'''
+  | aritmetica aritmeticos VARIABLE
+  | suma'''
 
 def p_aritmeticos(p):
   '''aritmeticos : MENOS
-  | MAS
   | MULTIPLICACION
   | DIVISION
   | MOD'''
@@ -494,7 +498,76 @@ def p_startsWith(p):
   if (len(p)==9):
     p[0] = p[1][int(p[7]+1):-1].startswith(p[5][1:-1])
     p[0]=str(p[0]).lower()
-    print(p[0])
+    #print(p[0])
+
+
+#Argumentos para List hecho por Juan Pisco
+def p_listString(p):
+  '''listString : VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I STRINGCLASS CORCHETE_D IGUAL LISTCLASS PAR_I valoresString PAR_D
+  | VAR VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I STRINGCLASS CORCHETE_D IGUAL LISTCLASS PAR_I valoresString PAR_D'''
+
+def p_listChar(p):
+  '''listChar : VAL VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I CHARCLASS CORCHETE_D IGUAL LISTCLASS PAR_I valoresChar PAR_D
+  | VAR VARIABLE DOBLE_PUNTO LISTCLASS CORCHETE_I CHARCLASS CORCHETE_D IGUAL LISTCLASS PAR_I valoresChar PAR_D'''
+
+def p_valoresString(p):
+  '''valoresString : STRING
+  | valoresString COMA STRING'''
+
+def p_valoresChar(p):
+  '''valoresChar : CHAR
+  | valoresChar COMA CHAR'''
+
+#Suma de diferentes tipos
+def p_suma(p):
+  '''suma : sumIntChar
+  | sumStringChar
+  | sumIntDouble
+  | sumDoubleChar'''
+
+def p_sumIntDouble(p):
+  '''sumIntDouble : INT MAS DOUBLE
+  | DOUBLE MAS INT'''
+  p[0] = p[1] + p[3]
+  #print(p[0])
+
+def p_sumDoubleChar(p):
+  '''sumDoubleChar : DOUBLE MAS CHAR
+  | CHAR MAS DOUBLE'''
+  if type(p[1]) ==float:
+    p[0] = ord(p[3][1:-1]) + p[1]
+  else:
+    p[0] = ord(p[1][1:-1]) + p[3]
+  #print(p[0])
+
+def p_sumIntChar(p):
+  '''sumIntChar : INT MAS CHAR
+  | CHAR MAS INT'''
+  if type(p[1]) ==int:
+    p[0] = ord(p[3][1:-1]) + p[1]
+  else:
+    p[0] = ord(p[1][1:-1]) + p[3]
+  #print(p[0])
+
+def p_sumStringChar(p):
+  '''sumStringChar : STRING MAS CHAR
+  | CHAR MAS STRING'''
+  p[0] = '"' + p[1][1:-1] + p[3][1:-1] + '"'
+  #print(p[0])
+
+def p_asignacionSumDouble(p):
+  '''asignacionSumDouble : VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL sumIntDouble
+  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL sumIntDouble
+  | VAR VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL sumDoubleChar
+  | VAL VARIABLE DOBLE_PUNTO DOUBLECLASS IGUAL sumDoubleChar'''
+
+def p_asignacionSumString(p):
+  '''asignacionSumString : VAR VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL sumStringChar
+  | VAL VARIABLE DOBLE_PUNTO STRINGCLASS IGUAL sumStringChar'''
+
+def p_asignacionSumInt(p):
+  '''asignacionSumInt : VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL sumIntChar
+  | VAL VARIABLE DOBLE_PUNTO INTCLASS IGUAL sumIntChar'''
 
 # Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
 def p_asignacion_tupla(p):
@@ -533,7 +606,7 @@ def p_dectupla_intOther(p):
 
 #Casting automantico para asignacion de variables numericas por Gabriel Maldonado
 
-def p_asignacionInt(p):
+def p_asignacionInt_cast(p):
   '''asignacionInt : VAR VARIABLE IGUAL intvalues
     | VAR VARIABLE DOBLE_PUNTO INTCLASS IGUAL intvalues
     | VAL VARIABLE IGUAL intvalues
