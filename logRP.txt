@@ -106,3 +106,31 @@ object cast {
 Output: 
 None
 --------------------------------------------------
+
+Fecha y hora: 2022-11-27 09:27:43.965738
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+    "hola".startsWith("o", 1)
+  }
+}
+
+Output: 
+None
+--------------------------------------------------
+
+Fecha y hora: 2022-11-27 09:28:41.574566
+
+Input: 
+
+object cast {
+  def main(args: Array[String]) = {
+    "hola".startsWith("o", 0)
+  }
+}
+
+Output: 
+None
+--------------------------------------------------

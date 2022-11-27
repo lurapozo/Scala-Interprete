@@ -469,8 +469,7 @@ def p_aritmeticos(p):
 # Analisis Semantico
 #Argumentos para Array realizado por: Ramos Pozo
 def p_arrayInt(p):
-  '''arrayInt : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I INTCLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresInt PAR_D
-  '''
+  '''arrayInt : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I INTCLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresInt PAR_D'''
 
 def p_arrayDouble(p):
   '''arrayDouble : VAR VARIABLE DOBLE_PUNTO ARRAYCLASS CORCHETE_I DOUBLECLASS CORCHETE_D IGUAL ARRAYCLASS PAR_I valoresDouble PAR_D'''
@@ -485,11 +484,17 @@ def p_valoresDouble(p):
 
 #Metodo startsWith por: Ramos Pozo
 def p_startsWith(p):
-  '''startsWith : STRING PUNTO STARTSWITH PAR_I STRING PAR_D'''
+  '''startsWith : STRING PUNTO STARTSWITH PAR_I STRING PAR_D
+  | STRING PUNTO STARTSWITH PAR_I STRING COMA INT PAR_D'''
   if (len(p)==7):
     p[0] = p[1][1:-1].startswith(p[5][1:-1])
     p[0]=str(p[0]).lower()
     #print(p[0])
+  
+  if (len(p)==9):
+    p[0] = p[1][int(p[7]+1):-1].startswith(p[5][1:-1])
+    p[0]=str(p[0]).lower()
+    print(p[0])
 
 # Declaracion de tuplas heterogeneas de dos elementos con valores por Gabriel Maldonado
 def p_asignacion_tupla(p):
