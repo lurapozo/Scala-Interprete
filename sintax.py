@@ -21,22 +21,9 @@ def p_io(p):
 # Cuerpo
 def p_cuerpo(p):
   '''cuerpo : funcion
-  | funcall
-  | impresion
-  | entrada
-  | asignacion
-  | while
-  | for
-  | match
-  | if
-  | startsWith
   | funcion cuerpo
-  | asignacion cuerpo
-  | while cuerpo
-  | for cuerpo
-  | if cuerpo
-  | match cuerpo
-  | startsWith cuerpo'''
+  | contenido 
+  | contenido cuerpo'''
 
 # Contenido de Funciones y de estructuras de control
 def p_contenido(p):
@@ -777,9 +764,10 @@ def prosesarSintax(data):
   
 
 
-
+'''
 file = open("source.scala")
 archivo = file.read()
 file.close()
 print( prosesarSintax(archivo))
 print('--------------------------------------------------')
+'''
