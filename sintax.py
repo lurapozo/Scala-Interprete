@@ -412,8 +412,7 @@ def p_valorC(p):
   '''
 def p_logicos(p):
   '''logicos : AND
-  | OR
-  | NOT'''
+  | OR'''
 
 
 #Comparaciones por Juan Pisco
